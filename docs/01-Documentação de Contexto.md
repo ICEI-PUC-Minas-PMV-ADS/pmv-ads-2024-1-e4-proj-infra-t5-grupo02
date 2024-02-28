@@ -1,46 +1,32 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+Segundo uma reportagem do G1 o setor imobiliário tem indicado uma recuperação crescente nos últimos tempos, ainda que um pouco lenta no cenário pós- pandemia da Covid-19[1]. A busca pelos chamados micro apartamentos, apartamentos de no máximo de 30m², tem ganhado bastante espaço no mercado tendo como alvo pessoas entre 20 e 39 anos solteiras, em virtude de seus preços mais baixos e da localização estratégica e da possibilidade de já locar um imóvel mobiliado. Neste contexto, surgiu a ideia de criar uma aplicação, a EasyRent, com a finalidade de ser um canal com as ferramentas necessárias para uma melhor gestão para as imobiliárias e locadoras de imóveis. 
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
-
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
-
+A ausência de uma plataforma centralizada e de fácil acesso para que as imobiliárias e locadoras possam gerenciar todas as informações sobre seus aluguéis, organização e disponibilidade de contratos, documentações, pagamentos, entre outras dificuldades na resolução de problemas relacionados à locação. 
 ## Objetivos
+O objetivo deste projeto é desenvolver uma aplicação que possa ser acessada tanto via web como mobile que simplifique a gestão de aluguéis tanto para imobiliárias quanto para locadores de imóveis. Os principais objetivos incluem: 
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+- Permitir que as imobiliárias insiram e gerenciem todas as informações relacionadas aos contratos de locação, incluindo detalhes do imóvel, dados do locatário, vistorias, documentos e contas associadas. 
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+- Facilitar o acesso dos locadores aos contratos de locação, contas de serviços públicos, informações sobre o imóvel e comunicações importantes, tudo em uma plataforma centralizada e de fácil uso. 
+
+- Agilizar o processo de comunicação entre imobiliárias, locadores e locatários, proporcionando uma maneira rápida e eficiente de compartilhar informações e resolver problemas relacionados à locação. 
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+A necessidade de uma plataforma eficiente para gerenciar aluguéis é clara devido à complexidade envolvida no processo de locação de imóveis. Uma solução centralizada e de fácil acesso que possa: aumentar a transparência, reduzir erros e atrasos, e aprimorar a comunicação entre todas as partes envolvidas. Ademais, a digitalização e automatização dos processos de gestão de aluguéis podem poupar tempo e recursos para imobiliárias e locadores, resultando em uma eficiência operacional significativamente melhorada. 
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
+Várias são as pessoas que podem se beneficiar significativamente de uma plataforma integrada de gestão de aluguéis, proporcionando-lhes mais controle, transparência e eficiência em seus processos de locação de imóveis, neste projeto o foco são: 
 
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
+- Imobiliárias, que buscam uma solução eficiente para gerenciar suas carteiras de aluguéis de forma mais organizada e produtiva. 
 
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+- Locadores de imóveis, sejam eles pessoas físicas ou jurídicas, que desejam ter acesso fácil e rápido a todas as informações relacionadas às suas propriedades alugadas, incluindo contratos, contas e comunicações. 
+
+- Potenciais investidores em imóveis que buscam uma maneira simplificada de gerenciar suas propriedades locadas, garantindo um retorno financeiro estável e uma gestão eficiente de seu patrimônio imobiliário. 
+
+## Referência
+
+[1]https://g1.globo.com/economia/noticia/2023/01/20/aluguel-de-microapartamentos-rende-mais-que-imoveis-maiores-mas-ainda-perde-para-selic.ghtml 
