@@ -1,23 +1,24 @@
-# TÍTULO DO PROJETO
+# EASYRENT
 
-`CURSO`
+`ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
 
-`DISCIPLINA`
+`Desenvolvimento de uma Aplicação Distribuída`
 
-`SEMESTRE`
+`Eixo 4`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Joe Monteiro de Souza
+* Leonardo Buck Alves
+* Leonardo Melo de Lima
+* Thaís Cristine Santana Oliveira
+* Thiago Gomes da Silva
 
 ## Orientador
 
-* Nome completo do professor 1
+* Pedro Felipe Alves de Oliveira
 
 ## Instruções de utilização
 
