@@ -6,7 +6,7 @@
 
 `Eixo 4`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Uma aplicação web que contará também com uma versão mobile, onde o foco é criar uma solução para que as imobiliárias e proprietários de imóveis, possam gerenciar mais assertivamente suas locações.
 
 ## Integrantes
 
