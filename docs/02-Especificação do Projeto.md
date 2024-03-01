@@ -29,7 +29,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Vera Lúcia          | Uma aplicação de gestão prática   | Gerenciar e ter maior controle sobre seus imóveis  |
 |Luis Otávio         | Uma aplicação moderna e ágil   | Expandir o seu negócio    |
 |Lar e Sonhos        | Uma aplicação robusta que proporcione o gerenciamento de doumentos em grande escala | Ter mais segurança nos dados sigilosos    |
-|Marcelo Silva       | Uma aplicação inovadora no mercado imobiliário  | Aumentar sua rentabilidade   |
+|Marcelo Silva       | Uma aplicação acessível tanto via web quanto mobile  | Gerenciar de maneira simples todos os empreendimentos alugados, desde os detalhes dos contratos de locação até a comunicação eficiente com locatários e imobiliárias   |
 |Felipe Duarte       | Poder controlar as informações relacionada aos imóveis | Ter mais clareza e praticidade   |
 |Consolida Imóveis   | Cadastrar imóveis com sua localização exata | Capitalizar clientes de acordo com a localização do imóvel |
 
