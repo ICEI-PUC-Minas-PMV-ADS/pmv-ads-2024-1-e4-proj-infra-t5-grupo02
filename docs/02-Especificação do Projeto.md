@@ -8,7 +8,17 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Personas
 
-Consolida Imóveis - Uma conceituada imobiliaria da cidade de São Paulo. Seus fundadores, Sr. Carlo e Sra. Antônia, decidiram expandir seus negócios para a grande São Paulo. Assim, com o aumento de clientes vindos de cidades vizinhas à capital, sentiram a necessidade de organizar e modernizar a forma com que administram seus aluguéis.
+`Vera Lucia` - É uma viúva aposentada muito ligada em tecnologia, que deseja locar alguns de seus imóveis que estão há anos na família e descobriu por meio das netas que era possíveis gerenciar seus imóveis via aplicativo no celular sem ter que lidar com as burocracias de uma imobiliária convencional.
+
+`Luis Otávio` - É um corretor que está há anos trabalhando no mercado imobiliário e tem uma locadora em uma cidade pequena do interior. Ele deseja expandir seus negócios para as cidades vizinhas, mas para isso ele precisa de ferramentas modernas que possibilitem uma melhor gestão de seus imóveis.
+
+`Lar e Sonhos` - É uma grande imobiliária que está há anos no mercado e possui filiais em diversos estados. Para inovar, Paulo César, dono da imobiliária, procura por uma plataforma que permite incluir todas as informações de sua imobiliária, de forma a facilitar o gerenciamento de seus contratos e documentos. Ele acredita que trazer essa facilidade para o locatário também pode ser uma forma de destacar-se da concorrência.
+
+`Marcelo Silva` - Investidor visionário e empreendedor bem-sucedido no setor do agronegócio, sempre em busca de oportunidades para diversificar seus investimentos e aumentar seu patrimônio. Recentemente, viu uma grande oportunidade de investimento no mercado imobiliário, especialmente na compra de apartamentos na planta, visando à locação futura, onde acredita ser um excelente negócio, além de ser uma fonte de renda passiva atrativa. 
+ 
+`Felipe Duarte` - Empresário e Corretor de imóveis independente, que com a renda de seus empreendimentos, investiu em locais estratégicos para lucrar com aluguéis. Felipe gerencia por conta própria seus aluguéis e contratos e com o aumento de inquilinos sentiu a necessidade de um local virtual para unificar essas informações, além de poder controlar com mais clareza e praticidade. 
+
+`Consolida Imóveis` - Uma conceituada imobiliaria da cidade de São Paulo. Seus fundadores, Sr. Carlo e Sra. Antônia, decidiram expandir seus negócios para a grande São Paulo. Assim, com o aumento de clientes vindos de cidades vizinhas à capital, sentiram a necessidade de organizar e modernizar a forma com que administram seus aluguéis.
 
 ## Histórias de Usuários
 
@@ -16,7 +26,12 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-| Consolida Imóveis | Cadastrar imóveis com sua localização exata | Capitalizar clientes de acordo com a localização do imóvel |
+|Vera Lúcia        | Uma aplicação de gestão prática           | Gerenciar e ter maior controle sobre seus imóveis |
+|Luis Otávio       | Uma aplicação moderna e ágil              | Expandir o seu negócio |
+|Lar e Sonhos      | Uma aplicação robusta que proporcione o gerenciamento de doumentos em grande escala | Ter mais segurança nos dados sigilosos |
+|Marcelo Silva     | Uma aplicação inovadora no mercado imobiliário    | Aumentar sua rentabilidade |
+|Felipe Duarte     | Poder controlar as informações relacionada aos imóveis | Ter mais clareza e praticidade      |
+|Consolida Imóveis | Cadastrar imóveis com sua localização exata | Capitalizar clientes de acordo com a localização do imóvel |
 
 ## Modelagem do Processo de Negócio 
 
