@@ -125,28 +125,50 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 > - [Astah](https://astah.net/)
 > - [Diagrams](https://app.diagrams.net/)
 
-# Gerenciamento de Projeto
+## Gerenciamento de Projeto 
 
-De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar projetos, e que caracterizam a multidisciplinaridade envolvida, são: Integração, Escopo, Cronograma (Tempo), Custos, Qualidade, Recursos, Comunicações, Riscos, Aquisições, Partes Interessadas. Para desenvolver projetos um profissional deve se preocupar em gerenciar todas essas dez áreas. Elas se complementam e se relacionam, de tal forma que não se deve apenas examinar uma área de forma estanque. É preciso considerar, por exemplo, que as áreas de Escopo, Cronograma e Custos estão muito relacionadas. Assim, se eu amplio o escopo de um projeto eu posso afetar seu cronograma e seus custos.
+Garantir um bom resultado no fim de um contrato de locação requer uma administração eficaz. Isso inclui acompanhar vários elementos durante o contrato, seja o valor do aluguel, prazos, condição do imóvel e custos extras. Mudanças em qualquer desses pontos afetam os outros.  
 
-## Gerenciamento de Tempo
+À medida que o administrador tem mais controle sobre os elementos do contrato de locação, suas chances de alcançar os objetivos aumentam. Isso acontece porque um controle eficaz ajuda a resolver problemas rapidamente, evitando complicações. 
 
-Com diagramas bem organizados que permitem gerenciar o tempo nos projetos, o gerente de projetos agenda e coordena tarefas dentro de um projeto para estimar o tempo necessário de conclusão.
+## Gerenciamento de Tempo 
 
-![Diagrama de rede simplificado notação francesa (método francês)](img/02-diagrama-rede-simplificado.png)
+Cada objetivo consiste em um alvo a ser alcançado, e é importante determinar quando isso deve acontecer. Se não houver um prazo definido, a meta pode não ser priorizada e nunca será concluída. 
 
-O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utilizada para controlar e gerenciar o cronograma de atividades de um projeto. Com ele, é possível listar tudo que precisa ser feito para colocar o projeto em prática, dividir em atividades e estimar o tempo necessário para executá-las.
+As atividades serão acompanhadas usando um Kanban, listando todas as atividades com seus prazos de início e término, facilitando o controle do progresso e entendimento da completude de cada tarefa.  
 
-![Gráfico de Gantt](img/02-grafico-gantt.png)
+ 
 
-## Gerenciamento de Equipe
+## Gerenciamento de Equipe 
 
-O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
+No contexto do gerenciamento de projetos, a presença e a contribuição das pessoas são elementos fundamentais para o sucesso. Stakeholders, sejam eles internos ou externos, desempenham papéis cruciais em todos os estágios do projeto.  
 
-![Simple Project Timeline](img/02-project-timeline.png)
+Assegurar uma gestão eficiente do projeto é imprescindível para alcançar resultados positivos. A equipe ideal é composta por membros comprometidos com objetivos compartilhados, trabalhando em conjunto com foco e colaboração para atingir os resultados desejados. Descrição da Equipe: 
 
-## Gestão de Orçamento
+1, Desenvolvedor Pleno: Leonardo Buck 
 
-O processo de determinar o orçamento do projeto é uma tarefa que depende, além dos produtos (saídas) dos processos anteriores do gerenciamento de custos, também de produtos oferecidos por outros processos de gerenciamento, como o escopo e o tempo.
+2, Desenvolvedor Pleno: Leonardo Lima 
 
-![Orçamento](img/02-orcamento.png)
+3, Desenvolvedor Sênior: Joe Monteiro de Sousa 
+
+4, Analista de Teste: Thiago Gomes da Silva 
+
+5, Gerente de Projeto: Thaís Cristine Santana Oliveira 
+
+ 
+
+## Papéis e responsabilidades 
+
+Desenvolvedores: executar o escopo elicitado e alvo da solução do projeto. Caberá aos desenvolvedores, as tarefas de criar e corrigir todo o código necessário para que a aplicação proposta funcione corretamente na utilização dos usuários 
+
+Analista de Teste: realizar todos os testes necessários que atestem a qualidade do código desenvolvido, identificar bugs que devem ser corrigidos e respaldar a solução de possíveis problemas pós a sua entrega 
+
+Gerente do Projeto: ser o facilitador da equipe, de modo a que todos os impedimentos, problemas e riscos, possam ser mitigados não impactando a qualidade dos entregáveis conforme os requisitos elicitados. 
+
+ 
+
+## Gestão de Orçamento 
+
+Projeto é estimado para ser realizado durante 7 meses, abaixo, temos a representação do custo orçado para o projeto, atendendo todas as suas demandas. 
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/115894941/f00dce8b-34c0-4eaa-b59b-3022db470edf)
