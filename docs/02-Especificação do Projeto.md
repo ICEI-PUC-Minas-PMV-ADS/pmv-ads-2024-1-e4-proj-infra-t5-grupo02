@@ -18,7 +18,7 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
  
 `Felipe Duarte` - Empresário e Corretor de imóveis independente, que com a renda de seus empreendimentos, investiu em locais estratégicos para lucrar com aluguéis. Felipe gerencia por conta própria seus aluguéis e contratos e com o aumento de inquilinos sentiu a necessidade de um local virtual para unificar essas informações, além de poder controlar com mais clareza e praticidade. 
 
-`Consolida Imóveis` - Uma conceituada imobiliaria da cidade de São Paulo. Seus fundadores, Sr. Carlo e Sra. Antônia, decidiram expandir seus negócios para a grande São Paulo. Assim, com o aumento de clientes vindos de cidades vizinhas à capital, sentiram a necessidade de organizar e modernizar a forma com que administram seus aluguéis.
+`Consolida Imóveis` - Uma conceituada imobiliária da cidade de São Paulo. Seus fundadores, Sr. Carlo e Sra. Antônia, decidiram expandir seus negócios para a grande São Paulo. Assim, com o aumento de clientes vindos de cidades vizinhas à capital, sentiram a necessidade de organizar e modernizar a forma com que administram seus aluguéis.
 
 ## Histórias de Usuários
 
@@ -28,41 +28,11 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |--------------------|------------------------------------|----------------------------------------|
 |Vera Lúcia          | Uma aplicação de gestão prática   | Gerenciar e ter maior controle sobre seus imóveis  |
 |Luis Otávio         | Uma aplicação moderna e ágil   | Expandir o seu negócio    |
-|Lar e Sonhos        | Uma aplicação robusta que proporcione o gerenciamento de doumentos em grande escala | Ter mais segurança nos dados sigilosos    |
+|Lar e Sonhos        | Uma aplicação robusta que proporcione o gerenciamento de documentos em grande escala | Ter mais segurança nos dados sigilosos    |
 |Marcelo Silva       | Uma aplicação acessível tanto via web quanto mobile  | Gerenciar de maneira simples todos os empreendimentos alugados, desde os detalhes dos contratos de locação até a comunicação eficiente com locatários e imobiliárias   |
 |Felipe Duarte       | Poder controlar as informações relacionada aos imóveis | Ter mais clareza e praticidade   |
 |Consolida Imóveis   | Cadastrar imóveis com sua localização exata | Capitalizar clientes de acordo com a localização do imóvel |
 
-## Modelagem do Processo de Negócio 
-
-### Análise da Situação Atual
-
-Apresente aqui os problemas existentes que viabilizam sua proposta. Apresente o modelo do sistema como ele funciona hoje. Caso sua proposta seja inovadora e não existam processos claramente definidos, apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente, mesmo que não se utilize tecnologia computacional. 
-
-### Descrição Geral da Proposta
-
-Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias.
-
-### Processo 1 – NOME DO PROCESSO
-
-Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN. 
-
-![Processo 1](img/02-bpmn-proc1.png)
-
-### Processo 2 – NOME DO PROCESSO
-
-Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
-
-![Processo 2](img/02-bpmn-proc2.png)
-
-## Indicadores de Desempenho
-
-Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores. 
-
-Usar o seguinte modelo: 
-
-![Indicadores de Desempenho](img/02-indic-desemp.png)
-Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe a ser apresentado a posteriori. 
 
 ## Requisitos
 
@@ -72,30 +42,28 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-01| Sistema deve permitir o cadastro, edição e deletar imóveis, incluindo fotos, localização, características específicas, status de locação. | ALTA | 
+|RF-02| Sistema dever permitir a alteração do status da locação do imóvel: disponível, alugado, em manutenção| MÉDIA|
+|RF-03| Facilitar o gerenciamento de contratos de locação, incluindo dados dos locatários, prazos, valores e datas de pagamento | ALTA|
+|RF-04| Deve ser possível ter acesso a documentos digitalizados, tais como: contratos, termos de vistoria, e outros documentos relevantes a locação.   | MÉDIA |
+|RF-05| Deve haver um controle financeiro para acompanhamento de receitas (aluguéis) e despesas (manutenções, impostos, taxas de serviço), incluindo alertas para pagamentos pendentes ou atrasados.| MÉDIA |
+|RF-06| Sistema deve disponibilizar relatórios gerenciais.| MÉDIA|
+|RF-07| Sistema deve ter um perfil admin, que será responsável pela gestão da aplicação, além de criar os acessos dos locatários para que estes possam visualizar todas as informações sobre sua locação. | ALTA|
+|RF-08| Sistema deve ter um perfil locatário, que será responsável por inserir e gerenciar os imóveis lançados na aplicação | ALTA|
+|RF-09| Sistema deve ter um perfil locador, que visualizará todas as informações sobre o seu imóvel locado | ALTA|
+|RF-10| Deve haver uma sistema de notificação dentro da aplicação para que o Locatário possa comunicar o locador quando necessário for | BAIXA|
+
+
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-01| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
+|RNF-02| Deve processar requisições do usuário em no máximo 2s |  BAIXA |
+|RNF-03| Sistema deve garantir acessibilidade consistente e sem falhas em sua interface, seja acesso via o navegador Chrome, ou acessado pelo edge. | MÉDIA|
+|RNF-04| Deve estar disponível para no máximo 100 usuários em acesso simultâneo | ALTA|
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
@@ -103,27 +71,14 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+|01| O projeto dever ser finalizado em Junho de 2024   |
+|02| Não realizar/utilizar serviços terceirizados na execução do projeto  |
 
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Diagrama de Casos de Uso
 
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
-
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
 
 ## Gerenciamento de Projeto 
 
@@ -138,7 +93,6 @@ Cada objetivo consiste em um alvo a ser alcançado, e é importante determinar q
 As atividades serão acompanhadas usando um Kanban, listando todas as atividades com seus prazos de início e término, facilitando o controle do progresso e entendimento da completude de cada tarefa.  
 
  
-
 ## Gerenciamento de Equipe 
 
 No contexto do gerenciamento de projetos, a presença e a contribuição das pessoas são elementos fundamentais para o sucesso. Stakeholders, sejam eles internos ou externos, desempenham papéis cruciais em todos os estágios do projeto.  
