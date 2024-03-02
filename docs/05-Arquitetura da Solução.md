@@ -4,4 +4,7 @@
 
 Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
 
-![Arquitetura da solução](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/5d97cb75-5d28-4070-8c63-1c062871cd94)
+## Estilo arquitetural de microserviços
+
+![Arquitetura da solução EasyRent](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/09892c1e-bc79-4ee7-bd29-11b2565bb4d5)
+
