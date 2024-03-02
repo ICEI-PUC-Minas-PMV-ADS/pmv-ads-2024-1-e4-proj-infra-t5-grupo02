@@ -51,7 +51,7 @@ A equipe de desenvolvimento do projeto do EasyRent está dividida assim:
 * **Analista de Teste**:
   * Thiago Gomes da Silva
 
-Para organização e distribuição das tarefas do projeto, a equipe está utilizando o GitHub Projects, onde as atividades a serem desenvolvidas, estão estruturada em listas de status, conforme descrito abaixo:
+Para organização e distribuição das tarefas do projeto, a equipe está utilizando o [GitHub Projects](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/849/views/1), onde as atividades a serem desenvolvidas, estão estruturada em listas de status, conforme descrito abaixo:
 
 * `ToDo`: esta lista, expressará todos os itens que deverão ser desenvolvidas pela equipe, contendo os objetivos que devem ser alcançados dentro pelo projeto
 
