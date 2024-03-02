@@ -6,6 +6,8 @@
 
 `Eixo 4`
 
+![easyrent(1)](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/110863413/ae65e605-f289-4b43-ad6e-680124f2c20d)
+
 Uma aplicação web que contará também com uma versão mobile, onde o foco é criar uma solução para que as imobiliárias e proprietários de imóveis, possam gerenciar mais assertivamente suas locações.
 
 ## Integrantes
