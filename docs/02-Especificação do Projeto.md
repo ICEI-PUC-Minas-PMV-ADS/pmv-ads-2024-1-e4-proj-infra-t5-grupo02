@@ -49,9 +49,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-05| Deve haver um controle financeiro para acompanhamento de receitas (aluguéis) e despesas (manutenções, impostos, taxas de serviço), incluindo alertas para pagamentos pendentes ou atrasados.| MÉDIA |
 |RF-06| Sistema deve disponibilizar relatórios gerenciais.| MÉDIA|
 |RF-07| Sistema deve ter um perfil admin, que será responsável pela gestão da aplicação, além de criar os acessos dos locatários para que estes possam visualizar todas as informações sobre sua locação. | ALTA|
-|RF-08| Sistema deve ter um perfil locatário, que será responsável por inserir e gerenciar os imóveis lançados na aplicação | ALTA|
+|RF-08| Sistema deve ter um perfil usuário, que será responsável por inserir e gerenciar os imóveis lançados na aplicação | ALTA|
 |RF-09| Sistema deve ter um perfil locador, que visualizará todas as informações sobre o seu imóvel locado | ALTA|
-|RF-10| Deve haver uma sistema de notificação dentro da aplicação para que o Locatário possa comunicar o locador quando necessário for | BAIXA|
+|RF-10| Deve haver uma sistema de notificação dentro da aplicação | BAIXA|
 
 
 
@@ -78,6 +78,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 ## Diagrama de Casos de Uso
 
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/blob/main/docs/img/CasodeUso%20-%20EasyRent.png)
 
 
 ## Gerenciamento de Projeto 
