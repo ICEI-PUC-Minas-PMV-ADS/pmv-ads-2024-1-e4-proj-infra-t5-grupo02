@@ -18,7 +18,6 @@ namespace APILogin.Models
         [Required]
         public Perfil Perfil { get; set; }
 
-
     }
 
 }
