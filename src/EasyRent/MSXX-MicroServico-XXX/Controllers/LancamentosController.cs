@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace MSXX_MicroServico_XXX.Controllers
+namespace MS02_v01.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
