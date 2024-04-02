@@ -13,6 +13,6 @@ namespace MS02_v01.Models
         [Required]
         public string Email { get; set; }
 
-        public ICollection<Lancamento> Lancamentos { get; set; }
+        public List<Lancamento> Lancamentos { get; set; } = new List<Lancamento>();
     }
 }

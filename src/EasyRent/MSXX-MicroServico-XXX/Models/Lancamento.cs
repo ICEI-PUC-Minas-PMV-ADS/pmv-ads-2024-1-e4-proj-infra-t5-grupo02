@@ -11,7 +11,7 @@ namespace MS02_v01.Models
         public int Id { get; set; }
 
         [Display(Name = "Lançamento")]
-        public Lancamento Tipo { get; set; }
+        public Tipo Tipo { get; set; }
 
         public Forma Forma { get; set; }
 

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MS02_v01.Models;
 
 
 namespace MS02_v01.Controllers
@@ -8,6 +10,27 @@ namespace MS02_v01.Controllers
     [ApiController]
     public class LancamentosController : ControllerBase
     {
-       
+       private readonly AppDbContext _context;
+        public LancamentosController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetAll()
+        {
+            var model = await _context.Lancamentos.ToListAsync();
+
+            return Ok(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(Lancamento model)
+        {
+            _context.Lancamentos.Add(model);
+            await _context.SaveChangesAsync();
+            return Ok(model);
+        }
+
     }
 }
