@@ -13,9 +13,12 @@ namespace APILogin.Models
         [Required]
         public string Nome { get; set; }
         [Required]
+        [EmailAddress(ErrorMessage = "Entre com um email válido")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required]
         [JsonIgnore]
+        [DataType(DataType.Password)]
         public string Senha { get; set; }
         [Required]
         public Perfil Perfil { get; set; }
