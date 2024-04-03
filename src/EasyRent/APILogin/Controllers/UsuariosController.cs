@@ -25,30 +25,45 @@ namespace APILogin.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(Usuario model)
+        public async Task<ActionResult> Create(UsuarioDto model)
         {
+             Usuario novoUsuario = new Usuario() { 
+                Nome = model.Nome,
+                Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha),
+                Email = model.Email,
+                Perfil = model.Perfil
+
+            };
             
-            _context.Usuarios.Add(model);
+            _context.Usuarios.Add(novoUsuario);
             await _context.SaveChangesAsync();
-            return Ok(model);
+            return CreatedAtAction("GetById ", new {id = novoUsuario.Id},novoUsuario);
         }
 
         [HttpGet("id")]
         public async Task<ActionResult> GetById(int id)
         {
-            var model = await _context.Usuarios.FirstOrDefaultAsync(c => c.Id == id);
+            var model = await _context.Usuarios.
+                FirstOrDefaultAsync(c => c.Id == id);
             if (model == null) NotFound();
             return Ok(model);
 
         }
 
         [HttpPut("id")]
-        public async Task<ActionResult> GetById(int id, Usuario model)
+        public async Task<ActionResult> Update(int id, UsuarioDto model)
         {
             if (id != model.Id) return BadRequest();
-            var modelDb = await _context.Usuarios.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
-            if (modelDb == null) NotFound();
-            _context.Usuarios.Update(model);
+            var modelDb = await _context.Usuarios.AsNoTracking().
+                FirstOrDefaultAsync(c => c.Id == id);
+            if (modelDb == null) return NotFound();
+
+            modelDb.Nome = model.Nome;
+            modelDb.Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha);
+            modelDb.Email = model.Email;
+            modelDb.Perfil = model.Perfil;
+
+            _context.Usuarios.Update(modelDb);
             await _context.SaveChangesAsync();
             return NoContent();
 
