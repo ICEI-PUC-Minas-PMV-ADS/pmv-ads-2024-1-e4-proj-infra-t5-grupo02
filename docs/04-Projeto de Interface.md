@@ -19,4 +19,4 @@ O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema 
 
 #### Imóveis (Página Inicial)
 
-![Imóveis - Página Inicial]<script src="  >"></script>
+![WhatsApp Image 2024-04-04 at 7 56 33 PM](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/c49ded9c-f128-4f9a-b7c6-61310df92394)
