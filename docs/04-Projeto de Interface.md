@@ -19,4 +19,4 @@ O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema 
 
 #### Imóveis (Página Inicial)
 
-![Imóveis - Página Inicial]<script src="https://web.whatsapp.com/9a396503-1f4f-484a-bcbd-fc8355784fae>"></script>
+![Imóveis - Página Inicial]<script src="  >"></script>
