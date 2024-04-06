@@ -22,7 +22,11 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Esquema Rel
 
 ## Modelo Físico
 
-Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do banco de dados. Este arquivo deverá ser incluído dentro da pasta src\bd.
+Modelo físico microsserviço 01
+
+Foi utilizado um sistema de banco de dados NoSQL orientado a documentos, o MongoDB, para implementação do microsserviço 01. 
+
+![Mongosh](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/15f5fdd6-1bc8-45d8-b7f7-905cfcfa255c)
 
 ## Tecnologias Utilizadas
 
