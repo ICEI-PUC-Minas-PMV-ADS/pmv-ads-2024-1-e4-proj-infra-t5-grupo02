@@ -7,7 +7,10 @@
 
 ## Diagrama de Fluxo
 
-O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema interativo e  muitas vezes sem a necessidade do desenho do design das telas da interface. 
+A equipe desenvolveu este Diagrama de Fluxo pensando em como será a iteração do usuários e quais serão os processos pelos quais ele passará ao utilizar a aplicação.
+
+![Diagrama de Fluxo - EasyRent](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/110863413/6722caa9-6a68-4abc-95b6-a66eb595a007)
+
 
 
 ## Wireframes
