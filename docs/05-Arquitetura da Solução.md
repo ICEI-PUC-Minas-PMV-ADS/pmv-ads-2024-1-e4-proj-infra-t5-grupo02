@@ -1,12 +1,14 @@
 # Arquitetura da Solução
 
-<span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>
+<span style="color:red">Pré-requisitos: <a href="03-Projeto de Interface.md"> Projeto de Interface</a></span>
 
 Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
 
 ## Diagrama de Classes
 
 ![DiagramaClassesEasyRent](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/06b12c31-02fb-4a31-87cd-99415d770839)
+
+
 
 ## Modelo ER
 
@@ -20,6 +22,8 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Esquema Rel
 
 > - [Criando um modelo relacional - Documentação da IBM](https://www.ibm.com/docs/pt-br/cognos-analytics/10.2.2?topic=designer-creating-relational-model)
 
+
+
 ## Modelo Físico
 
 Modelo físico microsserviço 01
@@ -28,35 +32,43 @@ Foi utilizado um sistema de banco de dados NoSQL orientado a documentos, o Mongo
 
 ![Mongosh](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/15f5fdd6-1bc8-45d8-b7f7-905cfcfa255c)
 
+
+
 ## Tecnologias Utilizadas
 
 Foram utilizadas as seguintes tecnologias:
 
 - Microsoft Visual Studio
+- Microsoft Visual Studio Code
 - MongoDB
 - Miro
 - Canva
 - drawio.com
+- Insomnia
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
+A Hospedagem da aplicação web utilizará o [GitHub Pages](https://pages.github.com/)
 
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
 
 ## Qualidade de Software
 
-Conceituar qualidade de fato é uma tarefa complexa, mas ela pode ser vista como um método gerencial que através de procedimentos disseminados por toda a organização, busca garantir um produto final que satisfaça às expectativas dos stakeholders.
+Com o objetivo de padronizar a avaliação da qualidade do sowftware no nosso projeto, vamos seguir os padrões da norma ISO/IEC 9216 - com a atualização conferida pela norma ISO/IEC 25010 - que propõe atributos de qualidade distribuídos em características principais e em subcaracteristicas:
 
-No contexto de desenvolvimento de software, qualidade pode ser entendida como um conjunto de características a serem satisfeitas, de modo que o produto de software atenda às necessidades de seus usuários. Entretanto, tal nível de satisfação nem sempre é alcançado de forma espontânea, devendo ser continuamente construído. Assim, a qualidade do produto depende fortemente do seu respectivo processo de desenvolvimento.
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/110863413/e80bbdc8-83bf-4a5a-8764-3fb88d9f2f16)
 
-A norma internacional ISO/IEC 25010, que é uma atualização da ISO/IEC 9126, define oito características e 30 subcaracterísticas de qualidade para produtos de software.
-Com base nessas características e nas respectivas sub-características, identifique as sub-características que sua equipe utilizará como base para nortear o desenvolvimento do projeto de software considerando-se alguns aspectos simples de qualidade. Justifique as subcaracterísticas escolhidas pelo time e elenque as métricas que permitirão a equipe avaliar os objetos de interesse.
+**Funcionalidade:**
+
+ - Interoperabilidade: Sitema é capaz de interagir e operar com um ou mais sistemas especificados.
+
+**Usabilidade:**
+
+ - Inteligibilidade: A aplicação foi construíd de forma a facilitar o acesso dos usuários frente a demandas específicas.
+ - Estética da Interface de Usuário: UI dos sistem foi construída para que sua aparência traga atração visual ao usuário, sendo agradável e adequada ao contexto de uso da solução.
+
+**Manutenibilidade:**
+
+- Modificabilidade: O sistema cumpre esse critério através da implementação e ajuste de funcionalidades.
 
 ## Estilo arquitetural de microserviços
 
