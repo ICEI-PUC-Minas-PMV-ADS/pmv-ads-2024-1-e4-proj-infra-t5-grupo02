@@ -4,6 +4,8 @@ using MS02_v01.Models;
 
 namespace MS02_v01.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class UsuariosController : ControllerBase
     {
         private readonly AppDbContext _context;
