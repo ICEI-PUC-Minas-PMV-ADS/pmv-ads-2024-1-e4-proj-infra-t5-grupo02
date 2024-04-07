@@ -8,9 +8,10 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 Cenários de testes utilizados na realização dos testes de APi da EasyRent atendendo aos requisitos pré-definidos na seção <a href="02 - Especificação do Projeto"> Especificação do Projeto</a></span>.
 
 
-- **Microserviço 03**
+### Microserviço 03
 
-  
+- ***CT-01: Adicionar Lançamento***
+
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/110863413/96a05d5d-085d-4fc8-b5d8-17dca0e8626d
 
 
