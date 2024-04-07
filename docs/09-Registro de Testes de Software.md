@@ -7,6 +7,27 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 ## Avaliação
 Cenários de testes utilizados na realização dos testes de APi da EasyRent atendendo aos requisitos pré-definidos na seção <a href="02 - Especificação do Projeto"> Especificação do Projeto</a></span>.
 
+### Microsserviço 01
+
+- ***Verificar Todos Imóveis***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/ec8f8170-0308-48c9-ad5f-012f66d82078
+
+- ***Criar Imóvel***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/c15d58a2-b3f2-4fb2-adb5-c6e70790a187
+  
+- ***Verificar Imóvel (GetbyId)***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/d61b8f18-8239-472a-b244-847351b07044
+
+- ***Editar Imóvel***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/446efb44-32f2-4c62-9f15-e58cca14b548
+
+- ***Deletar Imóvel***
+  
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/95fc978f-b7d2-4034-8c5d-e6f5050385cc
 
 ### Microserviço 03
 
