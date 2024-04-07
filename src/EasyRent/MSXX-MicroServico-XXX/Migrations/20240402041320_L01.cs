@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace MS02_v01.Migrations
+namespace MS03.Migrations
 {
     public partial class L01 : Migration
     {

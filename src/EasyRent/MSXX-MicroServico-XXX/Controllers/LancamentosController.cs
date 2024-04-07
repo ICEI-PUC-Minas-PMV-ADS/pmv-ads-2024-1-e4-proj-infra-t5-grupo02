@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MS02_v01.Models;
+using MS03.Models;
 
 
-namespace MS02_v01.Controllers
+namespace MS03.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

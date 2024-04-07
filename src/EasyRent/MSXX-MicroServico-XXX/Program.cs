@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MS02_v01.Models;
+using MS03.Models;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
