@@ -4,7 +4,7 @@
 
 Cenários de testes utilizados na realização dos testes da aplicação EasyRent atendendo aos requisitos pré-definidos na seção <a href="02-Especificação do Projeto.md"> Especificação do Projeto</a>. 
 
-| **Caso de Teste**               | **CT-01 - Adicionar Lançamento**|
+| **Caso de Teste**               | **CT-01: Adicionar Lançamento**|
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Requisito Associado             | RF-05 - Deve haver um controle financeiro para acompanhamento de receitas (aluguéis) e despesas (manutenções, impostos, taxas de serviço), incluindo alertas para pagamentos pendentes ou atrasados.|
 | Objetivo do Teste               | Verificar se a API permite que o usuário efetue um lançamento.|
