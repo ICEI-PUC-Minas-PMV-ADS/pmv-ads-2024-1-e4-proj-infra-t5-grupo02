@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace MS02_v01.Models
+namespace MS03.Models
 {
     [Table("Usuarios")]
     public class Usuario

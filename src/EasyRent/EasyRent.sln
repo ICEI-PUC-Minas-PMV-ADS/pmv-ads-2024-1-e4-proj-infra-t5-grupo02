@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APILogin", "APILogin\APILogin.csproj", "{075132EF-A6BA-4F16-A122-41F6365E2FEE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS02-v01", "MSXX-MicroServico-XXX\MS02-v01.csproj", "{F559A442-D4AB-44D9-B9EB-F80FB401FD25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MS03", "MSXX-MicroServico-XXX\MS03.csproj", "{F559A442-D4AB-44D9-B9EB-F80FB401FD25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "MSXX_MicroServico_XXX": {
+    "MS03": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

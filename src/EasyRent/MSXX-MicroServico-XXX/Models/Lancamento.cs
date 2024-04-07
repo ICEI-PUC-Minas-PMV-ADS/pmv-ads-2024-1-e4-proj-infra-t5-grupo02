@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MS02_v01.Models
+namespace MS03.Models
 {
     [Table("Lancamentos")]
     public class Lancamento
