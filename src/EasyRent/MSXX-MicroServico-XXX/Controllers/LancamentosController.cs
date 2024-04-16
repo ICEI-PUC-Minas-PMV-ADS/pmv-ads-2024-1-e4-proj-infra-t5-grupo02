@@ -16,11 +16,10 @@ namespace MS03.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<ActionResult> GetAll()
         {
             var model = await _context.Lancamentos.ToListAsync();
-
             return Ok(model);
         }
 
