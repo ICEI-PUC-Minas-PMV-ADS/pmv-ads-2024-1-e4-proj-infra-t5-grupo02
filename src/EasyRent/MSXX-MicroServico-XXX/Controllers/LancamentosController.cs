@@ -27,6 +27,12 @@ namespace MS03.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(Lancamento model)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); // Isso retornará os detalhes do erro de validação
+            }
+
             _context.Lancamentos.Add(model);
             await _context.SaveChangesAsync();
             return Ok(model);

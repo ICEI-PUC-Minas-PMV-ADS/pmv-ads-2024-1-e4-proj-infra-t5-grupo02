@@ -45,28 +45,28 @@ namespace MS03.Models
 
     public enum Tipo
     {
-        Receita,
-        Despesa
+        Receita = 1,
+        Despesa = 2
     }
 
     public enum Forma
     {
-        Dinheiro,
-        Cartão,
-        Pix
+        Dinheiro = 1,
+        Cartão = 2,
+        Pix = 3
     }
 
     public enum Classificacao
     {
-        Aluguel,
-        IPTU,
-        TCR
+        Aluguel = 1,
+        IPTU = 2,
+        TCR = 3
     }
 
     public enum StatusTransacao
     {
-        Pendente,
-        Pago,
-        APagar
+        Pendente = 1,
+        Pago = 2 ,
+        APagar = 3
     }
 }
