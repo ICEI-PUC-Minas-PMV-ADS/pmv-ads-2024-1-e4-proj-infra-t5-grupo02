@@ -10,7 +10,7 @@ namespace MS03.Controllers
     [ApiController]
     public class LancamentosController : ControllerBase
     {
-       private readonly AppDbContext _context;
+        private readonly AppDbContext _context;
         public LancamentosController(AppDbContext context)
         {
             _context = context;
@@ -35,6 +35,26 @@ namespace MS03.Controllers
             _context.Lancamentos.Add(model);
             await _context.SaveChangesAsync();
             return Ok(model);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var lancamento = await _context.Lancamentos.FindAsync(id);
+            if (lancamento == null)
+            {
+                return NotFound();
+            }
+
+            _context.Lancamentos.Remove(lancamento);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool LancamentoExists(int id)
+        {
+            return _context.Lancamentos.Any(e => e.Id == id);
         }
 
     }
