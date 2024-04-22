@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace MS02_v01.Migrations
+namespace MS03.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20240402033530_L00")]
