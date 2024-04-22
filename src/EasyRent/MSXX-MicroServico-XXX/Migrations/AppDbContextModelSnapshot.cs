@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace MS02_v01.Migrations
+namespace MS03.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace MS02_v01.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("MS02_v01.Models.Lancamento", b =>
+            modelBuilder.Entity("MS03.Models.Lancamento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,7 +62,7 @@ namespace MS02_v01.Migrations
                     b.ToTable("Lancamentos");
                 });
 
-            modelBuilder.Entity("MS02_v01.Models.Usuario", b =>
+            modelBuilder.Entity("MS03.Models.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -83,9 +83,9 @@ namespace MS02_v01.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("MS02_v01.Models.Lancamento", b =>
+            modelBuilder.Entity("MS03.Models.Lancamento", b =>
                 {
-                    b.HasOne("MS02_v01.Models.Usuario", "Usuario")
+                    b.HasOne("MS03.Models.Usuario", "Usuario")
                         .WithMany("Lancamentos")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -94,7 +94,7 @@ namespace MS02_v01.Migrations
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("MS02_v01.Models.Usuario", b =>
+            modelBuilder.Entity("MS03.Models.Usuario", b =>
                 {
                     b.Navigation("Lancamentos");
                 });
