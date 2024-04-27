@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adiciona os controladores e configurações de serialização JSON
+// Adiciona os controladores e configuraï¿½ï¿½es de serializaï¿½ï¿½o JSON
 builder.Services.AddControllers()
     .AddJsonOptions(options => {
-        // Adiciona suporte para converter enums para string ou número na serialização JSON
+        // Adiciona suporte para converter enums para string ou nï¿½mero na serializaï¿½ï¿½o JSON
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase, allowIntegerValues: true));
     });
 
@@ -17,23 +17,23 @@ builder.Services.AddControllers()
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Configura CORS para permitir solicitações de domínios específicos
+// Configura CORS para permitir solicitaï¿½ï¿½es de domï¿½nios especï¿½ficos
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("MyCorsPolicy",
         policy => policy
-        .WithOrigins("http://127.0.0.1:5500") // Permite solicitações do seu frontend local
+        .WithOrigins("http://127.0.0.1:5500") // Permite solicitaï¿½ï¿½es do seu frontend local
         .AllowAnyHeader()
         .AllowAnyMethod());
 });
 
-// Adiciona suporte para geração de documentação da API via Swagger
+// Adiciona suporte para geraï¿½ï¿½o de documentaï¿½ï¿½o da API via Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Middleware de tratamento de exceção para garantir respostas JSON em caso de erros
+// Middleware de tratamento de exceï¿½ï¿½o para garantir respostas JSON em caso de erros
 app.UseExceptionHandler(appBuilder =>
 {
     appBuilder.Run(async context =>
@@ -48,13 +48,13 @@ app.UseExceptionHandler(appBuilder =>
             {
                 StatusCode = context.Response.StatusCode,
                 ErrorMessage = "Internal Server Error. Please try again later.",
-                DetailedMessage = ex.Message // Consider removendo ou escondendo detalhes em produção
+                DetailedMessage = ex.Message // Consider removendo ou escondendo detalhes em produï¿½ï¿½o
             }.ToString());
         }
     });
 });
 
-// Configurações adicionais do pipeline HTTP
+// Configuraï¿½ï¿½es adicionais do pipeline HTTP
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
