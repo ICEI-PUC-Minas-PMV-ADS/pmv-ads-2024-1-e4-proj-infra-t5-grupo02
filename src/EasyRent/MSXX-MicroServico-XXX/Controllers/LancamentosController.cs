@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MS03.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MS03.Controllers
 {
@@ -16,37 +17,60 @@ namespace MS03.Controllers
             _context = context;
         }
 
+        // GET: api/Lancamentos/all
         [HttpGet("all")]
         public async Task<ActionResult> GetAll()
         {
-            var model = await _context.Lancamentos.ToListAsync();
-            return Ok(model);
+            var lancamentos = await _context.Lancamentos.ToListAsync();
+            return Ok(lancamentos);
         }
 
+        // GET: api/Lancamentos/{id}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Lancamento>> GetLancamentoById(int id)
+        {
+            var lancamento = await _context.Lancamentos.FindAsync(id);
+            if (lancamento == null)
+            {
+                return NotFound();
+            }
+            return Ok(lancamento);
+        }
+
+
+        // POST: api/Lancamentos
         [HttpPost]
-        public async Task<ActionResult> Create(Lancamento model)
+        public async Task<ActionResult<Lancamento>> Create(Lancamento model)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState); // Isso retornará os detalhes do erro de validação
+                return BadRequest(ModelState); // Retorna detalhes de validação do modelo
             }
 
             _context.Lancamentos.Add(model);
             await _context.SaveChangesAsync();
-            return Ok(model);
+
+            return CreatedAtAction(nameof(GetLancamentoById), new { id = model.Id }, model);
+
         }
 
+        // PUT: api/Lancamentos/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, Lancamento model)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Modelo de dados inválido.");
+            }
+
             if (id != model.Id)
             {
-                return BadRequest();
+                return BadRequest("ID de requisição incompatível com o ID do modelo.");
             }
 
             if (!LancamentoExists(id))
             {
-                return NotFound();
+                return NotFound($"Nenhum lançamento encontrado com o ID {id}.");
             }
 
             _context.Entry(model).State = EntityState.Modified;
@@ -59,32 +83,38 @@ namespace MS03.Controllers
             {
                 if (!LancamentoExists(id))
                 {
-                    return NotFound();
+                    return NotFound($"Conflito: Nenhum lançamento encontrado com o ID {id}.");
                 }
                 else
                 {
                     throw;
                 }
             }
+            catch (DbUpdateException ex)
+            {
+                return BadRequest($"Erro ao atualizar o lançamento: {ex.Message}");
+            }
 
             return NoContent();
         }
 
+        // DELETE: api/Lancamentos/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var lancamento = await _context.Lancamentos.FindAsync(id);
             if (lancamento == null)
             {
-                return NotFound();
+                return NotFound($"Nenhum lançamento encontrado com o ID {id}.");
             }
 
             _context.Lancamentos.Remove(lancamento);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return NoContent(); // Pode ser substituído por Ok("Lançamento deletado com sucesso.") para maior clareza.
         }
 
+        // Helper method to check if a Lancamento exists
         private bool LancamentoExists(int id)
         {
             return _context.Lancamentos.Any(e => e.Id == id);
