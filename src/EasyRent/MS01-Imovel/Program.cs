@@ -9,6 +9,15 @@ builder.Services.Configure<ImoveisDatabaseSettings>(
 
 builder.Services.AddSingleton<ImoveisService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyCorsPolicy",
+        policy => policy
+        .WithOrigins("http://127.0.0.1:5501")
+        .AllowAnyHeader()
+        .AllowAnyMethod());
+});
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
