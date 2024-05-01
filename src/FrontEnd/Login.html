@@ -65,19 +65,10 @@
                                     <label for="floatingPassword" style="padding-left: 70px;"><b>Senha</b></label>
                                     <input type="password" class="form-control" id="floatingPassword"
                                         placeholder="Senha">
-                                        <a href="./EsqueciMinhaSenha.html" target="_top"
-                                        style="color: black" style="padding-left: 300px;">Esqueci minha senha</a>
                                 </div>
 
                                 <div style="text-align: center;">
-                                    <button type="button" class="btn btn-lg" id="logar"
-                                        onclick="location.href='./UserImob.html';">Entrar</button>
-                                </div>
-
-                                <div style="text-align: center;">
-                                    <p class="text-center">Não tem uma conta? </br><a href="./CadastroUsuario.html"
-                                            target="_top" style="color: black">Cadastre-se</a>
-                                    </p>
+                                    <button type="button" class="btn btn-lg" id="logar"  onclick="fazerLogin()">Entrar</button>
                                 </div>
                             </div>
                         </div>
@@ -94,5 +85,47 @@
     </div>
 </body>
 
-
 </html>
+
+<script>
+    function fazerLogin() {
+        const email = document.getElementById('floatingInput').value;
+        const senha = document.getElementById('floatingPassword').value;
+
+        // Validação de entrada (como mencionado anteriormente)
+
+        const requestBody = {
+            Email: email,
+            Senha: senha
+        };
+
+        fetch("https://localhost:7194/api/Usuarios/authenticate", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Erro ao fazer a chamada à API. Verifique a URL e tente novamente.');
+                }
+            })
+            .then(data => {
+                console.log(data);
+
+                if (data.jwtToken) {
+                    localStorage.setItem('token', data.jwtToken);
+                    window.location.href = './UserImob.html';
+                } else {
+                    alert('Autenticação falhou. Verifique suas credenciais.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro inesperado:', error);
+                alert('Ocorreu um erro inesperado. Tente novamente mais tarde.');
+            });
+    }
+    </script>

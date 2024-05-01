@@ -94,13 +94,23 @@ namespace APILogin.Controllers
         [HttpPost("authenticate")]
         public async Task<ActionResult> Authenticate(AuthenticateDto model)
         {
-            var usuarioDb = await _context.Usuarios.FirstOrDefaultAsync(m =>m.Email == model.Email);
-            if (usuarioDb == null || !BCrypt.Net.BCrypt.Verify(model.Senha,usuarioDb.Senha)) 
-                return Unauthorized();
+            try
+            {
+                var usuarioDb = await _context.Usuarios.FirstOrDefaultAsync(m => m.Email == model.Email);
+                if (usuarioDb == null || !BCrypt.Net.BCrypt.Verify(model.Senha, usuarioDb.Senha))
+                    return Unauthorized();
 
-            var jwt = GenerateJwtToken(usuarioDb);
+                var jwt = GenerateJwtToken(usuarioDb);
 
-            return Ok(new {jwtToken = jwt});
+                return Ok(new { jwtToken = jwt });
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Erro ao autenticar: {ex.Message}");
+                return StatusCode(500, "Erro interno do servidor. Tente novamente mais tarde.");
+
+            }
+
 
         }
 
