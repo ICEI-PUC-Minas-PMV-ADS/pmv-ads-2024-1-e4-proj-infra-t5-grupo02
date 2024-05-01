@@ -1,19 +1,13 @@
 # Plano de Testes de Software
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>
+<span style="color:red">Pré-requisitos: <a href="02-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>
 
-Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos sendo satisfeitos.
+Cenários de testes utilizados na realização dos testes da aplicação EasyRent atendendo aos requisitos pré-definidos na seção <a href="02-Especificação do Projeto.md"> Especificação do Projeto</a>. 
 
-Enumere quais cenários de testes foram selecionados para teste. Neste tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
- 
-## Ferramentas de Testes (Opcional)
+| **Caso de Teste**               | **CT-01: Adicionar Lançamento**|
+|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Requisito Associado             | RF-05 - Deve haver um controle financeiro para acompanhamento de receitas (aluguéis) e despesas (manutenções, impostos, taxas de serviço), incluindo alertas para pagamentos pendentes ou atrasados.|
+| Objetivo do Teste               | Verificar se a API permite que o usuário efetue um lançamento.|
+| Passos                          | 1- Executar o programa no Visual Studio<br>2- Abrir navegador com Swagger da API<br>3- Clicar em "POST/api/Lancamentos"<br>4- Clicar em "Try it out"<br>5- Clicar em "Execute"<br>6- Verificar Responses<br>7- Clicar em "GET/api/Lancamentos<br>8- Clicar em "Try it out"<br>9- Clicar em "Execute"<br>10- Verificar Responses|
+| Critério de Êxito               | - Lançamento realizado pelo usuário foi salvo no banco de dados e foi exibido na consulta.|
 
-Comente sobre as ferramentas de testes utilizadas.
- 
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
-> - [Criação e Geração de Planos de Teste de Software](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
