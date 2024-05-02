@@ -1,4 +1,3 @@
-// Definindo as funções de manipulação de lançamentos
 function fetchLancamentos() {
     const table = document.getElementById('lancamentosTable');
     if (table) {
@@ -18,7 +17,7 @@ function fetchLancamentos() {
                     row.insertCell(1).textContent = lancamento.tipo;
                     row.insertCell(2).textContent = lancamento.forma;
                     row.insertCell(3).textContent = lancamento.classificacao;
-                    row.insertCell(4).textContent = status; // Utilização do status ajustado
+                    row.insertCell(4).textContent = status;
                     row.insertCell(5).textContent = valorFormatado;
                     row.insertCell(6).textContent = lancamento.descricao;
 
@@ -61,7 +60,7 @@ window.deleteLancamento = function(id) {
     }
 };
 
-// Adicionando um listener para o carregamento do documento
+
 document.addEventListener('DOMContentLoaded', function () {
     if (document.getElementById('lancamentosTable')) {
         fetchLancamentos();

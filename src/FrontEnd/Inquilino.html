@@ -5,7 +5,7 @@
 <div class="layout">
 
     <head>
-        <title>EasyRent | Financeiro</title>
+        <title>EasyRent | Inquilinos </title>
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -17,20 +17,20 @@
 
     <body>
         <div class="sidebar">
-            <div class="logo"></div>
+            <div class="logo"> </div>
             <nav class="nav-links">
                 <ul>
                     <li><a href="User.html">Home</a></li>
                     <li><a href="Imoveis.html">Imóveis</a></li>
-                    <li><a href="Financeiro.html" class="active-link">Financeiro</a></li>
-                    <li><a href="Inquilino.html">Inquilinos</a></li>
+                    <li><a href="Financeiro.html">Financeiro</a></li>
+                    <li><a href="Inquilino.html" class="active-link">Inquilinos</a></li>
                 </ul>
                 <a href="Home.html" id="Sair">Sair</a>
             </nav>
             <div class="orange-square" style="border-radius: 12px;">
                 <ul>
                     <li>
-                        <a href="#" style="color:#553300; text-decoration: none;font-size: medium;"><b>Contato</b></a>
+                        <a href="#" style="color:#553300; text-decoration: none;font-size: medium;">Contato</a>
                     </li>
                     <a href="http://www.instagram.com"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                             fill="#553300" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -51,14 +51,14 @@
             </div>
         </div>
 
-        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;margin-bottom: 50px;">
+        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
             <div class="row">
                 <div class="col-9">
-                    <h1 style="color: #553300;">Lançamentos Financeiros</h1>
+                    <h1 style="color: #553300;">Inquilinos</h1>
                 </div>
                 <div class="col-3"
-                    style="text-align: right; font-size: 16px; padding-right: 30px; font-weight: bolder; color: #553300;">
-                    <a href="LancamentoFinan.html" style="color: #553300;">Lançamento <button class="btn"
+                    style="text-align: right;font-size: 16px;padding-right: 30px;font-weight: bolder;color: #553300;">
+                    <a href="CadastroInquilino.html" style="color: #553300;">Inquilino <button class="btn"
                             id="addImob">+</button></a>
                 </div>
             </div>
@@ -66,18 +66,21 @@
         </div>
 
         <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
-            <form id="meuFormulario">
+            <form id="inquilinoFormulario">
                 <input type="hidden" id="id" name="id" value="">
-                <table id="lancamentosTable" class="table">
+                <table id="inquilinosTable" class="table">
                     <thead>
                         <tr>
-                            <th>Data</th>
-                            <th>Tipo</th>
-                            <th>Forma</th>
-                            <th>Classificação</th>
-                            <th>Status</th>
-                            <th>Valor</th>
-                            <th>Descrição</th>
+                            <th>Nome</th>
+                            <th>Endereço</th>
+                            <th>Complemento</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>CEP</th>
+                            <th>CPF</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                            <th>Observação</th>
                             <th colspan="2">Ações</th>
                         </tr>
                     </thead>
@@ -87,14 +90,15 @@
                 </table>
             </form>
         </div>
-    </div>
+</div>
 
-        <script src="financeiro.js" defer></script>
-    </body>
-    <footer class="footer">
-        <div>
-            <p>&copy; 2024 Easy Rent. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+<script src="Inquilino.js" defer></script>
+
+</body>
+<footer class="footer">
+    <div>
+        <p>&copy; 2024 Easy Rent. Todos os direitos reservados.</p>
+    </div>
+</footer>
 
 </html>

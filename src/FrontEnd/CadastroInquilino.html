@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyRent | Adicionar Financeiro </title>
+    <title>EasyRent | Cadastrar Inquilino</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -12,7 +13,6 @@
     <link rel="shortcut icon" href="src/images/easyrent.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-
 
 <body>
     <div class="layout">
@@ -22,15 +22,15 @@
                 <ul>
                     <li><a href="User.html">Home</a></li>
                     <li><a href="Imoveis.html">Imóveis</a></li>
-                    <li><a href="Financeiro.html" class="active-link">Financeiro</a></li>
-                    <li><a href="Inquilino.html">Inquilinos</a></li>
+                    <li><a href="Financeiro.html">Financeiro</a></li>
+                    <li><a href="Inquilino.html" class="active-link">Inquilinos</a></li>
                 </ul>
                 <a href="Home.html" id="Sair">Sair</a>
             </nav>
             <div class="orange-square" style="border-radius: 12px;">
                 <ul>
                     <li>
-                        <a href="#" style="color:#553300; text-decoration: none;font-size: medium;"><b>Contato</b></a>
+                        <a href="#" style="color:#553300; text-decoration: none;font-size: medium;">Contato</a>
                     </li>
                     <a href="http://www.instagram.com"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                             fill="#553300" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -52,77 +52,86 @@
         </div>
 
 
-        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
-            <h1 style="color: #553300;">Adicionar Financeiro</h1>
+        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;margin-bottom: 50px;">
+            <div class="row">
+                <div class="col-9">
+                    <h1 style="color: #553300;">Cadastrar Inquilino</h1>
+                </div>
+            </div>
             <hr>
+        </div>
 
-            <form id="meuFormulario">
+        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
+            <form id="inquilinoForm">
                 <table id="formtable">
-                    <tr>
-                        <td>
-                            <label for="tipo"><b>Lançamento</b></label>
-                            <select id="tipo" name="tipo">
-                                <option value="">Selecione</option>
-                                <option value="1">Receita</option>
-                                <option value="2">Despesa</option>
-                            </select>
-                        </td>
-                        <td>
-                            <label for="forma"><b>Forma</b></label>
-                            <select id="forma" name="forma">
-                                <option value="">Selecione</option>
-                                <option value="1">Dinheiro</option>
-                                <option value="2">Cartão</option>
-                                <option value="3">PIX</option>
-                            </select>
-                        </td>
-                        <td>
-                            <label for="classificacao"><b>Classificação</b></label>
-                            <select id="classificacao" name="classificacao">
-                                <option value="">Selecione</option>
-                                <option value="1">Aluguel</option>
-                                <option value="2">IPTU</option>
-                                <option value="3">TCR</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="data"><b>Data Vencimento</b></label>
-                            <input type="date" id="data" name="data">
-                        </td>
-                        <td>
-                            <label for="status"><b>Status</b></label>
-                            <select id="status" name="status">
-                                <option value="">Selecione</option>
-                                <option value="1">Pendente</option>
-                                <option value="2">Pago</option>
-                                <option value="3">A Pagar</option>
-                            </select>
-                        </td>
-                        <td>
-                            <label for="valor"><b>Valor</b></label>
-                            <input type="number" id="valor" name="valor" placeholder="R$ 0,00">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">
-                            <label for="descricao"><b>Observações:</b></label>
-                            <textarea id="descricao" name="descricao" rows="4"></textarea>
-                        </td>
-                    </tr>
+                    <div class="form-row">
+                        <div class="form-group col-md-11 pl-0">
+                            <label for="tipo" class="select-label"><b>Nome Completo:</b></label>
+                            <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
+                        </div>
+                    </div>
+                        <div class="form-row">
+                            <div class="form-group col-7 pr-3">
+                                <label for="endereco"><b>Endereço</b></label>
+                                <input type="text" id="endereco" name="Endereco" placeholder="Rua, Avenida, lorem ipsum" required>
+                            </div>
+            
+                            <div class="form-group col-4">
+                                <label for="area"><b>Complemento</b></label>
+                                <input type="text" id="complemento" name="complemento" placeholder="apto xxx Eficio XPTO">
+                            </div>
+                        </div>
+            
+                        <div class="form-row">
+                            <div class="form-group col-4 pr-3">
+                                <label for="endereco"><b>Cidade</b></label>
+                                <input type="text" id="cidade" name="cidade" placeholder="cidade" required>
+                            </div>
+            
+                            <div class="form-group col-3 pr-3">
+                                <label for="endereco"><b>Estado</b></label>
+                                <input type="text" id="estado" name="estado" placeholder="estado" required maxlength="2">
+                            </div>
+            
+                            <div class="form-group col-4">
+                                <label for="endereco"><b>CEP</b></label>
+                                <input type="number" id="cep" name="cep" placeholder="CEP" required>
+                            </div>
+                        </div>
+            
+            
+                        <div class="form-row" style="justify-content: left;">
+                            <div class="form-group col-3 pr-3">
+                                <label for="quartos"><b>CPF:</b></label>
+                                <input type="text" id="cpf" name="cpf" placeholder="12345678901" required>
+                            </div>
+                            <div class="form-group col-3 pr-3">
+                                <label for="banheiros"><b>Telefone:</b></label>
+                                <input type="text" id="telefone" name="telefone" placeholder="83. 99999-9999" required>
+                            </div>
+                            <div class="form-group col-5 pr-3">
+                                <label for="banheiros"><b>E-mail:</b></label>
+                                <input type="email" id="email" name="email" placeholder="voce@seuemail.com.br" required>
+                            </div>
+                        </div>
+            
+                        <div class="form-group col-11 pl-0 pr-0 pb-3">
+                            <label for="descricao"><b>Observação:</b></label>
+                            <textarea id="observacao" name="observacao" rows="4" placeholder="adicionar uma observação.."></textarea>
+                        </div>
                 </table>
 
-                <div style="text-align: left; margin-left: 30px; margin-top: 20px;">
-                    <button type="button" id="back" onclick="location.href='./Financeiro.html';">Voltar</button>
-                    <button type="submit"  onclick="location.href='./Financeiro.html';">Enviar</button>
+                <div style="text-align: left; margin-top: 20px;">
+                    <button type="button" id="back" onclick="location.href='./Inquilino.html';">Voltar</button>
+                    <button type="submit" onclick="location.href='./Inquilino.html';">Enviar</button>
                 </div>
-            </form>
 
+            </form>
         </div>
     </div>
 
-    <script src="financeiro.js" defer></script>
+
+    <script src="Inquilino.js" defer></script>
 
 </body>
 <footer class="footer">
@@ -130,4 +139,6 @@
         <p>&copy; 2024 Easy Rent. Todos os direitos reservados.</p>
     </div>
 </footer>
+</div>
+
 </html>
