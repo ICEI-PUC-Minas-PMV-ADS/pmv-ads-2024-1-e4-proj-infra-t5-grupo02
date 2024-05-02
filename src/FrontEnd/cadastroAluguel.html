@@ -2,11 +2,11 @@
 <html lang="pt">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="shortcut icon" href="src/images/easyrent.png" type="image/x-icon">
     <div class="layout">
 <head>
-    <title>EasyRent | Home </title>
-    <link rel="stylesheet" href="style.css">
+    <title>EasyRent | Imóveis</title>
+    <link rel="stylesheet" href="cadastroAluguel.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
@@ -19,10 +19,12 @@
         <div class="logo"> </div>
         <nav class="nav-links">
             <ul>
-                <li><a href="User.html"class="active-link">Home</a></li>
-                <li><a href="Imoveis.html" >Imóveis</a></li>
+                <li><a href="UserImob.html">Home</a></li>
+                <li><a href="Imoveis.html" class="active-link">Imóveis</a></li>
                 <li><a href="Financeiro.html">Financeiro</a></li>
+                <li><a href="">Relatórios</a></li>
                 <li><a href="Inquilino.html">Inquilinos</a></li>
+                <li><a href="mensagens.html">Mensagens</a></li>
             </ul>
             <a href="Home.html" id="Sair">Sair</a>
         </nav>
@@ -51,133 +53,91 @@
     </div>
 
 
-    <div style="padding-left: 270px; padding-top: 50px; margin-right: 50px;">
-        <h1 style="color: #553300;">Dashboard</h1>
+    <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;padding-bottom:120vb;">
+        <h1 style="color: #553300;">Cadastrar Aluguel</h1>
         <hr>
 
+        <form action="" method="post" class="pl-5 pr-0">
 
-<div class="row">
-
-    <div class="col-4">
-        <div class="card">
-          <h5 class="card-header">Imóveis</h5>
-  
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-  
-        </div>
-    </div>
-    
-   <div class="col-4">
-      <div class="card">
-        <h5 class="card-header">Inquilinos</h5>
-
-        <div class="card-body">
-          <h5 class="card-title">Inquilinos em atraso</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="col-4">
-        <div class="card">
-          <h5 class="card-header">Alugueis</h5>
-  
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-  
-        </div>
-      </div>
-</div>
-
-<div class="row pt-5">
-
-    <div class="col-4">
-        <div class="card">
-          <h5 class="card-header">Despesas</h5>
-  
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-  
-        </div>
-    </div>
-    
-   <div class="col-4">
-      <div class="card">
-        <h5 class="card-header">Receitas</h5>
-
-        <div class="card-body">
-          <h5 class="card-title">Inquilinos em atraso</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="col-4">
-        <div class="card">
-          <h5 class="card-header">Lucro</h5>
-  
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-  
-        </div>
-      </div>
-</div>
-
-
-<div class="container">
-    <div class="row mt-4">
-      <div class="col-12 col-sm-8 col-md-3">
-          <div class="card my-card has-background-gradient-teal">
-            <div class="my-auto mx-auto">
-              <span class="fa fa-users my-icon py-3 px-4"></span>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                <label for="tipo" class="select-label">Imóvel</label>
+                <select id="tipo" name="tipo" 
+                    style="width: 250px;height: 35px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" required>
+                    <option selected disabled value="">Selecione
+                    <option value="apartamento">Apartamento</option>
+                    <option value="casa">Casa</option>
+                    <option value="studio">Studio</option>
+                    <option value="cobertura">Cobertura</option>
+                    <option value="kitnet">Kitnet</option>
+                </select>
             </div>
-            <div class="my-auto px-4">
-              <p class="mb-1">Clients 1</p>
-              <h2>2435</h2>
+
+            <div class="form-group col-md-4">
+                <label for="tipo" class="select-label">Inquilino</label>
+                <select id="tipo" name="tipo"
+                    style="width: 250px;height: 35px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" required>
+                    <option value="apartamento">Selecione</option>
+                    <option value="apartamento">João Alberto</option>
+                    <option value="casa">Maria da Silva</option>
+                    <option value="studio">Angelo Antonio</option>
+                    <option value="cobertura">Márcia Farias</option>
+                    <option value="kitnet">Claudeonor Proença</option>
+                </select>
             </div>
+        </div>
             
-          </div>
-      </div>
-      
-      <div class="col-12 col-sm-8 col-md-3">
-          <div class="card my-card has-background-gradient-green">
-            <div class="my-auto mx-auto">
-              <span class="fa fa-users my-icon py-3 px-4"></span>
+            <div class="form-row  pb-3">
+                <div class="form-group col-md-4">
+                    <label for="tipo" class="select-label"><b>Início da Locação</b></label>
+                    <input type="date" id="" name="Data"
+                        style="width: 250px;height: 37px;border-radius: 7px;border-color:lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);padding-left: 15px;padding-right: 10px;background-color: #f8f8f8;" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="tipo" class="select-label"><b>Fim da Locação</b></label>
+                    <input type="date" id="" name="Data"
+                        style="width: 250px;height: 37px;border-radius: 7px;border-color:lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);padding-left: 15px;padding-right: 10px;background-color: #f8f8f8;" required>
+                </div>
+
             </div>
-            <div class="my-auto px-4">
-              <p class="mb-1">Clients</p>
-              <h2>2435</h2>
+
+            <div class="form-row">
+                <div class="form-group col-md-4 pr-5">
+                    <label for="vagas">Valor do Aluguel</label>
+                    <input type="number" placeholder="R$ 0,00" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="vagas">Valor do Condomínio</label>
+                    <input type="number" placeholder="R$ 0,00" required>
+                </div>
+
             </div>
-            
-          </div>
-      </div>
-      
-      <div class="col-12 col-sm-8 col-md-3">
-          <div class="card my-card has-background-gradient-orange">
-            <div class="my-auto mx-auto">
-              <span class="fa fa-users my-icon py-3 px-4"></span>
+
+            <div class="form-row" style="justify-content: left;">
+            <div class="form-group col-4 pb-3">
+                <label for="tipo" class="select-label"><b>Status</b></label>
+                <select style="width: 250px;height: 47px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);padding-left: 15px;padding-right: 150px;background-color: #f8f8f8;" required>
+                    <option value=""> Selecione </option>
+                    <option value="1">Alugado</option>
+                    <option value="2">Disponível</option>
+                    <option value="3">Em reforma</option>
+                </select>
             </div>
-            <div class="my-auto px-4">
-              <p class="mb-1">Clients</p>
-              <h2>2435</h2>
+        </div>
+
+            <div class="form-row" style="justify-content: left;">
+            <div class="form-group col-md-8 pb-3">
+                <label for="descricao">Observações</label>
+                <textarea class="form-control" id="descricao" name="descricao" rows="6" required></textarea>
             </div>
-            
-          </div>
-      </div>
+        </div>
+        <button type="button" id="back" onclick="location.href='./Imoveis.html';">Voltar</button>
+        <button type="submit">Enviar</button>
+        </form>
     </div>
-    </div>
-</div>
+
 
 
 </body>

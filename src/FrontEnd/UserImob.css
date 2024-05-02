@@ -1,0 +1,313 @@
+html {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12px;
+    background-image: url('../src/images/back1.png');
+    background-position: bottom;
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position-x: right;
+}
+
+.layout {
+    display: grid;
+    gap: 4px;
+    grid-template-rows: 40px 40px auto 60px 60px 40px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'header' 'sidebar' 'back''main-content' 'footer';
+    height: 100vh;
+}
+  
+.body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: fixed;
+}
+  
+.logo {
+  text-align:  center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  width: 247px;
+  height: 250px;
+  background-color: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding-top: 10px;
+  background-image: url('src/images/easyrent\(1\).jpg');
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+  
+.sidebar {
+      position: fixed;
+      background-color:rgb(251, 251, 243);
+      left: 0;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      color: #503000;
+      z-index: 100;
+      flex-direction: column;
+      display: flex;
+      overflow-x: hidden;
+      box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.5);
+}
+  
+@media (max-height: 850px) {
+      .sidebar {
+          max-height: 100vh;
+          overflow-y: auto;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+}
+  
+#back{
+      padding-left: 100px; 
+      position: relative;
+}
+  
+.orange-square {
+      background-color: orange;
+      padding-top: 10px;
+      padding-bottom: 20px;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      color: white;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+  
+.orange-square ul {
+      list-style-type: none;
+      padding-left: 0;
+      text-align: center;
+      font-size: 12px;
+}
+  
+.orange-square li a:hover {
+      color: #ff9900;
+}
+
+  
+.sidebar .logo {
+      align-items: center;
+      margin-top: 50px;
+}
+  
+.sidebar .nav-links ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      padding-top: 10px;
+      padding-bottom: 90px;
+      margin-top: 10px;
+}
+
+  
+.sidebar .nav-links {
+      
+      flex-direction: column;
+      justify-content: center;
+      height: 50%;
+      margin-top: 50px;
+}
+  
+.sidebar .nav-links li a {
+      display: block;
+      color: #503000;
+      margin-top: 5px;
+      font-weight: bold;
+      font-size: clamp(12px, 4vw, 17px);
+      text-decoration: none;
+      transition: background-color 0.3s;
+      text-align: center;
+}
+  
+.sidebar .nav-links li a:hover {
+      color: #ff9900;
+}  
+
+.nav-links {
+      flex-grow: 1;
+      margin-top: 0px;
+}
+
+@media screen and (max-width: 768px) {
+      .section-item-content {
+        font-size: 1.5em;
+      }
+    }
+  
+.card {
+      position: relative;
+      overflow: hidden;
+  }
+  
+.card span {
+      position: absolute;
+      background: linear-gradient(to left, transparent, #ff9900, transparent);
+}
+  
+.card span.top, .card span.bottom {
+      left: 0;
+      right: 0;
+      height: 3px;
+  }
+  
+.card span.top {
+      top: 0;
+      animation: animateHorizontal 2s linear infinite;
+  }
+  
+.card span.bottom {
+      bottom: 0;
+      animation: animateHorizontal 2s linear infinite reverse;
+  }
+  
+.card span.left, .card span.right {
+      top: 0;
+      bottom: 0;
+      width: 3px;
+  }
+  
+.card span.left {
+      left: 0;
+      animation: animateVertical 2s linear infinite reverse;
+  }
+  
+  .card span.right {
+      right: 0;
+      animation: animateVertical 2s linear infinite;
+  }
+
+
+.has-background-gradient-green{
+      background: rgb(147,223,148);
+      background: linear-gradient(90deg, rgba(147,223,148,1) 0%, rgba(94,200,90,1) 66%);
+      color: white;
+}
+    
+.has-background-gradient-green .my-icon{
+      background: rgba(147,223,148, 0.9);
+}  
+    
+.has-background-gradient-orange{
+      background: rgb(255,204,149);
+      background: linear-gradient(90deg, rgba(255,204,149,1) 0%, rgba(255,112,67,1) 66%);
+      color: white;
+}
+    
+.has-background-gradient-orange .my-icon{
+      background: rgba(255,204,149, 0.9);
+}
+    
+.has-background-gradient-teal{
+      background: rgb(182,225,221);
+      background: linear-gradient(90deg, rgba(182,225,221,1) 0%, rgba(38,166,154,1) 66%);
+      color: white;
+}
+    
+.has-background-gradient-teal .my-icon{
+      background: rgba(182,225,221, 0.9);
+}
+
+    
+.my-card{
+      margin-top: 10px;
+      margin-bottom: 10px;
+      min-height: 120px;
+      border: none;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: row;
+}
+
+.my-card .my-icon {
+      border-radius: 8px;
+      font-size: 34px;
+}
+  
+#lancamentosTable {
+        width: 90%;
+        border-collapse: collapse;
+        margin-left: 30px;
+        margin-top: 20px;
+        text-align: center;
+}
+    
+#lancamentosTable thead th {
+      border: 1px solid white;
+        background-color: #bd7201;
+        color: white;
+        text-align: center;
+        padding: 10px;
+}
+    
+#lancamentosTable tbody td {
+        border: 1px solid white;
+        padding: 10px;
+}
+    
+#lancamentosTable tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+}
+    
+    #lancamentosTable tbody tr:hover {
+      background-color:#ffc8519a;
+}
+
+
+
+#Sair {
+    color:#503000;
+    font-weight: 700;
+    background-color:rgb(222, 221, 221);
+    padding: 5px 40px;
+    margin-left: 70px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+#Sair:hover {
+    color:white;
+    font-weight: 700;
+    background-color:#503000;
+    padding: 5px 40px;
+    margin-left: 70px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.active-link {
+    margin: 50px;
+    text-decoration: underline;
+    border-radius: 10px;
+    margin-bottom: 0px;
+      text-align: center;
+      align-self: center;
+      background-color: rgba(247, 202, 80, 0.692);
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    padding-left: 70px;
+    padding-top: 10px;
+    justify-self: center;
+    text-align: center;
+    background-color:whitesmoke;
+    color: gray;
+    bottom: 0;
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.3);
+}
