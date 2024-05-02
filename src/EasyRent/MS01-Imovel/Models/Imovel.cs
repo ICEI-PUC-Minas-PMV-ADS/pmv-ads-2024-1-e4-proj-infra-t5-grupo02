@@ -22,6 +22,6 @@ namespace MS01_Imovel.Models
         public string DescricaoDetalhada { get; set; } = null!;
         public Status Status { get; set; }
         public TipoImovel TipoImovel { get; set; }
-        public byte[] Imagem { get; set; } = new byte[] { };
+        //public byte[] Imagem { get; set; } = new byte[] { };
     }
 }
