@@ -35,8 +35,8 @@ background-color: white;
 border-top-right-radius: 20px;
 border-bottom-right-radius: 20px;
 padding-top: 10px;
-background-image: url('../src/images/easyrent\(1\).jpg');
-background-size: 85%;
+background-image: url('src/images/easyrent\(1\).jpg');
+background-size: contain;
 background-repeat: no-repeat;
 background-position: center;
 }
@@ -418,7 +418,7 @@ button:hover {
   .inner-rectangle {
     border-radius: 17px;
     width: 700px;
-    height: 590px;
+    height: 550px;
     background-color: white;
     position: absolute;
     top: 50%;
@@ -843,8 +843,55 @@ background-color: rgba(247, 202, 80, 0.692);
   #lancamentosTable tbody tr:hover {
     background-color:#ffc8519a;
 }
+.chat{
 
+  width: 80%;
+  height: 70vh;
+  margin: 10px auto;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
 
+}
+.chat div:first-of-type{
 
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
+}
+.chat div:first-of-type p{
+
+  width: fit-content;
+  padding: 10px;
+  border-radius: 200px;
+
+}
+.chat div:first-of-type .Locador{
+
+  align-self: flex-start;
+  background-color: #ccc;
+
+}
+.chat div:first-of-type .Inquilino{
+
+  align-self: flex-end;
+  background-color: #bd7201;
+  color: white;
+
+}
+.chat div:last-of-type {
+
+  display: flex;
+  gap: 1rem;
+
+}
+.chat div:last-of-type button {
+
+  border-radius: 8px;
+
+}
 
