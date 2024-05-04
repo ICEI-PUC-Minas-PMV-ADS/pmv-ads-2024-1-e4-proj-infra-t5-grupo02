@@ -34,13 +34,14 @@ namespace APILogin.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(UsuarioDto model)
         {
-             Usuario novoUsuario = new() { 
+            Usuario novoUsuario = new()
+            {
                 Nome = model.Nome,
                 Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha),
                 Email = model.Email,
                 Perfil = model.Perfil
             };
-            
+
             _context.Usuarios.Add(novoUsuario);
             await _context.SaveChangesAsync();
             return Ok(novoUsuario);
@@ -51,9 +52,9 @@ namespace APILogin.Controllers
         {
             var model = await _context.Usuarios.
                 FirstOrDefaultAsync(c => c.Id == id);
-            
+
             if (model == null) return NotFound();
-            
+
             return Ok(model);
 
         }
@@ -64,7 +65,7 @@ namespace APILogin.Controllers
             if (id != model.Id) return BadRequest();
             var modelDb = await _context.Usuarios.AsNoTracking().
                 FirstOrDefaultAsync(c => c.Id == id);
-            
+
             if (modelDb == null) return NotFound();
 
             modelDb.Nome = model.Nome;
@@ -94,13 +95,23 @@ namespace APILogin.Controllers
         [HttpPost("authenticate")]
         public async Task<ActionResult> Authenticate(AuthenticateDto model)
         {
-            var usuarioDb = await _context.Usuarios.FirstOrDefaultAsync(m =>m.Email == model.Email);
-            if (usuarioDb == null || !BCrypt.Net.BCrypt.Verify(model.Senha,usuarioDb.Senha)) 
-                return Unauthorized();
+            try
+            {
+                var usuarioDb = await _context.Usuarios.FirstOrDefaultAsync(m => m.Email == model.Email);
+                if (usuarioDb == null || !BCrypt.Net.BCrypt.Verify(model.Senha, usuarioDb.Senha))
+                    return Unauthorized();
 
-            var jwt = GenerateJwtToken(usuarioDb);
+                var jwt = GenerateJwtToken(usuarioDb);
 
-            return Ok(new {jwtToken = jwt});
+                return Ok(new { jwtToken = jwt });
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Erro ao autenticar: {ex.Message}");
+                return StatusCode(500, "Erro interno do servidor. Tente novamente mais tarde.");
+
+            }
+
 
         }
 

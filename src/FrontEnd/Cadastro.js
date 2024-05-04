@@ -1,8 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    if (document.getElementById('usuariosTable')) {
-        fetchUsuarios();
-    }
-    
     const form = document.getElementById('frm1');
     if (form) {
         form.addEventListener('submit', function(event) {
@@ -34,9 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Usuário criado:', data);
                 alert('Usuário adicionado com sucesso!');
                 form.reset();
-                if (document.getElementById('Usuarios')) {
-                    fetchUsuarios();
-                }
             })
             .catch(error => {
                 console.error('Erro ao criar Usuário:', error);
@@ -44,4 +37,4 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-  });
+});

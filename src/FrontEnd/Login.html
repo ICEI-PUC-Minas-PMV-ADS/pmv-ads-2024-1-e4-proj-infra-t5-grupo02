@@ -68,7 +68,7 @@
 
                                 <div style="text-align: center;padding-top: 35px;">
                                     <button type="button" id="back"
-                                        onclick="location.href='./Inquilino.html';">Voltar</button>
+                                        onclick="location.href='./Home.html';">Voltar</button>
                                     <button type="" onclick="fazerLogin()">Entrar</button>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
 
                 if (data.jwtToken) {
                     localStorage.setItem('token', data.jwtToken);
-                    window.location.href = './UserImob.html';
+                    window.location.href = './User.html';
                 } else {
                     alert('Autenticação falhou. Verifique suas credenciais.');
                 }

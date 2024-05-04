@@ -88,14 +88,21 @@
                                             <div id="txtEmail"></div>
                                         </div>
 
-                                        <!-- Campo senha e valida senha -->
-                                        <div class="form-group col-md-4 pb-4">
-                                            <label for="senha">Senha</label>
-                                            <input class="form-control" type="password" name="senha" id="senha"
-                                                onkeyup="validaSenha()" required placeholder="Sua senha"
-                                                style="width: 250px;height: 35px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-                                            <div id="txtSenha"></div>
-                                        </div>
+                                <!-- Campo senha e valida senha -->
+                                <div class="form-group col-md-4 ">
+                                    <label for="senha">Senha</label>
+                                    <input class="form-control" type="password" name="senha" id="senha"
+                                        onkeyup="validaSenha()" required placeholder="Sua senha"
+                                        style="width: 250px;height: 35px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                                    <div id="txtSenha"></div>
+                                </div>
+                                <div class="form-group col-md-4 ">
+                                    <label for="confirmSenha">Confirmar Senha</label>
+                                    <input class="form-control" type="password" name="confirSenha" id="confirSenha"
+                                        onkeyup="validaConfirmaSenha()" required placeholder="Confirme sua senha"
+                                        style="width: 250px;height: 35px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                                    <div id="txtConfirSenha"></div>
+                                </div>
 
                                         <button type="button" id="back"
                                             onclick="location.href='./Home.html';">Voltar</button>
