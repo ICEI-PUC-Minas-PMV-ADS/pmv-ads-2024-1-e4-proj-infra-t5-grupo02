@@ -21,7 +21,7 @@ namespace MS03.Controllers
 
         // GET: api/Lancamentos/all
         [HttpGet("all")]
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador,Locador")]
         public async Task<ActionResult> GetAll()
         {
             var lancamentos = await _context.Lancamentos.ToListAsync();
