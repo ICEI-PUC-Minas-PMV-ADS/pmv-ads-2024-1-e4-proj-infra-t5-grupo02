@@ -89,44 +89,60 @@
 </html>
 
 <script>
-    function fazerLogin() {
-        const email = document.getElementById('floatingInput').value;
-        const senha = document.getElementById('floatingPassword').value;
+function parseJwt(token) {
+    try {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
 
-        // Validação de entrada (como mencionado anteriormente)
-
-        const requestBody = {
-            Email: email,
-            Senha: senha
-        };
-
-        fetch("https://localhost:7194/api/Usuarios/authenticate", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(requestBody)
-        })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Erro ao fazer a chamada à API. Verifique a URL e tente novamente.');
-                }
-            })
-            .then(data => {
-                console.log(data);
-
-                if (data.jwtToken) {
-                    localStorage.setItem('token', data.jwtToken);
-                    window.location.href = './User.html';
-                } else {
-                    alert('Autenticação falhou. Verifique suas credenciais.');
-                }
-            })
-            .catch(error => {
-                console.error('Erro inesperado:', error);
-                alert('Ocorreu um erro inesperado. Tente novamente mais tarde.');
-            });
+        return JSON.parse(jsonPayload);
+    } catch (e) {
+        return null;
     }
+}
+
+function fazerLogin() {
+    const email = document.getElementById('floatingInput').value;
+    const senha = document.getElementById('floatingPassword').value;
+
+    const requestBody = {
+        Email: email,
+        Senha: senha
+    };
+
+    fetch("https://localhost:7194/api/Usuarios/authenticate", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Falha na autenticação. Verifique a URL da API, as credenciais e se o servidor está ativo.');
+        }
+    })
+    .then(data => {
+        if (data.jwtToken) {
+            const decodedToken = parseJwt(data.jwtToken);
+            if (decodedToken && decodedToken.role) {
+                localStorage.setItem('token', data.jwtToken);
+                localStorage.setItem('profile', decodedToken.role);
+                window.location.href = './User.html';
+            } else {
+                alert('Autenticação falhou. Informações de perfil não encontradas no token.');
+            }
+        } else {
+            alert('Autenticação falhou. Verifique suas credenciais.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro inesperado no login:', error);
+        alert('Ocorreu um erro inesperado. Tente novamente mais tarde.');
+    });
+}
 </script>

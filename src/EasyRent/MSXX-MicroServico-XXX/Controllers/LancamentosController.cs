@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MS03.Models;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace MS03.Controllers
@@ -19,6 +21,7 @@ namespace MS03.Controllers
 
         // GET: api/Lancamentos/all
         [HttpGet("all")]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> GetAll()
         {
             var lancamentos = await _context.Lancamentos.ToListAsync();
@@ -34,12 +37,20 @@ namespace MS03.Controllers
             {
                 return NotFound();
             }
+
+            // Verifica se o usuário é inquilino e se o lançamento pertence a ele
+            if (User.IsInRole("Inquilino") && lancamento.UsuarioId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value))
+            {
+                return Unauthorized("Acesso não permitido.");
+            }
+
             return Ok(lancamento);
         }
 
 
         // POST: api/Lancamentos
         [HttpPost]
+        [Authorize(Roles = "Locador")]
         public async Task<ActionResult<Lancamento>> Create(Lancamento model)
         {
             if (!ModelState.IsValid)
@@ -56,6 +67,7 @@ namespace MS03.Controllers
 
         // PUT: api/Lancamentos/{id}
         [HttpPut("{id}")]
+        [Authorize(Roles = "Locador")]
         public async Task<IActionResult> Update(int id, Lancamento model)
         {
             if (!ModelState.IsValid)
@@ -100,6 +112,7 @@ namespace MS03.Controllers
 
         // DELETE: api/Lancamentos/{id}
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Locador")]
         public async Task<IActionResult> Delete(int id)
         {
             var lancamento = await _context.Lancamentos.FindAsync(id);

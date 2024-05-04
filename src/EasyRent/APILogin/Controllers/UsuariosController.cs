@@ -32,6 +32,7 @@ namespace APILogin.Controllers
 
         [AllowAnonymous]
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> Create(UsuarioDto model)
         {
             Usuario novoUsuario = new()
