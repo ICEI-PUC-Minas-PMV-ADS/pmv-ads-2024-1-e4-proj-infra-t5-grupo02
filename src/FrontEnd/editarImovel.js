@@ -7,7 +7,7 @@ function fetchLancamentoById(id) {
             return response.json();
         })
         .then(data => {
-            console.log("Received data:", data); // Verifique os dados recebidos aqui
+            // console.log("Received data:", data); // Verifique os dados recebidos aqui
             imovelTipo = document.getElementById('tipo')
             imovelTipo.value = `${data.tipoImovel}`
             imovelEndereco = document.getElementById('endereco')
