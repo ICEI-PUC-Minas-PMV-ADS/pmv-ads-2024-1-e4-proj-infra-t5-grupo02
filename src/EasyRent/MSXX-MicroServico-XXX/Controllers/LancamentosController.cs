@@ -21,7 +21,6 @@ namespace MS03.Controllers
 
         // GET: api/Lancamentos/all
         [HttpGet("all")]
-        [Authorize(Roles = "Administrador,Locador")]
         public async Task<ActionResult> GetAll()
         {
             var lancamentos = await _context.Lancamentos.ToListAsync();
@@ -39,10 +38,10 @@ namespace MS03.Controllers
             }
 
             // Verifica se o usuário é inquilino e se o lançamento pertence a ele
-            if (User.IsInRole("Inquilino") && lancamento.UsuarioId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value))
-            {
-                return Unauthorized("Acesso não permitido.");
-            }
+            //if (User.IsInRole("Inquilino") && lancamento.UsuarioId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value))
+            //{
+            //    return Unauthorized("Acesso não permitido.");
+            //}
 
             return Ok(lancamento);
         }
@@ -50,7 +49,6 @@ namespace MS03.Controllers
 
         // POST: api/Lancamentos
         [HttpPost]
-        [Authorize(Roles = "Locador")]
         public async Task<ActionResult<Lancamento>> Create(Lancamento model)
         {
             if (!ModelState.IsValid)
@@ -67,7 +65,6 @@ namespace MS03.Controllers
 
         // PUT: api/Lancamentos/{id}
         [HttpPut("{id}")]
-        [Authorize(Roles = "Locador")]
         public async Task<IActionResult> Update(int id, Lancamento model)
         {
             if (!ModelState.IsValid)
@@ -112,7 +109,6 @@ namespace MS03.Controllers
 
         // DELETE: api/Lancamentos/{id}
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Locador")]
         public async Task<IActionResult> Delete(int id)
         {
             var lancamento = await _context.Lancamentos.FindAsync(id);
@@ -127,7 +123,6 @@ namespace MS03.Controllers
             return NoContent(); // Pode ser substituído por Ok("Lançamento deletado com sucesso.") para maior clareza.
         }
 
-        // Helper method to check if a Lancamento exists
         private bool LancamentoExists(int id)
         {
             return _context.Lancamentos.Any(e => e.Id == id);

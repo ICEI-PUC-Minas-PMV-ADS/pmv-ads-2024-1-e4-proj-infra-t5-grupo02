@@ -36,10 +36,7 @@ namespace MS03.Models
         [Required(ErrorMessage = "Obrigatório informar a descrição!")]
         public string Descricao { get; set; }
 
-        [Required]
-        public int UsuarioId { get; set; }
-        public Usuario Usuario { get; set; }
-
+        public int Inquilino { get; set; }
 
     }
 

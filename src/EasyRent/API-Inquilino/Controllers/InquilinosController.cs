@@ -19,7 +19,6 @@ namespace API_Inquilino.Controllers
         }
 
         [HttpGet("all")]
-        [Authorize(Roles = "Locador")]
         public async Task<ActionResult> GetAll()
         {
             var inquilinos = await _context.Inquilinos.ToListAsync();
@@ -38,7 +37,6 @@ namespace API_Inquilino.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Locador")]
         public async Task<ActionResult<Inquilino>> Create(Inquilino inquilino)
         {
             if (!ModelState.IsValid)
@@ -52,7 +50,6 @@ namespace API_Inquilino.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Locador")]
         public async Task<IActionResult> Update(int id, Inquilino inquilino)
         {
             if (id != inquilino.Id)
@@ -82,7 +79,6 @@ namespace API_Inquilino.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Locador")]
         public async Task<IActionResult> Delete(int id)
         {
             var inquilino = await _context.Inquilinos.FindAsync(id);

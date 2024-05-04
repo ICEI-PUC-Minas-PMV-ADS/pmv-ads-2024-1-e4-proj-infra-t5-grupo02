@@ -20,6 +20,7 @@
             <div class="logo"> </div>
             <nav class="nav-links">
                 <ul>
+                    <h4 style="padding-left: 75px;color: black;">Olá, <span id="username" ></span></h4>
                     <li><a href="User.html">Home</a></li>
                     <li><a href="Imoveis.html">Imóveis</a></li>
                     <li><a href="Financeiro.html" class="active-link">Financeiro</a></li>
@@ -59,6 +60,14 @@
 
             <form id="meuFormulario">
                 <table id="formtable">
+                    <tr>
+                        <td>
+                            <label for="tipo"><b>Inquilino</b></label>
+                            <select id="inquilino" name="inquilino">
+                                <option value="">Selecione</option>
+                            </select>
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             <label for="tipo"><b>Lançamento</b></label>
@@ -125,6 +134,29 @@
 
     <script src="controleacesso.js"></script>
     <script src="financeiro.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const username = localStorage.getItem('username');
+          document.getElementById('username').textContent = username;
+        });
+      </script>
+      
+      <script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('https://localhost:7294/api/Inquilinos/all') // Substitua 'api/inquilinos' pelo endpoint correto
+    .then(response => response.json())
+    .then(data => {
+        const select = document.getElementById('inquilino');
+        data.forEach(inquilino => {
+            const option = document.createElement('option');
+            option.value = inquilino.id;
+            option.textContent = inquilino.nome; // 'nome' deve ser substituído pela propriedade correta do inquilino
+            select.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Erro ao carregar inquilinos:', error));
+});
+</script>
 
 </body>
 <footer class="footer">

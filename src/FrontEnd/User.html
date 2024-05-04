@@ -19,6 +19,7 @@
     <div class="sidebar">
       <div class="logo"> </div>
       <nav class="nav-links">
+        <h4 style="padding-left: 75px;color: black;">Olá, <span id="username" ></span></h4>
         <ul>
           <li><a href="User.html" class="active-link">Home</a></li>
           <li><a href="Imoveis.html">Imóveis</a></li>
@@ -76,6 +77,13 @@
     </div>
 
     <script src="controleacesso.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const username = localStorage.getItem('username');
+        document.getElementById('username').textContent = username;
+      });
+    </script>
+    
 
   </body>
 </div>

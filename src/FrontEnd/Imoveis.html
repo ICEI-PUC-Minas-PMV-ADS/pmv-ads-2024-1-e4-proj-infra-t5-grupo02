@@ -19,6 +19,7 @@
             <div class="logo"> </div>
             <nav class="nav-links">
                 <ul>
+                    <h4 style="padding-left: 75px;color: black;">Olá, <span id="username" ></span></h4>
                     <li><a href="User.html">Home</a></li>
                     <li><a href="Imoveis.html" class="active-link">Imóveis</a></li>
                     <li><a href="Financeiro.html">Financeiro</a></li>
@@ -231,6 +232,12 @@
     </body>
 
     <script src="controleacesso.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const username = localStorage.getItem('username');
+          document.getElementById('username').textContent = username;
+        });
+      </script>
 
     <footer class="footer">
         <div>
