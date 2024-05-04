@@ -40,3 +40,19 @@ document.addEventListener('DOMContentLoaded', function() {
     adjustNavLinks();
     removeButtons();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const userProfile = localStorage.getItem('profile');
+    const allowedPages = {
+        'Administrador': ['User.html', 'Imoveis.html', 'Financeiro.html', 'Inquilino.html', 'CadastroUsuario.html'],
+        'Locador': ['User.html', 'Imoveis.html', 'Financeiro.html', 'Inquilino.html'],
+        'Inquilino': ['User.html', 'Financeiro.html']
+    };
+
+    const currentPage = window.location.pathname.split('/').pop();
+
+    if (!allowedPages[userProfile].includes(currentPage)) {
+        window.location.href = './Errorpage.html'; // Redireciona para uma página de erro ou homepage.
+    }
+});
+

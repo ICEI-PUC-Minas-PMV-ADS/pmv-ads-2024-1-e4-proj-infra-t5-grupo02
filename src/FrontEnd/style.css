@@ -842,7 +842,16 @@ background-color: rgba(247, 202, 80, 0.692);
     background-color:#ffc8519a;
 }
 
-
+#Error {
+  filter: drop-shadow(0px 5px 15px black);
+  width: 100%;
+  max-width: 60vh; 
+  height: auto;
+  border-radius: 17px;
+  display: block; 
+  margin: 0 auto; 
+  padding-top: 100px;
+}
 
 
 

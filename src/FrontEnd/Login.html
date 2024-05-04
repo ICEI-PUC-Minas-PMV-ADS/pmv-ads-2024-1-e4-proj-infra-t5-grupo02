@@ -132,6 +132,7 @@ function fazerLogin() {
             if (decodedToken && decodedToken.role) {
                 localStorage.setItem('token', data.jwtToken);
                 localStorage.setItem('profile', decodedToken.role);
+                localStorage.setItem('username', data.name);
                 window.location.href = './User.html';
             } else {
                 alert('Autenticação falhou. Informações de perfil não encontradas no token.');
