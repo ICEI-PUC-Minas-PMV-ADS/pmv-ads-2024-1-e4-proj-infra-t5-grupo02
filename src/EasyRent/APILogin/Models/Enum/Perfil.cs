@@ -6,10 +6,10 @@ namespace APILogin.Models.Enum
     {
         [Display(Name = "Administrador")]
         Administrador,
-        [Display(Name = "Usuario")]
-        Usuario,
         [Display(Name = "Locador")]
-        Locador
+        Locador,
+        [Display(Name = "Inquilino")]
+        Inquilino
 
     }
 }
