@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const formData = {
                 tipoImovel: parseInt(document.getElementById('tipo').value, 10),
+                statusImovel: parseInt(document.getElementById('status').value, 10),
                 Endereco: document.getElementById('endereco').value,
                 Complemento: document.getElementById('complemento').value,
                 Cidade: document.getElementById('cidade').value,
@@ -114,6 +115,7 @@ function criarCardImovel(data) {
     colInfoDiv.style.textDecoration = "none";
     rowDiv.appendChild(colInfoDiv);
 
+    var statusAdded = false;
     var enderecoAdded = false;
     var complementoAdded = false;
     var cidadeAdded = false;

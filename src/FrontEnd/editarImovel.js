@@ -10,6 +10,8 @@ function fetchLancamentoById(id) {
             // console.log("Received data:", data); // Verifique os dados recebidos aqui
             imovelTipo = document.getElementById('tipo')
             imovelTipo.value = `${data.tipoImovel}`
+            imovelStatus = document.getElementById('status')
+            imovelStatus.value = `${data.tipoImovel}`
             imovelEndereco = document.getElementById('endereco')
             imovelEndereco.value = `${data.endereco}`
             imovelComplemento = document.getElementById('complemento')
@@ -48,6 +50,7 @@ function submitLancamentoUpdate() {
     const lancamentoData = {
         id: id,
         tipoImovel: parseInt(document.getElementById('tipo').value, 10),
+        statusImovel: parseInt(document.getElementById('status').value, 10),
         Endereco: document.getElementById('endereco').value,
         Complemento: document.getElementById('complemento').value,
         Cidade: document.getElementById('cidade').value,
