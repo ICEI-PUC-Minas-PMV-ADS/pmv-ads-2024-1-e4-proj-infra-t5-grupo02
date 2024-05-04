@@ -1,4 +1,15 @@
-// Definindo as funções de manipulação de lançamentos
+let inquilinosMap = {};
+
+fetch('https://localhost:7294/api/Inquilinos/all')
+.then(response => response.json())
+.then(data => {
+    data.forEach(inquilino => {
+        inquilinosMap[inquilino.id] = inquilino.nome;
+    });
+    fetchLancamentos(); // Agora, chamamos fetchLancamentos depois de ter os inquilinos
+})
+.catch(error => console.error('Erro ao carregar inquilinos:', error));
+
 function fetchLancamentos() {
     const table = document.getElementById('lancamentosTable');
     if (table) {
@@ -14,20 +25,23 @@ function fetchLancamentos() {
                     let valorFormatado = parseFloat(lancamento.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
                     let status = lancamento.status === 'aPagar' ? 'A Pagar' : lancamento.status === 'pago' ? 'Pago' : lancamento.status === 'pendente' ? 'Pendente' : lancamento.status;
 
-                    row.insertCell(0).textContent = dataFormatada;
-                    row.insertCell(1).textContent = lancamento.tipo;
-                    row.insertCell(2).textContent = lancamento.forma;
-                    row.insertCell(3).textContent = lancamento.classificacao;
-                    row.insertCell(4).textContent = status; // Utilização do status ajustado
-                    row.insertCell(5).textContent = valorFormatado;
-                    row.insertCell(6).textContent = lancamento.descricao;
+                    let nomeInquilino = inquilinosMap[lancamento.inquilino] || 'Sem inquilino'; // Usando o mapa para encontrar o nome
+
+                    row.insertCell(0).textContent = nomeInquilino;
+                    row.insertCell(1).textContent = dataFormatada;
+                    row.insertCell(2).textContent = lancamento.tipo;
+                    row.insertCell(3).textContent = lancamento.forma;
+                    row.insertCell(4).textContent = lancamento.classificacao;
+                    row.insertCell(5).textContent = status;
+                    row.insertCell(6).textContent = valorFormatado;
+                    row.insertCell(7).textContent = lancamento.descricao;
 
                     // Botão de edição
                     let editIcon = document.createElement('i');
                     editIcon.className = 'fas fa-edit';
                     editIcon.style.cursor = 'pointer';
                     editIcon.onclick = function() { window.location.href = `EditarLancamento.html?id=${lancamento.id}`; };
-                    let cellEdit = row.insertCell(7);
+                    let cellEdit = row.insertCell(8);
                     cellEdit.appendChild(editIcon);
 
                     // Botão de exclusão
@@ -35,7 +49,7 @@ function fetchLancamentos() {
                     deleteIcon.className = 'fas fa-trash-alt';
                     deleteIcon.style.cursor = 'pointer';
                     deleteIcon.onclick = function() { deleteLancamento(lancamento.id); };
-                    let cellDelete = row.insertCell(8);
+                    let cellDelete = row.insertCell(9);
                     cellDelete.appendChild(deleteIcon);
                 });
             })
@@ -61,7 +75,7 @@ window.deleteLancamento = function(id) {
     }
 };
 
-// Adicionando um listener para o carregamento do documento
+
 document.addEventListener('DOMContentLoaded', function () {
     if (document.getElementById('lancamentosTable')) {
         fetchLancamentos();
@@ -73,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
 
             const formData = {
+                inquilino: document.getElementById('inquilino').value,
                 tipo: parseInt(document.getElementById('tipo').value, 10),
                 forma: parseInt(document.getElementById('forma').value, 10),
                 classificacao: parseInt(document.getElementById('classificacao').value, 10),
@@ -113,3 +128,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+

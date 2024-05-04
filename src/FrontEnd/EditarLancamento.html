@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="layout">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyRent | Editar Lançamento</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="shortcut icon" href="src/images/easyrent.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
+    <head>
+        <title>EasyRent | Editar Lançamento</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+            integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+        <link rel="shortcut icon" href="src/images/easyrent.png">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    </head>
 
-<body>
-    <div class="layout">
+    <body>
         <div class="sidebar">
             <div class="logo"></div>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="UserImob.html">Home</a></li>
+                    <h4 style="padding-left: 75px;color: black;">Olá, <span id="username" ></span></h4>
+                    <li><a href="User.html">Home</a></li>
                     <li><a href="Imoveis.html">Imóveis</a></li>
                     <li><a href="Financeiro.html" class="active-link">Financeiro</a></li>
-                    <li><a href="#">Relatórios</a></li>
                     <li><a href="Inquilino.html">Inquilinos</a></li>
-                    <li><a href="Mensagens.html">Mensagens</a></li>
+                    <li><a href="Usuarios.html">Usuários</a></li>
                 </ul>
                 <a href="Home.html" id="Sair">Sair</a>
             </nav>
@@ -54,12 +54,19 @@
         </div>
 
 
-        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
-            <h1 style="color: #553300;">Editar Lançamento</h1>
+        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;margin-bottom: 50px;">
+            <div class="row">
+                <div class="col-9">
+                    <h1 style="color: #553300;">Editar Lançamentos</h1>
+                </div>
+            </div>
             <hr>
+        </div>
 
+        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
             <form id="editForm">
                 <table id="formtableEdit">
+
                     <tr>
                         <td>
                             <label for="tipo"><b>Lançamento</b></label>
@@ -119,15 +126,47 @@
                     <button id="saveButton" type="button">Salvar Alterações</button>
                 </div>
             </form>
-
         </div>
 
-        <div id="modalOverlay" class="modal-overlay">
-            <div id="modalContent" class="modal-content"></div>
-        </div>
-        
+</div>
 
-        <script src="editarLancamento.js"></script>
+<div id="modalOverlay" class="modal-overlay">
+    <div id="modalContent" class="modal-content"></div>
+</div>
+
+
+<script src="editarLancamento.js"></script>
+<script src="controleacesso.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const username = localStorage.getItem('username');
+      document.getElementById('username').textContent = username;
+    });
+  </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('https://localhost:7294/api/Inquilinos/all') // Substitua 'api/inquilinos' pelo endpoint correto
+        .then(response => response.json())
+        .then(data => {
+            const select = document.getElementById('inquilino');
+            data.forEach(inquilino => {
+                const option = document.createElement('option');
+                option.value = inquilino.id;
+                option.textContent = inquilino.nome; // 'nome' deve ser substituído pela propriedade correta do inquilino
+                select.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Erro ao carregar inquilinos:', error));
+    });
+    </script>
+
 </body>
+<footer class="footer">
+    <div>
+        <p>&copy; 2024 Easy Rent. Todos os direitos reservados.</p>
+    </div>
+</footer>
+</div>
 
 </html>

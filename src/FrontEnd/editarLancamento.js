@@ -19,7 +19,6 @@ function setSelectValue(selectElementId, value) {
     }
 }
 
-// Função para buscar e exibir os dados do lançamento
 function fetchLancamentoById(id) {
     fetch(`https://localhost:7157/api/Lancamentos/${id}`)
         .then(response => {
