@@ -2,9 +2,10 @@
 <html lang="pt">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div class="layout">
+
+    <div class="layout">
 <head>
-    <title>EasyRent | Imóveis </title>
+    <title>EasyRent | Imóveis</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -51,34 +52,105 @@
         </div>
     </div>
 
-<div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;margin-bottom: 50px;">
-    <div class="row">
-        <div class="col-6">
-            <h1 style="color: #553300;">Imóveis</h1>
-        </div>
-        <div class="col-3" style="text-align: right;font-size: 16px;font-weight: bolder;color: #553300;">
-            <a href="CadastroImob.Html" style="color: #553300;">Imóvel
-                <button class="btn" id="addImob">+</button></a>
-        </div>
-        <div class="col-3" style="text-align: left;font-size: 16px;font-weight: bolder;color: #553300;">
-            <a href="CadastroAluguel.Html" style="color: #553300;">Aluguel
-                <button class="btn" id="addImob">+</button></a>
-        </div>
-    </div>
-    <hr>
-</div>
 
-    <div class="section_our_solution mb-5 mt-5 pt-5" style="background-image: url('../src/images/back1.png');background-position: bottom;
-    background-size: 35%;background-repeat: no-repeat; background-position-x: right">
+    <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;padding-bottom:120vb;">
+        <h1 style="color: #553300;">Cadastrar imóvel</h1>
+        <hr>
 
-        <div class="our_solution_category">
-            <div id="meusCards" class="cards_box">
-                <!-- Cards gerados dinamicamente -->
+        <form id="formPost" action="" method="put" class="pl-5 pr-0">
+
+            <div class="form-group pb-3">
+                <label for="tipo" class="select-label">Tipo de imóvel:</label>
+                <select id="tipo" name="tipo"
+                    style="width: 250px;height: 35px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                    <option value="">Selecione</option>
+                    <option value="1">Apartamento</option>
+                    <option value="2">Casa</option>
+                    <option value="3">Studio</option>
+                    <option value="4">Cobertura</option>
+                    <option value="5">Kitnet</option>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-7">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" placeholder=" " required>
+                </div>
+
+                <div class="form-group col-4">
+                    <label for="area">Complemento</label>
+                    <input type="text" id="complemento" name="complemento">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label for="endereco">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" placeholder=" " required>
+                </div>
+
+                <div class="form-group col-3">
+                    <label for="endereco">Estado</label>
+                    <input type="text" id="estado" name="estado" placeholder=" " required>
+                </div>
+
+                <div class="form-group col-4">
+                    <label for="endereco">CEP</label>
+                    <input type="text" id="cep" name="cep" placeholder=" " required>
+                </div>
+            </div>
+
+
+            <div class="form-row" style="justify-content: left;">
+                <div class="form-group col-3">
+                    <label for="quartos">Quantidade de Quartos:</label>
+                    <input type="number" id="quartos" name="quartos" required>
+                </div>
+                <div class="form-group col-3">
+                    <label for="banheiros">Quantidade de Banheiros:</label>
+                    <input type="number" id="banheiros" name="banheiros" required>
+                </div>
+                <div class="form-group col-3">
+                    <label for="vagas">Vagas na Garagem:</label>
+                    <input type="number" id="vagas" name="vagas">
+                </div>
+                <div class="form-group col-2">
+                    <label for="area">Área Total (m²):</label>
+                    <input type="number" id="area" name="area" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-3">
+                    <label for="vagas">Valor do Aluguel:</label>
+                    <input type="number" id="valorAluguel" name="vagas">
+                </div>
+
+                <div class="form-group col-3">
+                    <label for="vagas">Valor do Condomínio:</label>
+                    <input type="number" id="valorCondo" name="vagas">
+                </div>
+
+            <!--
+                <div class="form-group col-5">
+                    <label for="fotos">Fotos do Imóvel:</label>
+                    <input type="file" id="fotos" name="fotos" accept="image/*" multiple>
+                </div> 
+            -->
+            </div>
+
+            <div class="form-row" style="justify-content: left;">
+            <div class="form-group col-md-11 pb-3">
+                <label for="descricao">Descrição detalhada do imóvel:</label>
+                <textarea class="form-control" id="descricao" name="descricao" rows="4"></textarea>
             </div>
         </div>
+        <button type="button" id="back" onclick="location.href='./Imoveis.html';">Voltar</button>
+        <button type="submit" id="saveThis"">Enviar</button>
+        </form>
     </div>
 
-    <script src="imovel.js" defer></script>
+    <script src="editarImovel.js" defer></script>
 
 </body>
 <footer class="footer">

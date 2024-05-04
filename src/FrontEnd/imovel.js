@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 QtdBanheiros: parseInt(document.getElementById('banheiros').value, 10),
                 QtdVagasGaragem: parseInt(document.getElementById('vagas').value, 10),
                 AreaTotal: parseFloat(document.getElementById('area').value, 10),
-                ValorAluguel: parseInt(document.getElementById('valorAluguel').value, 10),
-                ValorCondominio: parseInt(document.getElementById('valorCondo').value, 10),
+                ValorAluguel: parseFloat(document.getElementById('valorAluguel').value, 10),
+                ValorCondominio: parseFloat(document.getElementById('valorCondo').value, 10),
                 DescricaoDetalhada: document.getElementById('descricao').value,
             };
 
@@ -114,20 +114,6 @@ function criarCardImovel(data) {
     colInfoDiv.style.textDecoration = "none";
     rowDiv.appendChild(colInfoDiv);
 
-    // Adicionando as informações do banco de dados como parágrafos
-    // for (var key in data) {
-    //     // if (data.hasOwnProperty(key) && key !== "imagemSrc") {
-    //     //     var infoParagraph = document.createElement("p");
-    //     //     infoParagraph.innerHTML = "<b>" + key + ":</b> " + data[key];
-    //     //     colInfoDiv.appendChild(infoParagraph);
-    //     // }
-    //     if (data.hasOwnProperty('endereco')) {
-    //         var enderecoParagraph = document.createElement("p");
-    //         enderecoParagraph.innerHTML = "<b>Endereço:</b> " + data.endereco;
-    //         colInfoDiv.appendChild(enderecoParagraph);
-    //     }
-    // }
-
     var enderecoAdded = false;
     var complementoAdded = false;
     var cidadeAdded = false;
@@ -173,7 +159,7 @@ function criarCardImovel(data) {
             }
             if (key === "valorAluguel" && !ValorAluguelAdded) {
                 var valorAluguelParagraph = document.createElement("p");
-                valorAluguelParagraph.innerHTML = "<b>" + "Valor Aluguel" + ": R$</b> " + data[key] + ",00";
+                valorAluguelParagraph.innerHTML = "<b>" + "Valor Aluguel" + ":</b> " + data[key].toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
                 colInfoDiv.appendChild(valorAluguelParagraph);
                 ValorAluguelAdded = true;
             }
@@ -184,8 +170,6 @@ function criarCardImovel(data) {
             }
         }
     }
-
-    console.log("IDs fora do loop:", ids);
 
     function deleteLancamento(id) {
         if (confirm('Tem certeza que deseja deletar este lançamento?')) {
@@ -202,6 +186,12 @@ function criarCardImovel(data) {
             .catch(error => {
                 alert('Erro ao deletar lançamento: ' + error.message);
             });
+
+            return true;
+        }
+
+        else {
+            return false;
         }
     }
 
@@ -233,7 +223,8 @@ function criarCardImovel(data) {
         });
 
         colInfoDiv.appendChild(actionIconsDiv);
-        colInfoDiv.appendChild(button2);
+        colInfoDiv.appendChild(editIcon);
+        colInfoDiv.appendChild(trashIcon);
         
         button.style.display = 'none';
     }
@@ -245,33 +236,30 @@ function criarCardImovel(data) {
     button.textContent = "Veja Mais";
     button.addEventListener('click', showMoreInfo);
     colInfoDiv.appendChild(button);
-    
-    // Criando o botão "Deletar"
-    var button2 = document.createElement("button");
-    button2.type = "button";
-    button2.classList.add("read_more_btn");
-    button2.textContent = "Deletar";
-    button2.addEventListener('click', function() {
-        var ide = id;
-        deleteLancamento(ide);
-        cardDiv.remove();
-    });
-    colInfoDiv.appendChild(button2);
 
     // Criando a div para os ícones de ação
     var actionIconsDiv = document.createElement("div");
     actionIconsDiv.classList.add("pt-4", "pl-3");
     colInfoDiv.appendChild(actionIconsDiv);
 
+    // Criando o ícone de edição
+    let editIcon = document.createElement('i');
+    editIcon.className = 'fas fa-edit';
+    editIcon.style.cursor = 'pointer';
+    editIcon.onclick = function() { window.location.href = `EditarImovel.html?id=${id}`; };
+    actionIconsDiv.appendChild(editIcon);
+
     // Criando o ícone de exclusão
-    var trashIcon = document.createElement("svg");
-    trashIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-    trashIcon.setAttribute("width", "20");
-    trashIcon.setAttribute("height", "20");
-    trashIcon.setAttribute("fill", "currentColor");
-    trashIcon.setAttribute("class", "bi bi-trash3");
-    trashIcon.setAttribute("viewBox", "0 0 16 16");
-    trashIcon.innerHTML = '<path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />';
+    var trashIcon = document.createElement("i");
+    trashIcon.className = 'fas fa-trash-alt';
+    trashIcon.style.cursor = 'pointer';
+    trashIcon.addEventListener('click', function() {
+        var ide = id;
+        deleted = deleteLancamento(ide);
+        if(deleted) {
+            cardDiv.remove();
+        }
+    });
     actionIconsDiv.appendChild(trashIcon);
 
     // Adicionando a div principal ao documento
