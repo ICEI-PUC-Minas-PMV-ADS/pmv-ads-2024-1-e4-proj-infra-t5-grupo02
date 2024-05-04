@@ -2,7 +2,10 @@
 {
     public enum TipoImovel
     {
+        Apartamento,
         Casa,
-        Apartamento
+        Studio,
+        Cobertura,
+        Kitnet
     }
 }
