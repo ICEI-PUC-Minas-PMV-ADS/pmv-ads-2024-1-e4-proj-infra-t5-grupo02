@@ -63,6 +63,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-02| Deve processar requisições do usuário em no máximo 2s |  BAIXA |
 |RNF-03| Sistema deve garantir acessibilidade consistente e sem falhas em sua interface, seja acesso via o navegador Chrome, ou acessado pelo edge. | MÉDIA|
 |RNF-04| Deve estar disponível para no máximo 100 usuários em acesso simultâneo | ALTA|
+|RNF-05| O sistema deve garantir segurança robusta, protegendo os dados do usuário através de autenticação e autorização adequadas, além de utilizar criptografia para comunicações sensíveis.| ALTA |
 
 
 ## Restrições
