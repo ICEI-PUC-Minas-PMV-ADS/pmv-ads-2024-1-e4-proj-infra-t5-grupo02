@@ -29,6 +29,34 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo0
   
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/95fc978f-b7d2-4034-8c5d-e6f5050385cc
 
+- ***CT-02: Adicionar Imóvel***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/3ea57513-42c3-43ac-ad27-a6ddef08ef1f
+
+- ***CT-03: Editar Imóvel***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/f412f8e1-43c9-42e3-bbdc-437348aa3530
+
+- ***CT-04: Remover Imóvel***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/0ab2eb8d-104a-4afa-b182-fff431f19abf
+
+- ***CT-05: Falha ao adicionar Imóvel***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/bec2a5ae-d941-4bd0-93fb-6c5372331466
+
+- ***CT-06: Falha ao editar Imóvel***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/a80a50ff-3b6d-44ec-9692-906524f306fe
+
+- ***CT-07: Cancelar remoção de um Imóvel***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/0f9ec8d0-4607-4461-bf19-ac3921a3420a
+
+- ***CT-08: Editar o status de um Imóvel***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/2eabcd42-df7f-41b2-853a-6ef93c7b7db9
+
 ### Microserviço 03
 
 - ***CT-01: Adicionar Lançamento***
