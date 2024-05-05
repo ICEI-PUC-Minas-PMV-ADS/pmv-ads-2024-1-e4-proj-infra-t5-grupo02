@@ -62,7 +62,7 @@ A equipe desenvolveu este Diagrama de Fluxo pensando em como será a iteração 
 
 ![adicionarFinanceiro](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/0416901b-91fe-495b-8243-1535591bb6d0)
 
-#### Acesso negado
+#### Acesso negado (erro página)
 
 ![acessonegado](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/85824864-b30f-4be1-9576-ecf7dcd7eacc)
 
