@@ -14,13 +14,13 @@ Cenários de testes utilizados na realização dos testes da aplicação EasyRen
 | **Caso de Teste**               | **CT-02: Adicionar Imóvel**|
 | Requisito Associado             | RF-01 - Sistema deve permitir o cadastro, edição e deletar imóveis, localização, características específicas, status de locação.|
 | Objetivo do Teste               | Usuário cadastrar um imóvel no sistema.|
-| Passos                          | - Estar logado na aplicação na página Imoveis. <br> - Clicar em Imóvel. <br> - Preencher os campos obrigatórios para cadastro do imóvel. <br> - Clicar no botão Enviar|
-| Critério de Êxito               | - O novo imóvel será adicionado com sucesso no banco de dados e será exibido na página Imoveis. |
+| Passos                          | - Estar logado na aplicação na página Imóveis. <br> - Clicar em Imóvel. <br> - Preencher os campos obrigatórios para cadastro do imóvel. <br> - Clicar no botão Enviar.|
+| Critério de Êxito               | - O novo imóvel será adicionado com sucesso no banco de dados e será exibido na página Imóveis. |
 |  	|  	|
 | **Caso de Teste**               | **CT-03: Editar Imóvel**|
 | Requisito Associado             | RF-01 - Sistema deve permitir o cadastro, edição e deletar imóveis, localização, características específicas, status de locação.|
 | Objetivo do Teste               | Usuário editar um imóvel no sistema.|
-| Passos                          | - Estar logado na aplicação na página Imoveis. <br> - Clicar no ícone de edição do imóvel desejado. <br> - Alterar os campos desejados para edição do imóvel. <br> - Clicar no botão Enviar|
+| Passos                          | - Estar logado na aplicação na página Imóveis. <br> - Clicar no ícone de edição do imóvel desejado. <br> - Alterar os campos desejados para edição do imóvel. <br> - Clicar no botão Enviar.|
 | Critério de Êxito               | - O imóvel será editado com sucesso no banco de dados e será exibido com as modificações na página Imóveis. |
 |  	|  	|
 | **Caso de Teste**               | **CT-04: Remover Imóvel**|
@@ -45,7 +45,7 @@ Cenários de testes utilizados na realização dos testes da aplicação EasyRen
 | Requisito Associado             | RF-01 - Sistema deve permitir o cadastro, edição e deletar imóveis, localização, características específicas, status de locação.|
 | Objetivo do Teste               | Usuário declinar a confirmação de remoção um imóvel no sistema.|
 | Passos                          | - Estar logado na aplicação na página Imóveis. <br> - Clicar no ícone de lixeira do imóvel desejado. <br> - Clicar no botão cancelar do alerta.|
-| Critério de Êxito               | - O imóvel não será removido do banco de dados e permanecerá de sendo exibido na página Imóveis. |
+| Critério de Êxito               | - O imóvel não será removido do banco de dados e permanecerá sendo exibido na página Imóveis. |
 |  	|  	|
 | **Caso de Teste**               | **CT-08: Editar o status de um Imóvel**|
 | Requisito Associado             | RF-02 - Sistema dever permitir a alteração do status da locação do imóvel: disponível, alugado, em manutenção.|
