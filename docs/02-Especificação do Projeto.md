@@ -42,7 +42,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-01| Sistema deve permitir o cadastro, edição e deletar imóveis, incluindo fotos, localização, características específicas, status de locação. | ALTA | 
+|RF-01| Sistema deve permitir o cadastro, edição e deletar imóveis, localização, características específicas, status de locação. | ALTA | 
 |RF-02| Sistema dever permitir a alteração do status da locação do imóvel: disponível, alugado, em manutenção| MÉDIA|
 |RF-03| Facilitar o gerenciamento de contratos de locação, incluindo dados dos locatários, prazos, valores e datas de pagamento | ALTA|
 |RF-04| Deve ser possível ter acesso a documentos digitalizados, tais como: contratos, termos de vistoria, e outros documentos relevantes a locação.   | MÉDIA |
