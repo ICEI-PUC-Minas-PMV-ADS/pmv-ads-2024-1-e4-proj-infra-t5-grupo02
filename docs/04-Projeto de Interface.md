@@ -44,7 +44,7 @@ A equipe desenvolveu este Diagrama de Fluxo pensando em como será a iteração 
 
 #### Cadastro de Inquilino
 
-![cadastrarInquilino](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/9e4bc13f-031a-4dd5-8cf3-9fbbee191cc5)
+![cadastrarInquilino](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/c7bbe556-6064-4d26-bef2-ceaa203c9a67)
 
 #### Usuários cadastrados
 
