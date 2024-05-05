@@ -7,7 +7,7 @@ function fetchLancamentoById(id) {
             return response.json();
         })
         .then(data => {
-            // console.log("Received data:", data); // Verifique os dados recebidos aqui
+            console.log("Received data:", data); // Verifique os dados recebidos aqui
             imovelTipo = document.getElementById('tipo')
             imovelTipo.value = `${data.tipoImovel}`
             imovelStatus = document.getElementById('status')
@@ -46,60 +46,63 @@ function submitLancamentoUpdate() {
         alert("ID do lançamento não encontrado!");
         return;
     }
+    const form = document.getElementById('formPost');
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
 
-    const lancamentoData = {
-        id: id,
-        tipoImovel: parseInt(document.getElementById('tipo').value, 10),
-        statusImovel: parseInt(document.getElementById('status').value, 10),
-        Endereco: document.getElementById('endereco').value,
-        Complemento: document.getElementById('complemento').value,
-        Cidade: document.getElementById('cidade').value,
-        Estado: document.getElementById('estado').value,
-        CEP: document.getElementById('cep').value,
-        QtdQuartos: parseInt(document.getElementById('quartos').value, 10),
-        QtdBanheiros: parseInt(document.getElementById('banheiros').value, 10),
-        QtdVagasGaragem: parseInt(document.getElementById('vagas').value, 10),
-        AreaTotal: parseFloat(document.getElementById('area').value, 10),
-        ValorAluguel: parseFloat(document.getElementById('valorAluguel').value, 10),
-        ValorCondominio: parseFloat(document.getElementById('valorCondo').value, 10),
-        DescricaoDetalhada: document.getElementById('descricao').value,
-    };
-    
-    console.log("Sending data:", JSON.stringify(lancamentoData));
-    
-    fetch(`https://localhost:7030/api/Imoveis/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(lancamentoData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Falha ao atualizar lançamento');
-        }
-        return response.text();  // Primeiro converta a resposta para texto
-    })
-    .then(text => {
-        try {
-            return JSON.parse(text);  // Tente analisar o texto como JSON
-        } catch (e) {
-            if (text) {
-                console.error("Failed to parse JSON:", text);
-                throw new Error("Resposta do servidor não é um JSON válido.");
-            }
-            return {};  // Se não houver texto, retorne um objeto vazio
-        }
-    })
-    .then(updateResponse => {
-        console.log("Updated data:", updateResponse);
-        alert('Lançamento atualizado com sucesso!');
-        window.location.href = './Financeiro.html';
-    })
-    .catch(error => {
-        console.error('Erro ao atualizar lançamento:', error);
-        alert('Erro ao atualizar lançamento: ' + error.message);
-    });
+            const lancamentoData = {
+                id: id,
+                tipoImovel: parseInt(document.getElementById('tipo').value, 10),
+                Status: parseInt(document.getElementById('status').value, 10),
+                Endereco: document.getElementById('endereco').value,
+                Complemento: document.getElementById('complemento').value,
+                Cidade: document.getElementById('cidade').value,
+                Estado: document.getElementById('estado').value,
+                CEP: document.getElementById('cep').value,
+                QtdQuartos: parseInt(document.getElementById('quartos').value, 10),
+                QtdBanheiros: parseInt(document.getElementById('banheiros').value, 10),
+                QtdVagasGaragem: parseInt(document.getElementById('vagas').value, 10),
+                AreaTotal: parseFloat(document.getElementById('area').value, 10),
+                ValorAluguel: parseFloat(document.getElementById('valorAluguel').value, 10),
+                ValorCondominio: parseFloat(document.getElementById('valorCondo').value, 10),
+                DescricaoDetalhada: document.getElementById('descricao').value,
+            };
+            
+            fetch(`https://localhost:7030/api/Imoveis/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(lancamentoData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Falha ao atualizar lançamento');
+                }
+                return response.text();  // Primeiro converta a resposta para texto
+            })
+            .then(text => {
+                try {
+                    return JSON.parse(text);  // Tente analisar o texto como JSON
+                } catch (e) {
+                    if (text) {
+                        console.error("Failed to parse JSON:", text);
+                        throw new Error("Resposta do servidor não é um JSON válido.");
+                    }
+                    return {};  // Se não houver texto, retorne um objeto vazio
+                }
+            })
+            .then(updateResponse => {
+                alert('Lançamento atualizado com sucesso!');
+                window.location.href = './Imoveis.html';
+            })
+            .catch(error => {
+                console.error('Erro ao atualizar lançamento:', error);
+                alert('Erro ao atualizar lançamento: ' + error.message);
+            });
+        });
+    }
     
 }
 

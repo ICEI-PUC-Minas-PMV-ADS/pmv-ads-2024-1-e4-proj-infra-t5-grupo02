@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const formData = {
                 tipoImovel: parseInt(document.getElementById('tipo').value, 10),
-                statusImovel: parseInt(document.getElementById('status').value, 10),
+                Status: parseInt(document.getElementById('status').value, 10),
                 Endereco: document.getElementById('endereco').value,
                 Complemento: document.getElementById('complemento').value,
                 Cidade: document.getElementById('cidade').value,
@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Lançamento criado:', data);
                 alert('Lançamento adicionado com sucesso!');
                 form.reset();
+                window.location.href = './Imoveis.html';
                 if (document.getElementById('lancamentosTable')) {
                     fetchLancamentos();
                 }
