@@ -19,11 +19,13 @@
         <div class="sidebar">
             <div class="logo"> </div>
             <nav class="nav-links">
+                <h4 style="padding-left: 75px;color: black;">Olá, <span id="username"></span></h4>
                 <ul>
                     <li><a href="User.html">Home</a></li>
                     <li><a href="Imoveis.html">Imóveis</a></li>
                     <li><a href="Financeiro.html" class="active-link">Financeiro</a></li>
                     <li><a href="Inquilino.html">Inquilinos</a></li>
+                    <li><a href="Usuarios.html">Usuários</a></li>
                 </ul>
                 <a href="Home.html" id="Sair">Sair</a>
             </nav>
@@ -60,8 +62,16 @@
                 <table id="formtable">
                     <tr>
                         <td>
+                            <label for="tipo"><b>Inquilino</b></label>
+                            <select id="inquilino" name="inquilino">
+                                <option value="">Selecione</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <label for="tipo"><b>Lançamento</b></label>
-                            <select id="tipo" name="tipo">
+                            <select id="tipo" name="tipo" required>
                                 <option value="">Selecione</option>
                                 <option value="1">Receita</option>
                                 <option value="2">Despesa</option>
@@ -69,7 +79,7 @@
                         </td>
                         <td>
                             <label for="forma"><b>Forma</b></label>
-                            <select id="forma" name="forma">
+                            <select id="forma" name="forma" required>
                                 <option value="">Selecione</option>
                                 <option value="1">Dinheiro</option>
                                 <option value="2">Cartão</option>
@@ -78,7 +88,7 @@
                         </td>
                         <td>
                             <label for="classificacao"><b>Classificação</b></label>
-                            <select id="classificacao" name="classificacao">
+                            <select id="classificacao" name="classificacao" required>
                                 <option value="">Selecione</option>
                                 <option value="1">Aluguel</option>
                                 <option value="2">IPTU</option>
@@ -89,11 +99,11 @@
                     <tr>
                         <td>
                             <label for="data"><b>Data Vencimento</b></label>
-                            <input type="date" id="data" name="data">
+                            <input type="date" id="data" name="data" required>
                         </td>
                         <td>
                             <label for="status"><b>Status</b></label>
-                            <select id="status" name="status">
+                            <select id="status" name="status" required>
                                 <option value="">Selecione</option>
                                 <option value="1">Pendente</option>
                                 <option value="2">Pago</option>
@@ -102,27 +112,51 @@
                         </td>
                         <td>
                             <label for="valor"><b>Valor</b></label>
-                            <input type="number" id="valor" name="valor" placeholder="R$ 0,00">
+                            <input type="number" id="valor" name="valor" placeholder="R$ 0,00" required step="any" pattern="^\d+(,\d{1,2})?$">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3">
                             <label for="descricao"><b>Observações:</b></label>
-                            <textarea id="descricao" name="descricao" rows="4"></textarea>
+                            <textarea id="descricao" name="descricao" rows="4" required></textarea>
                         </td>
                     </tr>
                 </table>
 
                 <div style="text-align: left; margin-left: 30px; margin-top: 20px;">
                     <button type="button" id="back" onclick="location.href='./Financeiro.html';">Voltar</button>
-                    <button type="submit"  onclick="location.href='./Financeiro.html';">Enviar</button>
+                    <button type="submit" id="enviarBtn">Enviar</button>
                 </div>
             </form>
 
         </div>
     </div>
 
+    <script src="controleacesso.js"></script>
     <script src="financeiro.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const username = localStorage.getItem('username');
+            document.getElementById('username').textContent = username;
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('https://localhost:7294/api/Inquilinos/all')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('inquilino');
+                    data.forEach(inquilino => {
+                        const option = document.createElement('option');
+                        option.value = inquilino.id;
+                        option.textContent = inquilino.nome;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar inquilinos:', error));
+        });
+    </script>
 
 </body>
 <footer class="footer">
@@ -130,4 +164,5 @@
         <p>&copy; 2024 Easy Rent. Todos os direitos reservados.</p>
     </div>
 </footer>
+
 </html>

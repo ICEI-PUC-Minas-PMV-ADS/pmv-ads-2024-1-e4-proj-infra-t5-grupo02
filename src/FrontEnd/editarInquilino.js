@@ -1,4 +1,3 @@
-
 function setSelectValue(selectElementId, value) {
     var selectElement = document.getElementById(selectElementId);
     if (!selectElement) {
@@ -29,7 +28,7 @@ function fetchInquilinoById(id) {
             return response.json();
         })
         .then(data => {
-            console.log("Received data:", data); // Confirmação dos dados recebidos
+            console.log("Received data:", data); 
             document.getElementById('nome').value = data.nome || '';
             document.getElementById('endereco').value = data.endereco || '';
             document.getElementById('complemento').value = data.complemento || '';
@@ -44,8 +43,6 @@ function fetchInquilinoById(id) {
         .catch(error => console.error('Erro ao buscar detalhes do Inquilino:', error));
 }
 
-
-// Função para enviar as alterações de um lançamento
 function submitInquilinoUpdate() {
     const id = new URLSearchParams(window.location.search).get('id');
     if (!id) {
@@ -54,7 +51,7 @@ function submitInquilinoUpdate() {
     }
 
     const inquilinoData = {
-        id: parseInt(id), // Garanta que o ID esteja sendo passado como um número, se necessário
+        id: parseInt(id), 
         nome: document.getElementById('nome').value.trim(),
         endereco: document.getElementById('endereco').value.trim(),
         complemento: document.getElementById('complemento').value.trim(),
@@ -80,17 +77,17 @@ function submitInquilinoUpdate() {
         if (!response.ok) {
             throw new Error('Falha ao atualizar Inquilino');
         }
-        return response.text();  // Primeiro converta a resposta para texto
+        return response.text();
     })
     .then(text => {
         try {
-            return JSON.parse(text);  // Tente analisar o texto como JSON
+            return JSON.parse(text); 
         } catch (e) {
             if (text) {
                 console.error("Failed to parse JSON:", text);
                 throw new Error("Resposta do servidor não é um JSON válido.");
             }
-            return {};  // Se não houver texto, retorne um objeto vazio
+            return {}; 
         }
     })
     .then(updateResponse => {
@@ -105,11 +102,11 @@ function submitInquilinoUpdate() {
     
 }
 
-// Adicionando listeners para o carregamento do documento e para o botão de salvar
+
 document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
-    const saveButton = document.getElementById('saveButton'); // Ajuste o ID conforme necessário
+    const saveButton = document.getElementById('saveButton');
 
     if (id) {
         fetchInquilinoById(id);

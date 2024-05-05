@@ -7,9 +7,7 @@ namespace MS03.Models
         public AppDbContext(DbContextOptions options) : base(options) 
         { 
         }
-         
-        public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Lancamento> Lancamentos { get; set; }
-        
+
     }
 }

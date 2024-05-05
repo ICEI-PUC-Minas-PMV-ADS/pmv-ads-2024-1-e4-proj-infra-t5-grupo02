@@ -19,20 +19,20 @@
         <div class="sidebar">
             <div class="logo"> </div>
             <nav class="nav-links">
+                <h4 style="padding-left: 75px;color: black;">Olá, <span id="username"></span></h4>
                 <ul>
                     <li><a href="User.html">Home</a></li>
                     <li><a href="Imoveis.html">Imóveis</a></li>
                     <li><a href="Financeiro.html">Financeiro</a></li>
-                    <li><a href="">Relatórios</a></li>
                     <li><a href="Inquilino.html" class="active-link">Inquilinos</a></li>
-                    <li><a href="mensagens.html">Mensagens</a></li>
+                    <li><a href="Usuarios.html">Usuários</a></li>
                 </ul>
                 <a href="Home.html" id="Sair">Sair</a>
             </nav>
             <div class="orange-square" style="border-radius: 12px;">
                 <ul>
                     <li>
-                        <a href="#" style="color:#553300; text-decoration: none;font-size: medium;">Contato</a>
+                        <a href="#" style="color:#553300; text-decoration: none;font-size: medium;"><b>Contato</b></a>
                     </li>
                     <a href="http://www.instagram.com"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                             fill="#553300" class="bi bi-instagram" viewBox="0 0 16 16">
@@ -68,8 +68,14 @@
         </div>
 
         <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
+
+            <div style="padding-left: 40px;padding-top: 20px; margin-right: 50px;">
+                <input type="text" id="searchInput" placeholder="Pesquisar lançamentos..."
+                    style="width: 25%; padding: 10px; margin-bottom: 10px;align-items: left;">
+                <img src="./src/images/search.png" style="width: 4vh;">
+            </div>
+
             <form id="inquilinoFormulario">
-                <input type="hidden" id="id" name="id" value="">
                 <table id="inquilinosTable" class="table">
                     <thead>
                         <tr>
@@ -94,7 +100,30 @@
         </div>
 </div>
 
+<script src="controleacesso.js"></script>
 <script src="Inquilino.js" defer></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const username = localStorage.getItem('username');
+        document.getElementById('username').textContent = username;
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const username = localStorage.getItem('username');
+        document.getElementById('username').textContent = username;
+
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            var searchValue = this.value.toLowerCase();
+            var tableRows = document.querySelectorAll('#inquilinosTable tbody tr');
+
+            tableRows.forEach(function (row) {
+                var rowText = row.textContent.toLowerCase();
+                row.style.display = rowText.includes(searchValue) ? '' : 'none';
+            });
+        });
+    });
+</script>
 
 </body>
 <footer class="footer">

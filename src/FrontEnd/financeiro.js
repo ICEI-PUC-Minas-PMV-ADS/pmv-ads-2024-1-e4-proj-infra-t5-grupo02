@@ -1,4 +1,19 @@
+let inquilinosMap = {};
+
+fetch('https://localhost:7294/api/Inquilinos/all')
+.then(response => response.json())
+.then(data => {
+    data.forEach(inquilino => {
+        inquilinosMap[inquilino.id] = inquilino.nome;
+    });
+    fetchLancamentos();
+})
+.catch(error => console.error('Erro ao carregar inquilinos:', error));
+
 function fetchLancamentos() {
+    const username = localStorage.getItem('username'); // Obtenha o nome de usuário logado
+    const userProfile = localStorage.getItem('profile'); // Obtenha o perfil do usuário
+
     const table = document.getElementById('lancamentosTable');
     if (table) {
         fetch('https://localhost:7157/api/Lancamentos/all')
@@ -8,33 +23,39 @@ function fetchLancamentos() {
                 tbody.innerHTML = '';
 
                 data.forEach(lancamento => {
+                    if (userProfile === 'Inquilino' && inquilinosMap[lancamento.inquilino] !== username) {
+                        return; // Pula este lançamento, pois não pertence ao inquilino logado
+                    }
+                    
                     let row = tbody.insertRow();
                     let dataFormatada = new Date(lancamento.data).toLocaleDateString('pt-BR');
                     let valorFormatado = parseFloat(lancamento.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
                     let status = lancamento.status === 'aPagar' ? 'A Pagar' : lancamento.status === 'pago' ? 'Pago' : lancamento.status === 'pendente' ? 'Pendente' : lancamento.status;
 
-                    row.insertCell(0).textContent = dataFormatada;
-                    row.insertCell(1).textContent = lancamento.tipo;
-                    row.insertCell(2).textContent = lancamento.forma;
-                    row.insertCell(3).textContent = lancamento.classificacao;
-                    row.insertCell(4).textContent = status;
-                    row.insertCell(5).textContent = valorFormatado;
-                    row.insertCell(6).textContent = lancamento.descricao;
+                    let nomeInquilino = inquilinosMap[lancamento.inquilino] || 'Sem inquilino'; // Usando o mapa para encontrar o nome
 
-                    // Botão de edição
+                    row.insertCell(0).textContent = nomeInquilino;
+                    row.insertCell(1).textContent = dataFormatada;
+                    row.insertCell(2).textContent = lancamento.tipo;
+                    row.insertCell(3).textContent = lancamento.forma;
+                    row.insertCell(4).textContent = lancamento.classificacao;
+                    row.insertCell(5).textContent = status;
+                    row.insertCell(6).textContent = valorFormatado;
+                    row.insertCell(7).textContent = lancamento.descricao;
+
+                    // Botões de edição e exclusão mantidos por simplicidade
                     let editIcon = document.createElement('i');
                     editIcon.className = 'fas fa-edit';
                     editIcon.style.cursor = 'pointer';
                     editIcon.onclick = function() { window.location.href = `EditarLancamento.html?id=${lancamento.id}`; };
-                    let cellEdit = row.insertCell(7);
+                    let cellEdit = row.insertCell(8);
                     cellEdit.appendChild(editIcon);
 
-                    // Botão de exclusão
                     let deleteIcon = document.createElement('i');
                     deleteIcon.className = 'fas fa-trash-alt';
                     deleteIcon.style.cursor = 'pointer';
                     deleteIcon.onclick = function() { deleteLancamento(lancamento.id); };
-                    let cellDelete = row.insertCell(8);
+                    let cellDelete = row.insertCell(9);
                     cellDelete.appendChild(deleteIcon);
                 });
             })
@@ -72,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
 
             const formData = {
+                inquilino: document.getElementById('inquilino').value,
                 tipo: parseInt(document.getElementById('tipo').value, 10),
                 forma: parseInt(document.getElementById('forma').value, 10),
                 classificacao: parseInt(document.getElementById('classificacao').value, 10),
@@ -79,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 status: parseInt(document.getElementById('status').value, 10),
                 valor: parseFloat(document.getElementById('valor').value) || 0,
                 descricao: document.getElementById('descricao').value,
-                usuarioId: 13 // Ajustar conforme necessário para integrar o ID do usuário de forma dinâmica
             };
 
             fetch('https://localhost:7157/api/Lancamentos', {
@@ -100,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 console.log('Lançamento criado:', data);
                 alert('Lançamento adicionado com sucesso!');
+                window.location.href = './Financeiro.html';
                 form.reset();
                 if (document.getElementById('lancamentosTable')) {
                     fetchLancamentos();
@@ -112,3 +134,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+

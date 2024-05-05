@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MS03.Models;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace MS03.Controllers
@@ -34,6 +36,13 @@ namespace MS03.Controllers
             {
                 return NotFound();
             }
+
+            // Verifica se o usuário é inquilino e se o lançamento pertence a ele
+            //if (User.IsInRole("Inquilino") && lancamento.UsuarioId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value))
+            //{
+            //    return Unauthorized("Acesso não permitido.");
+            //}
+
             return Ok(lancamento);
         }
 
@@ -114,7 +123,6 @@ namespace MS03.Controllers
             return NoContent(); // Pode ser substituído por Ok("Lançamento deletado com sucesso.") para maior clareza.
         }
 
-        // Helper method to check if a Lancamento exists
         private bool LancamentoExists(int id)
         {
             return _context.Lancamentos.Any(e => e.Id == id);
