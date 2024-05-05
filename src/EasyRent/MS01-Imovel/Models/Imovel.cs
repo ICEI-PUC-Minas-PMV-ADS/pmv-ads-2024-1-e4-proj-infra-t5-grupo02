@@ -17,11 +17,10 @@ namespace MS01_Imovel.Models
         public int QtdBanheiros { get; set; }
         public int QtdVagasGaragem { get; set; }
         public float AreaTotal { get; set; }
-        public double ValorAluguel { get; set; }
-        public double ValorCondominio { get; set; }
+        public float ValorAluguel { get; set; }
+        public float ValorCondominio { get; set; }
         public string DescricaoDetalhada { get; set; } = null!;
         public Status Status { get; set; }
         public TipoImovel TipoImovel { get; set; }
-        public byte[] Imagem { get; set; } = new byte[] { };
     }
 }
