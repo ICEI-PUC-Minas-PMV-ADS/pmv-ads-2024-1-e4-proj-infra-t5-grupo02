@@ -14,21 +14,24 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase, allowIntegerValues: true)));
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("MyCorsPolicy",
         policy => policy
-        .WithOrigins("http://127.0.0.1:5501")
+        .WithOrigins("http://127.0.0.1:5500", "http://127.0.0.1:5501", "https://localhost:7194")  // Adicione mais URLs conforme necessário
         .AllowAnyHeader()
-        .AllowAnyMethod());
+        .AllowAnyMethod()
+        .AllowCredentials()); // Adicione isto se precisar de suporte a credenciais
 });
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-    .AddJwtBearer( options =>
+    .AddJwtBearer(options =>
     {
         options.SaveToken = true;
         options.RequireHttpsMetadata = false;
@@ -66,4 +69,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run(); 
+app.Run();
