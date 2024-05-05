@@ -102,15 +102,11 @@ No contexto do gerenciamento de projetos, a presença e a contribuição das pes
 
 Assegurar uma gestão eficiente do projeto é imprescindível para alcançar resultados positivos. A equipe ideal é composta por membros comprometidos com objetivos compartilhados, trabalhando em conjunto com foco e colaboração para atingir os resultados desejados. Descrição da Equipe: 
 
-1, Desenvolvedor Pleno: Leonardo Buck 
+ Desenvolvedores Pleno: Leonardo Buck, Leonardo Lima, Thiago Gomes da Silva 
 
-2, Desenvolvedor Pleno: Leonardo Lima 
+ Desenvolvedor Sênior: Joe Monteiro de Sousa, Thaís Cristine Santana Oliveira 
 
-3, Desenvolvedor Sênior: Joe Monteiro de Sousa 
-
-4, Analista de Teste: Thiago Gomes da Silva 
-
-5, Gerente de Projeto: Thaís Cristine Santana Oliveira 
+ Gerente de Projeto: Thaís Cristine Santana Oliveira 
 
  
 
