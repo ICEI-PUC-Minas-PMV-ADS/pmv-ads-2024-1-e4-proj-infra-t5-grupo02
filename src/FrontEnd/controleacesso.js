@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentPage = window.location.pathname.split('/').pop();
 
     if (!allowedPages[userProfile].includes(currentPage)) {
-        window.location.href = './Errorpage.html'; // Redireciona para uma página de erro ou homepage.
+        window.location.href = './Errorpage.html';
     }
 });
 

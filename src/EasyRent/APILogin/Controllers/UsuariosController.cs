@@ -11,7 +11,7 @@ using System.Text;
 
 namespace APILogin.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
@@ -32,7 +32,6 @@ namespace APILogin.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> Create(UsuarioDto model)
         {
             Usuario novoUsuario = new()
@@ -92,6 +91,7 @@ namespace APILogin.Controllers
             return NoContent();
 
         }
+
         [AllowAnonymous]
         [HttpPost("authenticate")]
         public async Task<ActionResult> Authenticate(AuthenticateDto model)
@@ -104,7 +104,6 @@ namespace APILogin.Controllers
                 return Unauthorized("Usuário não encontrado.");
             }
 
-            // Verifica a senha fora da expressão LINQ
             bool validPassword = BCrypt.Net.BCrypt.Verify(model.Senha, usuario.Senha);
             if (!validPassword)
             {
@@ -116,7 +115,8 @@ namespace APILogin.Controllers
             {
                 jwtToken = token,
                 profile = usuario.Perfil,
-                name = usuario.Nome
+                name = usuario.Nome,
+                id = usuario.Id  // Retorna o ID para ser salvo no localStorage
             });
         }
 
@@ -131,7 +131,8 @@ namespace APILogin.Controllers
         new Claim(JwtRegisteredClaimNames.Sub, usuario.Email),
         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         new Claim(ClaimTypes.Name, usuario.Nome),
-        new Claim(ClaimTypes.Role, usuario.Perfil.ToString()) // Assegure-se de converter o enum para string
+        new Claim(ClaimTypes.Role, usuario.Perfil.ToString()), // Assegure-se de converter o enum para string
+        new Claim("id", usuario.Id.ToString()) // Adiciona o ID do usuário como uma claim
     };
 
             var claimsIdentity = new ClaimsIdentity(claims);

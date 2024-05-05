@@ -19,8 +19,8 @@
         <div class="sidebar">
             <div class="logo"></div>
             <nav class="nav-links">
+                <h4 style="padding-left: 75px;color: black;">Olá, <span id="username" ></span></h4>
                 <ul>
-                    <h4 style="padding-left: 75px;color: black;">Olá, <span id="username" ></span></h4>
                     <li><a href="User.html">Home</a></li>
                     <li><a href="Imoveis.html">Imóveis</a></li>
                     <li><a href="Financeiro.html" class="active-link">Financeiro</a></li>
@@ -52,24 +52,26 @@
                 </ul>
             </div>
         </div>
-
+    
         <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;margin-bottom: 50px;">
             <div class="row">
                 <div class="col-9">
                     <h1 style="color: #553300;">Lançamentos Financeiros</h1>
                 </div>
-                <div class="col-3"
-                    style="text-align: right; font-size: 16px; padding-right: 30px; font-weight: bolder; color: #553300;">
-                    <a href="LancamentoFinan.html" style="color: #553300;">Lançamento <button class="btn"
-                            id="addImob">+</button></a>
+                <div class="col-3" style="text-align: right; font-size: 16px; padding-right: 30px; font-weight: bolder; color: #553300;">
+                    <a href="LancamentoFinan.html" style="color: #553300;">Lançamento <button class="btn" id="addImob">+</button></a>
                 </div>
             </div>
-            <hr>
+            <hr>        
         </div>
-
+    
         <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
+            <div style="padding-left: 40px;padding-top: 20px; margin-right: 50px;">
+                <input type="text" id="searchInput" placeholder="Pesquisar lançamentos..." style="width: 25%; padding: 10px; margin-bottom: 10px;align-items: left;">
+                <img src="./src/images/search.png" style="width: 4vh;">
+            </div>
+
             <form id="meuFormulario">
-                <input type="hidden" id="id" name="id" value="">
                 <table id="lancamentosTable" class="table">
                     <thead>
                         <tr>
@@ -90,24 +92,37 @@
                 </table>
             </form>
         </div>
-</div>
+    
+        <script src="controleacesso.js"></script>
+        <script src="financeiro.js" defer></script>
+      
+      
+      <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const username = localStorage.getItem('username');
+                document.getElementById('username').textContent = username;
+                
+                document.getElementById('searchInput').addEventListener('keyup', function() {
+                    var searchValue = this.value.toLowerCase();
+                    var tableRows = document.querySelectorAll('#lancamentosTable tbody tr');
+    
+                    tableRows.forEach(function(row) {
+                        var rowText = row.textContent.toLowerCase();
+                        row.style.display = rowText.includes(searchValue) ? '' : 'none';
+                    });
+                });
+            });
+        </script>
 
-<script src="controleacesso.js"></script>
-<script src="financeiro.js" defer></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const username = localStorage.getItem('username');
-      document.getElementById('username').textContent = username;
-    });
-  </script>
+    
+</script>
 
 
-
-</body>
-<footer class="footer">
-    <div>
-        <p>&copy; 2024 Easy Rent. Todos os direitos reservados.</p>
-    </div>
-</footer>
-
-</html>
+    </body>
+    <footer class="footer">
+        <div>
+            <p>&copy; 2024 Easy Rent. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    </html>

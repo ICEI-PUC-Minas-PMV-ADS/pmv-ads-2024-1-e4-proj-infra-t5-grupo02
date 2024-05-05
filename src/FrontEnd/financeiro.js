@@ -6,11 +6,14 @@ fetch('https://localhost:7294/api/Inquilinos/all')
     data.forEach(inquilino => {
         inquilinosMap[inquilino.id] = inquilino.nome;
     });
-    fetchLancamentos(); // Agora, chamamos fetchLancamentos depois de ter os inquilinos
+    fetchLancamentos();
 })
 .catch(error => console.error('Erro ao carregar inquilinos:', error));
 
 function fetchLancamentos() {
+    const username = localStorage.getItem('username'); // Obtenha o nome de usuário logado
+    const userProfile = localStorage.getItem('profile'); // Obtenha o perfil do usuário
+
     const table = document.getElementById('lancamentosTable');
     if (table) {
         fetch('https://localhost:7157/api/Lancamentos/all')
@@ -20,6 +23,10 @@ function fetchLancamentos() {
                 tbody.innerHTML = '';
 
                 data.forEach(lancamento => {
+                    if (userProfile === 'Inquilino' && inquilinosMap[lancamento.inquilino] !== username) {
+                        return; // Pula este lançamento, pois não pertence ao inquilino logado
+                    }
+                    
                     let row = tbody.insertRow();
                     let dataFormatada = new Date(lancamento.data).toLocaleDateString('pt-BR');
                     let valorFormatado = parseFloat(lancamento.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -36,7 +43,7 @@ function fetchLancamentos() {
                     row.insertCell(6).textContent = valorFormatado;
                     row.insertCell(7).textContent = lancamento.descricao;
 
-                    // Botão de edição
+                    // Botões de edição e exclusão mantidos por simplicidade
                     let editIcon = document.createElement('i');
                     editIcon.className = 'fas fa-edit';
                     editIcon.style.cursor = 'pointer';
@@ -44,7 +51,6 @@ function fetchLancamentos() {
                     let cellEdit = row.insertCell(8);
                     cellEdit.appendChild(editIcon);
 
-                    // Botão de exclusão
                     let deleteIcon = document.createElement('i');
                     deleteIcon.className = 'fas fa-trash-alt';
                     deleteIcon.style.cursor = 'pointer';
@@ -95,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 status: parseInt(document.getElementById('status').value, 10),
                 valor: parseFloat(document.getElementById('valor').value) || 0,
                 descricao: document.getElementById('descricao').value,
-                usuarioId: 13 // Ajustar conforme necessário para integrar o ID do usuário de forma dinâmica
             };
 
             fetch('https://localhost:7157/api/Lancamentos', {
@@ -116,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 console.log('Lançamento criado:', data);
                 alert('Lançamento adicionado com sucesso!');
+                window.location.href = './Financeiro.html';
                 form.reset();
                 if (document.getElementById('lancamentosTable')) {
                     fetchLancamentos();
