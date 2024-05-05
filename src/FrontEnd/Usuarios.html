@@ -19,8 +19,8 @@
         <div class="sidebar">
             <div class="logo"></div>
             <nav class="nav-links">
+                <h4 style="padding-left: 75px;color: black;">Olá, <span id="username"></span></h4>
                 <ul>
-                    <h4 style="padding-left: 75px;color: black;">Olá, <span id="username" ></span></h4>
                     <li><a href="User.html">Home</a></li>
                     <li><a href="Imoveis.html">Imóveis</a></li>
                     <li><a href="Financeiro.html">Financeiro</a></li>
@@ -68,19 +68,21 @@
         </div>
 
         <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
-            <form id="meuFormulario">
+
+            <div style="padding-left: 40px;padding-top: 20px; margin-right: 50px;">
+                <input type="text" id="searchInput" placeholder="Pesquisar lançamentos..." style="width: 25%; padding: 10px; margin-bottom: 10px;align-items: left;">
+                <img src="./src/images/search.png" style="width: 4vh;">
+            </div>
+
+            <form id="userFormulario">
                 <input type="hidden" id="id" name="id" value="">
-                <table id="lancamentosTable" class="table">
+                <table id="usuariosTable" class="table">
                     <thead>
                         <tr>
-                            <th>Data</th>
-                            <th>Tipo</th>
-                            <th>Forma</th>
-                            <th>Classificação</th>
-                            <th>Status</th>
-                            <th>Valor</th>
-                            <th>Descrição</th>
-                            <th colspan="2">Ações</th>
+                            <th>Perfil</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Ação</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -92,13 +94,33 @@
 </div>
 
 <script src="controleacesso.js"></script>
-<script src="financeiro.js" defer></script>
+<script src="usuarios.js" defer></script>
+
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
       const username = localStorage.getItem('username');
       document.getElementById('username').textContent = username;
     });
   </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const username = localStorage.getItem('username');
+        document.getElementById('username').textContent = username;
+        
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            var searchValue = this.value.toLowerCase();
+            var tableRows = document.querySelectorAll('#usuariosTable tbody tr');
+
+            tableRows.forEach(function(row) {
+                var rowText = row.textContent.toLowerCase();
+                row.style.display = rowText.includes(searchValue) ? '' : 'none';
+            });
+        });
+    });
+</script>
+
 </body>
 <footer class="footer">
     <div>

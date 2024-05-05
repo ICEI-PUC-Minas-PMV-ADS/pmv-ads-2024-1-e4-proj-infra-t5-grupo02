@@ -129,13 +129,14 @@ function fazerLogin() {
     .then(data => {
         if (data.jwtToken) {
             const decodedToken = parseJwt(data.jwtToken);
-            if (decodedToken && decodedToken.role) {
+            if (decodedToken && decodedToken.role && decodedToken.id) {
                 localStorage.setItem('token', data.jwtToken);
                 localStorage.setItem('profile', decodedToken.role);
-                localStorage.setItem('username', data.name);
+                localStorage.setItem('username', decodedToken.name);
+                localStorage.setItem('Id', decodedToken.id);  // Certifique-se de que o nome 'userId' é consistente em todo o código
                 window.location.href = './User.html';
             } else {
-                alert('Autenticação falhou. Informações de perfil não encontradas no token.');
+                alert('Autenticação falhou. Informações de perfil ou ID não encontradas no token.');
             }
         } else {
             alert('Autenticação falhou. Verifique suas credenciais.');

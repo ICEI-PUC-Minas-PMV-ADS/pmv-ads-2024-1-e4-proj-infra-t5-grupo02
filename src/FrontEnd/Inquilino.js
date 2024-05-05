@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(data => {
                 alert('Inquilino adicionado com sucesso!');
+                window.location.href = './Inquilino.html';
                 form.reset();
                 fetchInquilinos();
             })

@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 console.log('Usuário criado:', data);
                 alert('Usuário adicionado com sucesso!');
+                window.location.href = './Usuarios.html';
                 form.reset();
             })
             .catch(error => {
