@@ -44,7 +44,7 @@ border-top-right-radius: 20px;
 border-bottom-right-radius: 20px;
 padding-top: 10px;
 background-image: url('../src/images/easyrent\(1\).jpg');
-background-size: 85%;
+background-size: 65%;
 background-repeat: no-repeat;
 background-position: center;
 }
@@ -326,14 +326,14 @@ background-position: center;
 #tag3{
   height: 130px;
   width: 500px;
-  margin-top: 55px;
+  margin-top: 10px;
   position: relative;
 }
 #tagText3{
   position: absolute; 
   top: 0; left: 0; margin-top: 0;
   padding-left: 130px;
-  padding-top:90px;
+  padding-top:50px;
   text-align: center;
   font-size: large;
 }
@@ -347,7 +347,7 @@ background-position: center;
 #video {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
   width: 100%;
-  max-width: 1100px; 
+  max-width: 525px; 
   height: auto;
   border-radius: 17px;
   display: block; 
@@ -491,9 +491,10 @@ button:hover {
 .outer-rectangle {
     border-radius: 17px;
     width: 900px;
-    height: 750px;
+    height: 100%;
+    margin: 100px;
     background-color: orange;
-    position: fixed;
+    position:absolute;
   }
   .inner-rectangle {
     border-radius: 17px;
