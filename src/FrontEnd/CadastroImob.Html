@@ -23,8 +23,7 @@
                 <li><a href="User.html">Home</a></li>
                 <li><a href="Imoveis.html" class="active-link">Imóveis</a></li>
                 <li><a href="Financeiro.html">Financeiro</a></li>
-                <li><a href="Inquilino.html">Inquilinos</a></li>
-                <li><a href="Usuarios.html">Usuários</a></li>                
+                <li><a href="Inquilino.html">Inquilinos</a></li>              
             </ul>
             <a href="Home.html" id="Sair">Sair</a>
         </nav>
@@ -166,6 +165,14 @@
     </div>
 
     <script src="imovel.js" defer></script>
+    <script src="controleacesso.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const username = localStorage.getItem('username');
+        document.getElementById('username').textContent = username;
+      });
+    </script>
+    
 
 </body>
 <footer class="footer">

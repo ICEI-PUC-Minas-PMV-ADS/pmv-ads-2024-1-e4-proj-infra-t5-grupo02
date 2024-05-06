@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const userProfile = localStorage.getItem('profile');
     const allowedPages = {
         'Administrador': ['User.html', 'Imoveis.html', 'Financeiro.html', 'Inquilino.html', 'CadastroUsuario.html', 'Usuarios.html', 'CadastroUsuario.html'],
-        'Locador': ['User.html', 'Imoveis.html', 'Financeiro.html', 'LancamentoFinan.html', 'EditarLancamento.html', 'Inquilino.html', 'CadastroInquilino.html', 'EditarInquilino.html'],
+        'Locador': ['User.html', 'Imoveis.html', 'Financeiro.html', 'LancamentoFinan.html', 'EditarLancamento.html', 'Inquilino.html', 'CadastroInquilino.html', 'EditarInquilino.html', 'CadastroImob.html'],
         'Inquilino': ['User.html', 'Financeiro.html']
     };
 
