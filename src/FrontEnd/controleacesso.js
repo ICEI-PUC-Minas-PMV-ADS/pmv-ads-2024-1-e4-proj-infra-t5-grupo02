@@ -34,6 +34,11 @@ function removeButtons() {
     if (inquilinoButton && userProfile === 'Administrador') {
         inquilinoButton.parentNode.remove();
     }
+
+    const actionsButton = document.querySelector('Actions');
+    if (actionsButton && userProfile === 'Administrador') {
+        actionsButton.parentNode.remove();
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {

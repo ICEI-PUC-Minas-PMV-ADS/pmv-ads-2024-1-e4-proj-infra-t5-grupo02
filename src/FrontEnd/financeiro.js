@@ -19,12 +19,15 @@ function fetchLancamentos() {
         fetch('https://localhost:7157/api/Lancamentos/all')
             .then(response => response.json())
             .then(data => {
+
+                data.sort((a, b) => new Date(b.data) - new Date(a.data));
+
                 const tbody = table.getElementsByTagName('tbody')[0];
                 tbody.innerHTML = '';
 
                 data.forEach(lancamento => {
                     if (userProfile === 'Inquilino' && inquilinosMap[lancamento.inquilino] !== username) {
-                        return; // Pula este lançamento, pois não pertence ao inquilino logado
+                        return;
                     }
                     
                     let row = tbody.insertRow();
@@ -32,7 +35,7 @@ function fetchLancamentos() {
                     let valorFormatado = parseFloat(lancamento.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
                     let status = lancamento.status === 'aPagar' ? 'A Pagar' : lancamento.status === 'pago' ? 'Pago' : lancamento.status === 'pendente' ? 'Pendente' : lancamento.status;
 
-                    let nomeInquilino = inquilinosMap[lancamento.inquilino] || 'Sem inquilino'; // Usando o mapa para encontrar o nome
+                    let nomeInquilino = inquilinosMap[lancamento.inquilino] || 'Sem inquilino'; 
 
                     row.insertCell(0).textContent = nomeInquilino;
                     row.insertCell(1).textContent = dataFormatada;
@@ -47,14 +50,25 @@ function fetchLancamentos() {
                     let editIcon = document.createElement('i');
                     editIcon.className = 'fas fa-edit';
                     editIcon.style.cursor = 'pointer';
-                    editIcon.onclick = function() { window.location.href = `EditarLancamento.html?id=${lancamento.id}`; };
+                    if (userProfile === 'Administrador' || userProfile === 'Inquilino') {
+                        editIcon.style.opacity = '0.5';
+                        editIcon.style.pointerEvents = 'none';
+                    } else {
+                        editIcon.onclick = function() { window.location.href = `EditarLancamento.html?id=${lancamento.id}`; };
+                    }
                     let cellEdit = row.insertCell(8);
                     cellEdit.appendChild(editIcon);
 
+                    // Ícones de exclusão
                     let deleteIcon = document.createElement('i');
                     deleteIcon.className = 'fas fa-trash-alt';
                     deleteIcon.style.cursor = 'pointer';
-                    deleteIcon.onclick = function() { deleteLancamento(lancamento.id); };
+                    if (userProfile === 'Administrador' || userProfile === 'Inquilino') {
+                        deleteIcon.style.opacity = '0.5';
+                        deleteIcon.style.pointerEvents = 'none';
+                    } else {
+                        deleteIcon.onclick = function() { deleteLancamento(lancamento.id); };
+                    }
                     let cellDelete = row.insertCell(9);
                     cellDelete.appendChild(deleteIcon);
                 });
