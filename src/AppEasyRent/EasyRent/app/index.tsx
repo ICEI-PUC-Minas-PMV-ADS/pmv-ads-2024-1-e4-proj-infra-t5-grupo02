@@ -1,19 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { StatusBar, setStatusBarBackgroundColor } from "expo-status-bar";
 
-export default function App() {
+import { NavigationContainer } from "@react-navigation/native";
+import Routes from "@/routes";
+
+const App = () => {
+  setStatusBarBackgroundColor('#3361FF',false);
   return (
-      <View style={styles.container}>
-          <Text> meu amozinho May!</Text>
-          <StatusBar style="auto"/>
-      </View>
+      <NavigationContainer>
+        <StatusBar backgroundColor="#fff"/>
+        <Routes/>
+      </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    padding: 24,
-  }
-});
+export default App;
