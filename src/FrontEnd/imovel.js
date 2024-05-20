@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 AreaTotal: parseFloat(document.getElementById('area').value, 10),
                 ValorAluguel: parseFloat(document.getElementById('valorAluguel').value, 10),
                 ValorCondominio: parseFloat(document.getElementById('valorCondo').value, 10),
+                Foto: document.getElementById('fotos').value,
                 DescricaoDetalhada: document.getElementById('descricao').value,
             };
 
@@ -63,19 +64,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-var listaImagens = [
-    { src: "./src/images/005.jpg", alt: "Imagem 1" },
-    { src: "./src/images/006.jpg", alt: "Imagem 2" },
-    { src: "./src/images/007.jpg", alt: "Imagem 3" },
-    { src: "./src/images/008.jpg", alt: "Imagem 4" },
-    { src: "./src/images/009.jpg", alt: "Imagem 5" },
-    { src: "./src/images/010.jpg", alt: "Imagem 6" }
-    // Adicione mais objetos conforme necessário
-];
+// var listaImagens = [
+//     { src: "./src/images/005.jpg", alt: "Imagem 1" },
+//     { src: "./src/images/006.jpg", alt: "Imagem 2" },
+//     { src: "./src/images/007.jpg", alt: "Imagem 3" },
+//     { src: "./src/images/008.jpg", alt: "Imagem 4" },
+//     { src: "./src/images/009.jpg", alt: "Imagem 5" },
+//     { src: "./src/images/010.jpg", alt: "Imagem 6" }
+//     // Adicione mais objetos conforme necessário
+// ];
 
 var ids = [];
 
 function criarCardImovel(data) {
+    console.log("Data received:", data);
     // Criando a div principal
     var cardDiv = document.createElement("div");
     cardDiv.classList.add("card_imovel");
@@ -90,9 +92,9 @@ function criarCardImovel(data) {
     rowDiv.classList.add("row");
     cardDiv.appendChild(rowDiv);
 
-    var randomIndex = Math.floor(Math.random() * listaImagens.length);
+    // var randomIndex = Math.floor(Math.random() * listaImagens.length);
 
-    var imagemSelecionada = listaImagens[randomIndex];
+    // var imagemSelecionada = listaImagens[randomIndex];
 
     // Criando a div com classe "col-6" para a imagem
     var colImgDiv = document.createElement("div");
@@ -101,13 +103,13 @@ function criarCardImovel(data) {
 
     // Criando a tag <img> e definindo seus atributos
     var imgTag = document.createElement("img");
-    imgTag.src = imagemSelecionada.src;
-    imgTag.alt = imagemSelecionada.alt;
+    imgTag.src = data.foto;
+    // imgTag.alt = imagemSelecionada.alt;
     imgTag.id = "imagemImovel";
     imgTag.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.4)";
     colImgDiv.appendChild(imgTag);
 
-    listaImagens.splice(randomIndex, 1);
+    // listaImagens.splice(randomIndex, 1);
 
     // Criando a div com classe "col-6" para as informações
     var colInfoDiv = document.createElement("div");
