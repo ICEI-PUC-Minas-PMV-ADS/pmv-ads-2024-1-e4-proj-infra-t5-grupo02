@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { Login } from './src/components/Login'
+import { Home } from './src/components/Home'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Easy Rent</Text>
-      <StatusBar style="auto" />
+      <Login />
     </View>
   );
 }
