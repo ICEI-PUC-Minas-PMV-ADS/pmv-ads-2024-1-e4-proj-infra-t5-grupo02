@@ -1,4 +1,3 @@
-
 import { StyleSheet, TextInput } from 'react-native';
 
 const Input = (props) => {
