@@ -1,15 +1,19 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, View, Image, Text, Platform, KeyboardAvoidingView, TouchableOpacity  } from "react-native";
+import { StyleSheet, View, Image, Text, Platform, KeyboardAvoidingView  } from "react-native";
 import Input from "./components/Input";
 import Button from "./components/Button";
 import Home from "./pages/home";
+import Financeiro from "./pages/financeiro";
+import Imoveis from "./pages/imoveis";
+import Inquilinos from "./pages/inquilinos";
 
 const PlaceholderImage = require("./assets/easyrent(1).png");
 const Stack = createStackNavigator();
 
 function LoginScreen({ navigation }) {
+  
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
       <View style={styles.imageContainer}>
@@ -39,6 +43,9 @@ export default function App() {
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Financeiro" component={Financeiro} />
+        <Stack.Screen name="Imoveis" component={Imoveis} />
+        <Stack.Screen name="Inquilinos" component={Inquilinos} />
       </Stack.Navigator>
     </NavigationContainer>
   );

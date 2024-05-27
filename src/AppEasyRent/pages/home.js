@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome'; 
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Home() {
   const navigation = useNavigation();
@@ -21,7 +21,7 @@ export default function Home() {
         <View style={styles.footer}>
           <TouchableOpacity
             style={styles.iconContainer}
-            onPress={() => navigation.navigate("Financeiro")}
+            onPress={() => navigation.navigate('Financeiro')}
           >
             <View style={styles.iconCircle}>
               <Icon name="dollar" size={30} color="white" />
@@ -38,6 +38,17 @@ export default function Home() {
             </View>
             <Text style={styles.iconText}>Imóveis</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.iconContainer}
+            onPress={() => navigation.navigate('Inquilinos')}
+          >
+            <View style={styles.iconCircle}>
+              <Icon name="users" size={30} color="white" />
+            </View>
+            <Text style={styles.iconText}>Inquilinos</Text>
+          </TouchableOpacity>
+
         </View>
       </View>
     </ImageBackground>
@@ -96,6 +107,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#503000",
     justifyContent: "center",
     alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.7,
+    shadowRadius: 6,
+    elevation: 8,
   },
   iconText: {
     color: "#503000",
