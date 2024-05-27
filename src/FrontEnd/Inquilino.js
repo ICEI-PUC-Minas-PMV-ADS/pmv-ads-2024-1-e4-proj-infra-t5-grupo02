@@ -1,9 +1,11 @@
 function fetchInquilinos() {
+    const userProfile = localStorage.getItem('profile'); // Obtenha o perfil do usuário logado
     const table = document.getElementById('inquilinosTable');
     if (table) {
         fetch('https://localhost:7294/api/Inquilinos/all')
             .then(response => response.json())
             .then(data => {
+                data.sort((a, b) => a.nome.localeCompare(b.nome));
                 const tbody = table.getElementsByTagName('tbody')[0];
                 tbody.innerHTML = '';
 
@@ -23,14 +25,22 @@ function fetchInquilinos() {
                     let editIcon = document.createElement('i');
                     editIcon.className = 'fas fa-edit';
                     editIcon.style.cursor = 'pointer';
-                    editIcon.onclick = function() { window.location.href = `EditarInquilino.html?id=${inquilino.id}`; };
+                    editIcon.style.opacity = userProfile === 'Administrador' ? '0.5' : '';
+                    editIcon.style.pointerEvents = userProfile === 'Administrador' ? 'none' : 'auto';
+                    if (userProfile !== 'Administrador') {
+                        editIcon.onclick = function() { window.location.href = `EditarInquilino.html?id=${inquilino.id}`; };
+                    }
                     let cellEdit = row.insertCell(10);
                     cellEdit.appendChild(editIcon);
 
                     let deleteIcon = document.createElement('i');
                     deleteIcon.className = 'fas fa-trash-alt';
                     deleteIcon.style.cursor = 'pointer';
-                    deleteIcon.onclick = function() { deleteInquilino(inquilino.id); };
+                    deleteIcon.style.opacity = userProfile === 'Administrador' ? '0.5' : '';
+                    deleteIcon.style.pointerEvents = userProfile === 'Administrador' ? 'none' : 'auto';
+                    if (userProfile !== 'Administrador') {
+                        deleteIcon.onclick = function() { deleteInquilino(inquilino.id); };
+                    }
                     let cellDelete = row.insertCell(11);
                     cellDelete.appendChild(deleteIcon);
                 });
@@ -38,6 +48,7 @@ function fetchInquilinos() {
             .catch(error => console.error('Erro ao buscar inquilinos:', error));
     }
 }
+
 
 window.deleteInquilino = function(id) {
     if (confirm('Tem certeza que deseja deletar este Inquilino?')) {
