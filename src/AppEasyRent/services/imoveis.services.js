@@ -1,7 +1,7 @@
 import API from "./webapi.services.js"
 import { IMOVEIS_URL } from "./urls.js"
 
-export const getLancamentos = async () => {
+export const getImoveis = async () => {
     try{
       return await API.get(`${IMOVEIS_URL}/api/Imoveis`).then( 
         response => {
