@@ -1,19 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, View, Image, Text, Platform, KeyboardAvoidingView  } from "react-native";
+import { StyleSheet, View, Image, Text, TextInput, Platform, KeyboardAvoidingView, TouchableOpacity  } from "react-native";
 import Input from "./components/Input";
 import Button from "./components/Button";
 import Home from "./pages/home";
-import Financeiro from "./pages/financeiro";
-import Imoveis from "./pages/imoveis";
-import Inquilinos from "./pages/inquilinos";
+import API from "./services/webapi.services.js";
+import { LOGIN_URL } from "./services/urls.js";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Financeiro from "./pages/financeiro.js";
+import { Alert } from 'react-native';
 
 const PlaceholderImage = require("./assets/easyrent(1).png");
 const Stack = createStackNavigator();
 
 function LoginScreen({ navigation }) {
-  
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  const login = async (email, senha) => {
+    try {
+      return await API.post(`${LOGIN_URL}/api/Usuarios/authenticate`, { email, senha }).then(
+        response => {
+          console.log(response.data);
+          AsyncStorage.setItem('@USER_ID', JSON.stringify(response.data.id)).then();
+          AsyncStorage.setItem('@USER_NAME', response.data.name).then();
+          AsyncStorage.setItem('@USER_PROFILE', response.data.profile).then();
+          AsyncStorage.setItem('@TOKEN_KEY', response.data.jwtToken).then();
+          navigation.navigate("Home");
+          return response.data;
+        },
+        error => {
+          console.log('Server responded with status code:', error.response.status);
+          console.log('Response data:', error.response.data);
+          console.log(error);
+          return null;
+        }
+      );
+    } catch (error) {
+      console.log(error);
+      Alert.alert(
+        "Erro de Login",
+        "Erro no login. Por favor, tente novamente.",
+        [{ text: "OK" }]
+      );
+    }
+  };
+
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
       <View style={styles.imageContainer}>
@@ -21,15 +54,16 @@ function LoginScreen({ navigation }) {
       </View>
       <View style={styles.inputContainer}>
         <Text style={styles.inputLabel}>E-Mail</Text>
-        <Input style={styles.input} placeholder="Digite seu email" />
+        <Input style={styles.input} placeholder="Digite seu email" value={email} onChangeText={setEmail} />
       </View>
       <View style={styles.inputContainer}>
         <Text style={styles.inputLabel}>Senha</Text>
-        <Input style={styles.input} placeholder="Digite sua senha" secureTextEntry />
+        <Input style={styles.input} placeholder="Digite sua senha" secureTextEntry value={senha} onChangeText={setSenha} />
       </View>
       <View style={styles.buttonContainer}>
-        <Button label="Entrar" onPress={() => navigation.navigate("Home")} />
+        <Button label="Entrar" onPress={() => login(email, senha)} />
       </View>
+      
       <View style={styles.footer}>
         <Image style={styles.backgroundImage} source={require("./assets/back1.png")} resizeMode="cover" />
       </View>
@@ -44,8 +78,6 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Financeiro" component={Financeiro} />
-        <Stack.Screen name="Imoveis" component={Imoveis} />
-        <Stack.Screen name="Inquilinos" component={Inquilinos} />
       </Stack.Navigator>
     </NavigationContainer>
   );

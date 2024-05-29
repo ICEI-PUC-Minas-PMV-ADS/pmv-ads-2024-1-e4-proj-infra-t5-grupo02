@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Financeiro from "./financeiro";
 
 export default function Home() {
+  const [name, setName] = useState('');
   const navigation = useNavigation();
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      const userName = await AsyncStorage.getItem('@USER_NAME');
+      setName(userName);
+    };
+    fetchUserName();
+  }, []);
 
   return (
     <ImageBackground
@@ -13,7 +24,8 @@ export default function Home() {
     >
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <Text style={styles.text}>Seja Bem-vindo</Text>
+          <Text style={styles.text}>Seja Bem-vindo,</Text>
+          <Text style={styles.textName}>{name} 😃</Text>
           <Image source={require("../assets/easyrent(1).png")} style={styles.image} />
           <Text style={styles.text}>Transformando a experiência de aluguel para locadores e inquilinos</Text>
         </View>
@@ -48,7 +60,6 @@ export default function Home() {
             </View>
             <Text style={styles.iconText}>Inquilinos</Text>
           </TouchableOpacity>
-
         </View>
       </View>
     </ImageBackground>
@@ -74,8 +85,16 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     color: "#503000",
-    marginBottom: 35,
+    marginBottom: 15,
     marginTop: 35,
+    marginLeft: 35,
+    marginRight: 35,
+  },
+  textName: {
+    fontSize: 26,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "#503000",
     marginLeft: 35,
     marginRight: 35,
   },
