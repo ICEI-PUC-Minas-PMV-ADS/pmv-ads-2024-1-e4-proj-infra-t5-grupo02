@@ -26,10 +26,6 @@ builder.Services.AddCors(options =>
         .AllowAnyMethod());
 });
 
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
 var app = builder.Build();
 
 
@@ -53,12 +49,6 @@ app.UseExceptionHandler(appBuilder =>
     });
 });
 
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
 app.UseHttpsRedirection();
 

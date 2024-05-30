@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Financeiro from "./financeiro";
+import Inquilinos from "./inquilinos";
 
 export default function Home() {
   const [name, setName] = useState('');
@@ -17,15 +18,28 @@ export default function Home() {
     fetchUserName();
   }, []);
 
+  const logout = async () => {
+    await AsyncStorage.clear();
+    navigation.navigate('Login');
+  };
+
   return (
     <ImageBackground
       source={require("../assets/back1.png")}
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
+
+      <View style={styles.signout}>
+          <TouchableOpacity onPress={logout}>
+            <Icon name="sign-out" size={35} color="#503000" />
+            <Text>Sair</Text>
+          </TouchableOpacity>
+        </View>
+
         <View style={styles.imageContainer}>
-          <Text style={styles.text}>Seja Bem-vindo,</Text>
-          <Text style={styles.textName}>{name} 😃</Text>
+          <Text style={styles.text}>Olá, <Text style={styles.textName}>{name} 😃</Text></Text>
+          <Text style={styles.text}>esperamos que estejas bem</Text>
           <Image source={require("../assets/easyrent(1).png")} style={styles.image} />
           <Text style={styles.text}>Transformando a experiência de aluguel para locadores e inquilinos</Text>
         </View>
@@ -43,16 +57,6 @@ export default function Home() {
 
           <TouchableOpacity
             style={styles.iconContainer}
-            onPress={() => navigation.navigate('Imoveis')}
-          >
-            <View style={styles.iconCircle}>
-              <Icon name="building" size={30} color="white" />
-            </View>
-            <Text style={styles.iconText}>Imóveis</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.iconContainer}
             onPress={() => navigation.navigate('Inquilinos')}
           >
             <View style={styles.iconCircle}>
@@ -66,6 +70,7 @@ export default function Home() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -75,18 +80,23 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: 'center',
   },
+  signout: {
+    flexDirection: 'row',
+    alignSelf: 'flex-end',
+    paddingRight: 20,
+  },
   image: {
     width: 300,
     height: 300,
     alignSelf: 'center',
+    paddingTop: 70,
+    marginTop: 70,
   },
   text: {
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
-    color: "#503000",
-    marginBottom: 15,
-    marginTop: 35,
+    color: "#503000", 
     marginLeft: 35,
     marginRight: 35,
   },
@@ -97,6 +107,8 @@ const styles = StyleSheet.create({
     color: "#503000",
     marginLeft: 35,
     marginRight: 35,
+    paddingBottom: 0,
+    marginBottom: 0,
   },
   backgroundImage: {
     flex: 1,
