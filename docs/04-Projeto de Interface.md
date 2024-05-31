@@ -15,6 +15,8 @@ A equipe desenvolveu este Diagrama de Fluxo pensando em como será a iteração 
 
 ## Wireframes
 
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FF7D00&random=false&width=435&lines=Prot%C3%B3tipo+aplica%C3%A7%C3%A3o+web)](https://git.io/typing-svg)
+
 #### Home (Página Inicial)
 
 #### Login
@@ -65,6 +67,60 @@ A equipe desenvolveu este Diagrama de Fluxo pensando em como será a iteração 
 #### Acesso negado (erro página)
 
 ![acessonegado](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/85824864-b30f-4be1-9576-ecf7dcd7eacc)
+
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FF7D00&random=false&width=435&lines=Prot%C3%B3tipo+mobile)](https://git.io/typing-svg)
+
+#### Login
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/6e8d2b55-225b-4c7d-9bec-e07acfd4ac98)
+
+#### Home
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/dcd58b3b-2bb6-464e-97c0-e93784e9e05f)
+
+#### Imóveis
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/a40ce876-e0da-42d5-9371-b519ac3ef88d)
+
+#### Cadastro de imóveis
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/672cc77e-fb8b-4076-9181-17600bd46787)
+
+#### Inquilino
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/715e5db1-b111-4cd7-95c0-e2b2c4387028)
+
+#### Cadastro de inquilino
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/10a31e34-b3d5-4f4a-b68f-400a114e87e3)
+
+#### Usuário
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/cea130fc-91a6-42bd-b113-4987d56817aa)
+
+#### Cadastro de usuário
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/d74d6d44-968b-4f32-a20d-d8845e2e7c9b)
+
+#### Financeiro
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/d50c3a8b-1791-464f-a476-fd4c7db4d007)
+
+#### Adicionar financeiro
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/f23f2833-8464-4b1e-a7fb-3add3509760d)
+
+#### Mensagem
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/68746207-3349-496d-a9a4-a19bacb6f408)
+
+#### Acesso negado (erro página)
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/482c58bd-fa38-46a8-87b9-d7fb956bcc2e)
+
+
+
 
 
 
