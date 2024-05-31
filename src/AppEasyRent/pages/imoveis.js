@@ -1,25 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity, } from "react-native";
-import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState } from "react";
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, TextInput, Image } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Home() {
-  const [name, setName] = useState('');
+export default function Financeiro() {
   const navigation = useNavigation();
-
-  useEffect(() => {
-    const fetchUserName = async () => {
-      const userName = await AsyncStorage.getItem('@USER_NAME');
-      setName(userName);
-    };
-    fetchUserName();
-  }, []);
-
-  const logout = async () => {
-    await AsyncStorage.clear();
-    navigation.navigate('Login');
-  };
+  const [search, setSearch] = useState("");
 
   return (
     <ImageBackground
@@ -28,21 +14,33 @@ export default function Home() {
     >
       <View style={styles.container}>
 
-        <View style={styles.signout}>
-          <TouchableOpacity onPress={logout}>
-            <Icon name="sign-out" size={35} color="#503000" />
-            <Text>Sair</Text>
+      <View style={styles.searchContainer}>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Pesquisar..."
+            value={search}
+            onChangeText={(text) => setSearch(text)}
+          />
+          <TouchableOpacity style={styles.searchIconContainer}>
+            <Image
+              source={require("../assets/search.png")}
+              style={styles.image}
+            />
           </TouchableOpacity>
         </View>
 
-        <View style={styles.imageContainer}>
-          <Text style={styles.text}>Olá, <Text style={styles.textName}>{name} 😃</Text></Text>
-          <Text style={styles.text}>esperamos que estejas bem</Text>
-          <Image source={require("../assets/easyrent(1).png")} style={styles.image} />
-          <Text style={styles.text}>Transformando a experiência de aluguel para locadores e inquilinos</Text>
-        </View>
 
         <View style={styles.footer}>
+          <TouchableOpacity
+            style={styles.iconContainer}
+            onPress={() => navigation.navigate('Home')}
+          >
+            <View style={styles.iconCircle}>
+              <Icon name="home" size={30} color="white" />
+            </View>
+            <Text style={styles.iconText}>Home</Text>
+          </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.iconContainer}
             onPress={() => navigation.navigate('Financeiro')}
@@ -51,6 +49,16 @@ export default function Home() {
               <Icon name="dollar" size={30} color="white" />
             </View>
             <Text style={styles.iconText}>Financeiro</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.iconContainer}
+            onPress={() => navigation.navigate('Imoveis')}
+          >
+            <View style={styles.iconCircle}>
+              <Icon name="building" size={30} color="white" />
+            </View>
+            <Text style={styles.iconText}>Imóveis</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -73,42 +81,39 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "transparent",
   },
-  imageContainer: {
-    alignItems: "center",
-    alignSelf: 'center',
-  },
-  signout: {
+  searchContainer: {
     flexDirection: 'row',
-    alignSelf: 'flex-end',
-    paddingRight: 20,
-    paddingTop: 20,
-    marginTop: 35,
-    marginBottom: 20,
+    alignItems: 'center',
+    width: "80%",
+    height: 100,
+    paddingHorizontal: 10,
   },
-  image: {
-    width: 300,
-    height: 300,
-    alignSelf: 'center',
-    paddingTop: 70,
-    marginTop: 70,
+  searchInput: {
+    flex: 1,
+    height: 40,
+    borderColor: '#503000',
+    borderWidth: 1,
+    borderRadius: 5,
+    margin: 10,
+    paddingHorizontal: 10,
+    color: '#503000',
+  },
+  searchIconContainer: {
+    marginHorizontal: 5,
   },
   text: {
     fontSize: 20,
     fontWeight: "bold",
-    textAlign: "center",
-    color: "#503000", 
-    marginLeft: 35,
+    textAlign: "left",
+    color: "#503000",
+    marginBottom: 35,
+    marginTop: 35,
+    marginLeft: 5,
     marginRight: 35,
   },
-  textName: {
-    fontSize: 26,
-    fontWeight: "bold",
-    textAlign: "center",
-    color: "#503000",
-    marginLeft: 35,
-    marginRight: 35,
-    paddingBottom: 0,
-    marginBottom: 0,
+  image:{
+    width: 30,
+    height: 20,
   },
   backgroundImage: {
     flex: 1,
@@ -132,8 +137,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   iconCircle: {
-    width: 70,
-    height: 70,
+    width: 60,
+    height: 60,
     borderRadius: 30,
     backgroundColor: "#503000",
     justifyContent: "center",

@@ -48,6 +48,7 @@ app.UseExceptionHandler(appBuilder =>
     });
 });
 
+
 app.UseHttpsRedirection();
 
 app.UseCors("MyCorsPolicy");

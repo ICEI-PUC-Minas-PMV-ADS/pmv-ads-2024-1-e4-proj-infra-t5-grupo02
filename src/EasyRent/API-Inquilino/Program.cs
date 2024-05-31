@@ -27,7 +27,6 @@ builder.Services.AddCors(options =>
         .AllowAnyMethod());
 });
 
-
 var app = builder.Build();
 
 app.UseExceptionHandler(appBuilder =>
@@ -49,7 +48,6 @@ app.UseExceptionHandler(appBuilder =>
         }
     });
 });
-
 
 app.UseHttpsRedirection();
 
