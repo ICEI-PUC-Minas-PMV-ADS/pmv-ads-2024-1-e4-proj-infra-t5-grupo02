@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, View, Image, Text, TextInput, Platform, KeyboardAvoidingView, ScrollView, ActivityIndicator } from "react-native";
+import { StyleSheet, View, Image, Text, TextInput, Platform, KeyboardAvoidingView, ScrollView, ActivityIndicator, SafeAreaView } from "react-native";
 import Input from "./components/Input";
 import Button from "./components/Button";
 import Home from "./pages/home";
@@ -35,8 +35,8 @@ function LoginScreen({ navigation }) {
       console.log('Response data:', error.response?.data);
       console.log(error);
       Alert.alert(
-        "Preenchimento obrigatório",
-        "Por favor, insira seu email e senha."
+        "Atenção!",
+        "Por favor, verifique seu e-mail e senha e tente novamente."
       );
     } finally {
       setLoading(false);
@@ -44,6 +44,7 @@ function LoginScreen({ navigation }) {
   };
 
   return (
+    <SafeAreaView>
     <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.imageContainer}>
@@ -61,7 +62,7 @@ function LoginScreen({ navigation }) {
         <View style={styles.buttonContainer}>
           {loading ? (
             <>
-            <Text> Carregando...</Text>
+            <Text> carregando...</Text>
             <ActivityIndicator size="large" color="#0000ff" />
             </>
           ) : (
@@ -74,16 +75,29 @@ function LoginScreen({ navigation }) {
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 
 export default function App() {
+  const [userProfile, setUserProfile] = useState(null);
+
+  useEffect(() => {
+    const getUserProfile = async () => {
+      const profile = await AsyncStorage.getItem('@USER_PROFILE');
+      setUserProfile(profile);
+    };
+    getUserProfile();
+  }, []);
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator>
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Financeiro" component={Financeiro} />
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+        <Stack.Screen name="Financeiro">
+          {props => <Financeiro {...props} userProfile={userProfile} />}
+        </Stack.Screen>
         <Stack.Screen name="Inquilinos" component={Inquilinos} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -152,6 +166,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 3,
+    marginTop: 10,
   },
   footer: {
     width: "100%",

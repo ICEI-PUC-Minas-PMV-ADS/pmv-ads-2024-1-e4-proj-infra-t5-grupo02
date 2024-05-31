@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from "react-native";
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity, } from "react-native";
+import { useNavigation, useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Financeiro from "./financeiro";
-import Inquilinos from "./inquilinos";
 
 export default function Home() {
   const [name, setName] = useState('');
@@ -30,7 +28,7 @@ export default function Home() {
     >
       <View style={styles.container}>
 
-      <View style={styles.signout}>
+        <View style={styles.signout}>
           <TouchableOpacity onPress={logout}>
             <Icon name="sign-out" size={35} color="#503000" />
             <Text>Sair</Text>
@@ -70,7 +68,6 @@ export default function Home() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -84,6 +81,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'flex-end',
     paddingRight: 20,
+    paddingTop: 20,
+    marginTop: 35,
+    marginBottom: 20,
   },
   image: {
     width: 300,
@@ -132,8 +132,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   iconCircle: {
-    width: 60,
-    height: 60,
+    width: 70,
+    height: 70,
     borderRadius: 30,
     backgroundColor: "#503000",
     justifyContent: "center",

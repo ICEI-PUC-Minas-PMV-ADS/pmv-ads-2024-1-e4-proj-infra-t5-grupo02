@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, TextInput, Image, FlatList } from "react-native";
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, TextInput, Image, FlatList, SafeAreaView } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -115,8 +115,6 @@ export default function Financeiro() {
             </View>
             <Text style={styles.iconText}>Inquilinos</Text>
           </TouchableOpacity>
-
-          
         </View>
       </View>
     </ImageBackground>
@@ -175,8 +173,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   iconCircle: {
-    width: 50,
-    height: 50,
+    width: 55,
+    height: 55,
     borderRadius: 25,
     borderColor: "white",
     backgroundColor: "#503000",
@@ -194,8 +192,8 @@ const styles = StyleSheet.create({
   selectedIconCircle: {
     borderWidth: 3,
     borderColor: "orange",
-    width: 60,
-    height: 60,
+    width: 70,
+    height: 70,
   },
   iconText: {
     color: "#503000",

@@ -199,8 +199,8 @@ const styles = StyleSheet.create({
       alignItems: "center",
     },
     iconCircle: {
-      width: 50,
-      height: 50,
+      width: 55,
+      height: 55,
       borderRadius: 25,
       borderColor: "white",
       backgroundColor: "#503000",
@@ -218,8 +218,8 @@ const styles = StyleSheet.create({
     selectedIconCircle: {
       borderWidth: 3,
       borderColor: "orange",
-      width: 60,
-      height: 60,
+      width: 70,
+      height: 70,
     },
     iconText: {
       color: "#503000",
@@ -249,10 +249,10 @@ const styles = StyleSheet.create({
       color: "#503000",
     },
     text: {
-      fontSize: 16,
+      fontSize: 15,
     },
     despesa: {
-      fontSize: 16,
+      fontSize: 15,
       color: 'red',
     },
     receita: {
