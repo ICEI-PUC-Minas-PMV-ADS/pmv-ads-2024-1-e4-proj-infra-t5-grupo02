@@ -18,5 +18,7 @@ namespace MS03.Models
 
         [JsonIgnore]
         public List<Lancamento> Lancamentos { get; set; } = new List<Lancamento>();
+
+        public ICollection <Chat> Chats { get; set; }
     }
 }
