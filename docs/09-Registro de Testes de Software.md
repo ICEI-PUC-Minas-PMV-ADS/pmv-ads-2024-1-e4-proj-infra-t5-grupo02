@@ -104,7 +104,28 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo0
 
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/b23a9335-f237-49ad-8358-504da3dfafba
 
+### App Mobile
 
+- ***CT-01: Login***
 
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/a0a66e97-656a-41f1-8b9d-b01edd47288a
 
+- ***CT-02: Falha no Login***
 
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/7bb42526-3514-4561-a45a-29ad0a47e757
+  
+- ***CT-03: Logout***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/d1e51eaa-2e4d-4a9b-b7d1-6249f3e3da64
+
+- ***CT-04: Visualizar Financeiro***
+  
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/d50391e7-0d74-41a0-907e-9fa38b7c5353
+
+- ***CT-05: Utilizar filtro financeiro***
+  
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/8e77d373-d133-4278-bd27-058977993e7f
+  
+- ***CT-06: Visualizar Inquilinos***
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/6519abcd-cfe4-4cee-a63f-70153f232182
