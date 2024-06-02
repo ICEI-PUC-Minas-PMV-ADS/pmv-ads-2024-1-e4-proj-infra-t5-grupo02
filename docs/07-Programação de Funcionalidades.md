@@ -9,8 +9,7 @@ Implementação do sistema descrita por meio dos requisitos funcionais e/ou não
 |RF-03| Facilitar o gerenciamento de contratos de locação, incluindo dados dos locatários, prazos, valores e datas de pagamento. | |
 |RF-04| Deve ser possível ter acesso a documentos digitalizados, tais como: contratos, termos de vistoria, e outros documentos relevantes a locação. | |
 |RF-05| Deve haver um controle financeiro para acompanhamento de receitas (aluguéis) e despesas (manutenções, impostos, taxas de serviço), incluindo alertas para pagamentos pendentes ou atrasados. | FrontEnd/Financeiro.html, FrontEnd/Financeiro.js, FrontEnd/LancamentoFinan.html| 
-|RF-06| Sistema deve disponibilizar relatórios gerenciais. | |
-|RF007| Sistema deve ter um perfil admin, que será responsável pela gestão da aplicação, além de criar os acessos dos locatários para que estes possam visualizar todas as informações sobre sua locação. | FrontEnd/CadastroUsuario.html, FrontEnd/Cadastro.js, EasyRent/APILogin, EasyRent/API-Inquilino|
-|RF-08| Sistema deve ter um perfil usuário, que será responsável por inserir e gerenciar os imóveis lançados na aplicação | FrontEnd/CadastroUsuario.html, FrontEnd/Cadastro.js, EasyRent/APILogin |
-|RF-09| Sistema deve ter um perfil locador, que visualizará todas as informações sobre o seu imóvel locado | FrontEnd/CadastroUsuario.html, FrontEnd/Cadastro.js, EasyRent/APILogin |
-|RF-010| Deve haver uma sistema de notificação dentro da aplicação | |
+|RF06| Sistema deve ter um perfil admin, que será responsável pela gestão da aplicação, além de criar os acessos dos locatários para que estes possam visualizar todas as informações sobre sua locação. | FrontEnd/CadastroUsuario.html, FrontEnd/Cadastro.js, EasyRent/APILogin, EasyRent/API-Inquilino|
+|RF-07| Sistema deve ter um perfil usuário, que será responsável por inserir e gerenciar os imóveis lançados na aplicação | FrontEnd/CadastroUsuario.html, FrontEnd/Cadastro.js, EasyRent/APILogin |
+|RF-08| Sistema deve ter um perfil locador, que visualizará todas as informações sobre o seu imóvel locado | FrontEnd/CadastroUsuario.html, FrontEnd/Cadastro.js, EasyRent/APILogin |
+|RF-09| Deve haver uma sistema de notificação dentro da aplicação | |
