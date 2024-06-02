@@ -11,20 +11,30 @@ export default function Financeiro() {
     const [financeiroData, setFinanceiroData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [inquilinosMap, setInquilinosMap] = useState({});
+    const [profile, setProfile] = useState();
+    const [usuarioId, setUsuarioId] = useState();
     const navigation = useNavigation();
 
     useEffect(() => {
         const fetchInquilinos = async () => {
             try {
+                const userId = await AsyncStorage.getItem('@USER_ID');
+                setUsuarioId(userId)
                 const token = await AsyncStorage.getItem('@TOKEN_KEY');
+                const userProfile = await AsyncStorage.getItem('@USER_PROFILE');
+                setProfile(userProfile);
                 const response = await API.get(`${INQUILINOS_URL}/api/Inquilinos/all`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
                 const map = {};
+                const esteUsuario = parseInt(userId)
                 response.data.forEach(inquilino => {
-                    map[inquilino.id] = inquilino.nome;
+                  // if (esteUsuario == inquilino.id) {
+                  //   map[inquilino.id] = inquilino.nome;
+                  // }
+                  map[inquilino.id] = inquilino.nome;
                 });
                 setInquilinosMap(map);
                 console.log("Inquilinos Map:", map);
@@ -35,15 +45,18 @@ export default function Financeiro() {
 
         const fetchFinanceiroData = async () => {
             try {
+                const userId = await AsyncStorage.getItem('@USER_ID');
+                setUsuarioId(userId)
                 const token = await AsyncStorage.getItem('@TOKEN_KEY');
                 const response = await API.get(`${FINANCEIRO_URL}/api/Lancamentos/all`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
                 });
+                
                 setFinanceiroData(response.data);
                 setFilteredData(response.data);
-                console.log("Dados Financeiros:", response.data); 
+                
             } catch (error) {
                 console.error('Erro ao buscar dados financeiros:', error);
             }
@@ -130,16 +143,17 @@ export default function Financeiro() {
                 <Text style={styles.iconText}>Financeiro</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity
+            {
+              profile != "inquilino" && <TouchableOpacity
                 style={styles.iconContainer}
                 onPress={() => navigation.navigate('Inquilinos')}
-            >
+              >
                 <View style={[styles.iconCircle]}>
                 <Icon name="users" size={navigation.isFocused() ? 30 : 30} color="white" />
                 </View>
                 <Text style={styles.iconText}>Inquilinos</Text>
-            </TouchableOpacity>
-
+              </TouchableOpacity>
+            }
           
                 </View>
             </View>

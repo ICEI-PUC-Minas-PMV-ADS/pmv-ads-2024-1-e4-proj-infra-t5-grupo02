@@ -6,11 +6,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Home() {
   const [name, setName] = useState('');
+  const [profile, setProfile] = useState();
   const navigation = useNavigation();
 
   useEffect(() => {
     const fetchUserName = async () => {
       const userName = await AsyncStorage.getItem('@USER_NAME');
+      const userProfile = await AsyncStorage.getItem('@USER_PROFILE');
+      setProfile(userProfile);
       setName(userName);
     };
     fetchUserName();
@@ -44,24 +47,27 @@ export default function Home() {
 
         <View style={styles.footer}>
           <TouchableOpacity
-            style={styles.iconContainer}
-            onPress={() => navigation.navigate('Financeiro')}
+          style={styles.iconContainer}
+          onPress={() => navigation.navigate('Financeiro')}
           >
-            <View style={styles.iconCircle}>
-              <Icon name="dollar" size={30} color="white" />
-            </View>
-            <Text style={styles.iconText}>Financeiro</Text>
-          </TouchableOpacity>
+          <View style={styles.iconCircle}>
+            <Icon name="dollar" size={30} color="white" />
+          </View>
+          <Text style={styles.iconText}>Financeiro</Text>
+        </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.iconContainer}
-            onPress={() => navigation.navigate('Inquilinos')}
-          >
-            <View style={styles.iconCircle}>
-              <Icon name="users" size={30} color="white" />
-            </View>
-            <Text style={styles.iconText}>Inquilinos</Text>
-          </TouchableOpacity>
+          
+          {
+            profile != "inquilino" && <TouchableOpacity
+              style={styles.iconContainer}
+              onPress={() => navigation.navigate('Inquilinos')}
+              >
+              <View style={styles.iconCircle}>
+                <Icon name="users" size={30} color="white" />
+              </View>
+              <Text style={styles.iconText}>Inquilinos</Text>
+            </TouchableOpacity>
+          }
         </View>
       </View>
     </ImageBackground>
