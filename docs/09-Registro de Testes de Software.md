@@ -7,8 +7,9 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 ## Avaliação
 Cenários de testes utilizados na realização dos testes de APi da EasyRent atendendo aos requisitos pré-definidos na seção <a href="02 - Especificação do Projeto"> Especificação do Projeto</a></span>.
 
-### Microsserviço 01
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FF7D00&vCenter=true&random=false&height=45&lines=Registro+aplica%C3%A7%C3%A3o+web)](https://git.io/typing-svg)
 
+### Microsserviço 01
 - ***Verificar Todos Imóveis***
 
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/ec8f8170-0308-48c9-ad5f-012f66d82078
@@ -67,9 +68,6 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo0
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/110863413/f8ef800b-15c7-4f66-a9cb-83b9cd70eef8
 
 
-
-
-
 - ***Adicionar Usuário (Create)***
 
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/115894941/0a21103d-d34e-4cb0-af93-9858da2e7474
@@ -98,4 +96,15 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo0
 - ***Autorização (Authorized)***
 
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/115894941/21722039-63de-4640-8a6a-3cf805d86b54
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FF7D00&vCenter=true&random=false&height=45&lines=Registro+aplica%C3%A7%C3%A3o+mobile)](https://git.io/typing-svg)
+
+- ***O objetivo deste teste na aplicação mobile é apresentar a possibilidade de `cadastro do usuário` e, também, a permissão de viualização do `Financeiro` e dos `Inquilinos` cadastrados.***
+
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/b23a9335-f237-49ad-8358-504da3dfafba
+
+
+
+
 
