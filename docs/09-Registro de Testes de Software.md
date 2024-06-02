@@ -116,7 +116,7 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo0
   
 - ***CT-03: Logout***
 
-https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/d1e51eaa-2e4d-4a9b-b7d1-6249f3e3da64
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/109763968/968d355b-5f1b-4b2e-9f1e-41163f62de1b
 
 - ***CT-04: Visualizar Financeiro***
   
