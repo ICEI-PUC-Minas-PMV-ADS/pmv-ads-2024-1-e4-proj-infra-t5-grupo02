@@ -79,15 +79,16 @@ export default function Financeiro() {
     }, [search, financeiroData, inquilinosMap]);
 
     const renderItem = ({ item }) => {
-        const valorFormatado = parseFloat(item.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-        const dataFormatada = new Date(item.data).toLocaleDateString('pt-BR');
-        const tipoEstilo = item.tipo === 'despesa' ? styles.despesa : styles.receita;
-        const nomeInquilino = inquilinosMap[item.inquilino] || 'Sem inquilino';
+      const valorFormatado = parseFloat(item.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      const dataFormatada = new Date(item.data).toLocaleDateString('pt-BR');
+      const tipoEstilo = item.tipo === 'despesa' ? styles.despesa : styles.receita;
+      const nomeInquilino = inquilinosMap[item.inquilino] || 'Sem inquilino';
 
-        console.log("Item:", item); 
-        console.log("Nome Inquilino:", nomeInquilino); 
-
-        return (
+      console.log(profile)
+      if (profile == 'inquilino') {
+        if (item.inquilino == usuarioId) {
+          console.log(`Item: ${item.inquilino}`)
+          return (
             <View style={styles.card}>
                 <Text style={styles.title}>{item.descricao}</Text>
                 <Text><Text style={styles.bold}>Valor:</Text> {valorFormatado}</Text>
@@ -97,8 +98,22 @@ export default function Financeiro() {
                 <Text style={tipoEstilo}><Text style={styles.bold}>Tipo:</Text> {item.tipo}</Text>
                 <Text><Text style={styles.bold}>Forma pagamento:</Text> {item.forma}</Text>
             </View>
+          );
+        }
+      } else {
+        return (
+          <View style={styles.card}>
+              <Text style={styles.title}>{item.descricao}</Text>
+              <Text><Text style={styles.bold}>Valor:</Text> {valorFormatado}</Text>
+              <Text><Text style={styles.bold}>Status:</Text> {item.status}</Text>
+              <Text><Text style={styles.bold}>Inquilino:</Text> {nomeInquilino}</Text>
+              <Text><Text style={styles.bold}>Vencimento:</Text> {dataFormatada}</Text>
+              <Text style={tipoEstilo}><Text style={styles.bold}>Tipo:</Text> {item.tipo}</Text>
+              <Text><Text style={styles.bold}>Forma pagamento:</Text> {item.forma}</Text>
+          </View>
         );
-    };
+      }
+  };
 
     return (
         <ImageBackground source={require("../assets/back1.png")} style={styles.backgroundImage}>
