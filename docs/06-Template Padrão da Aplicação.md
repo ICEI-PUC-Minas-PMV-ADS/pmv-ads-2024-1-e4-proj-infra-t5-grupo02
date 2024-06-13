@@ -11,7 +11,7 @@
 
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/114962362/df4f8066-2af5-408e-a94d-d2862f8675e1)
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FD9801&background=50151500&random=false&width=180&lines=Identidade+visual)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FD9801&background=50151500&random=false&width=200&lines=Identidade+visual)](https://git.io/typing-svg)
 
 - ### *Cores*
 
