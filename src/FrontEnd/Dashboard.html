@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <head>
-    <title>EasyRent | Financeiro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyRent | Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="shortcut icon" href="src/easyrent.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="src/easyrent.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <div class="layout">
-
     <body>
         <div class="sidebar">
-            <div class="logo"></div>
+            <div class="logo"> </div>
             <nav class="nav-links">
-                <h4 style="color: rgb(0, 0, 0);text-align: center;font-size: medium;padding-bottom: 35px;">Olá,
-                    </br><span id="username"></span></h4>
+                <h4 style="color: rgb(0, 0, 0);text-align: center;font-size: medium;padding-bottom: 35px;">
+                    Olá,</br><span id="username"></span></h4>
                 <ul>
                     <li><a href="User.html">Home</a></li>
-                    <li><a href="Dashboard.html">Dashboard</a></li>
+                    <li><a href="Dashboard.html" class="active-link">Dashboard</a></li>
                     <li><a href="Imoveis.html">Imóveis</a></li>
-                    <li><a href="Financeiro.html" class="active-link">Financeiro</a></li>
+                    <li><a href="Financeiro.html">Financeiro</a></li>
                     <li><a href="Inquilino.html">Inquilinos</a></li>
                     <li><a href="Usuarios.html">Usuários</a></li>
                 </ul>
@@ -54,54 +50,109 @@
                 </ul>
             </div>
         </div>
-
         <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;margin-bottom: 50px;">
             <div class="row">
                 <div class="col-9">
-                    <h1 style="color: #553300;">Lançamentos Financeiros</h1>
-                </div>
-                <div class="col-3"
-                    style="text-align: right; font-size: 16px; padding-right: 30px; font-weight: bolder; color: #553300;">
-                    <a href="LancamentoFinan.html" style="color: #553300;">Lançamento <button class="btn"
-                            id="addImob">+</button></a>
+                    <h1 style="color: #553300;">Pagamentos e Recebimentos</h1>
                 </div>
             </div>
             <hr>
         </div>
-
-        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
-            <div style="padding-left: 40px;padding-top: 20px; margin-right: 50px;">
-                <input type="text" id="searchInput" placeholder="Pesquisar lançamentos..."
-                    style="width: 25%; padding: 10px; margin-bottom: 10px;align-items: left;">
-                <img src="./src/images/search.png" style="width: 4vh;">
+        <div style="padding-left: 330px;padding-top: 50px;margin-right: 50px;">
+            <div class="container justify-content-center">
+                <div class="row pt-5 justify-content-center">
+                    <div class="col-md-3">
+                        <div class="card-dash">
+                            <div class="card-dash-receita">Receitas</div>
+                            <div class="card-dash-body">
+                                <p>Total: <span id="total-receitas-pagas" style="color: green" class="value"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card-dash">
+                            <div class="card-dash-despesa">Despesas</div>
+                            <div class="card-dash-body">
+                                <p>Total: <span id="total-despesas-pagas" style="color: red" class="value"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card-dash">
+                            <div class="card-dash-saldo">Saldo</div>
+                            <div class="card-dash-body">
+                                <p>Total: <span id="total-saldo" style="color: gray" class="value"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 style="color: #553300;padding-top:30px;">Comparativo Mensal</h2>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-table">
+                            <div class="card-dash-body">
+                                <canvas id="comparativo-mensal"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 style="color: #553300;padding-top:50px;">Lançamentos Pendentes</h2>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card-table">
+                            <h4>
+                                <p>Total: <span id="total-pendentes-vencidos" style="color: red" class="value"></span>
+                            </h4>
+                            <div class="card-dash-body">
+                                <table id="table-pendentes-vencidos" class="table">
+                                    <thead>
+                                        <tr style="background-color: #553300;color: white;">
+                                            <th>Inquilino</th>
+                                            <th>Vencimento</th>
+                                            <th>Tipo</th>
+                                            <th>Classificação</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="list-pendentes-vencidos">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 style="color: #553300;padding-top:50px;">Vencendo nos Próximos 15 Dias</h2>
+                <hr>
+                <div class="row pb-5">
+                    <div class="col-md-6 pb-5">
+                        <div class="card-table pb-5">
+                            <h4>
+                                <p>Total: <span id="total-pendentes-15-dias" class="value"></span>
+                            </h4>
+                            <div class="card-dash-body pb-5">
+                                <table id="table-pendentes-15-dias" class="table">
+                                    <thead>
+                                        <tr style="background-color: #553300;color: white; padding-bottom:50px;">
+                                            <th>Inquilino</th>
+                                            <th>Vencimento</th>
+                                            <th>Tipo</th>
+                                            <th>Classificação</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="list-pendentes-15-dias">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <form id="meuFormulario">
-                <table id="lancamentosTable" class="table">
-                    <thead>
-                        <tr>
-                            <th>Inquilino</th>
-                            <th>Vencimento</th>
-                            <th>Tipo</th>
-                            <th>Forma</th>
-                            <th>Classificação</th>
-                            <th>Status</th>
-                            <th>Valor</th>
-                            <th>Descrição</th>
-                            <th colspan="2" id="Actions">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Linhas adicionadas dinamicamente pelo JavaScript -->
-                    </tbody>
-                </table>
-            </form>
         </div>
-
         <script src="controleacesso.js"></script>
-        <script src="financeiro.js" defer></script>
-
-
+        <script src="dash.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const username = localStorage.getItem('username');
@@ -118,13 +169,12 @@
                 });
             });
         </script>
-
     </body>
+</div>
     <footer class="footer">
         <div>
             <p>&copy; 2024 Easy Rent. Todos os direitos reservados.</p>
         </div>
     </footer>
-</div>
 
 </html>

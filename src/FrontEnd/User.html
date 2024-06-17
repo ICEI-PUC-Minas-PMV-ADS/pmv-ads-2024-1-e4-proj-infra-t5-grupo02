@@ -3,25 +3,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<head>
+  <title>EasyRent | Home </title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="shortcut icon" href="src/easyrent.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
 <div class="layout">
-
-  <head>
-    <title>EasyRent | Home </title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="shortcut icon" href="src/images/easyrent.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  </head>
-
   <body class="background-image">
     <div class="sidebar">
       <div class="logo"> </div>
       <nav class="nav-links">
-        <h4 style="color: rgb(0, 0, 0);text-align: center;font-size: medium;padding-bottom: 35px;">Olá, </br><span id="username" ></span></h4>
+        <h4 style="color: rgb(0, 0, 0);text-align: center;font-size: medium;padding-bottom: 35px;">Olá, </br><span
+            id="username"></span></h4>
         <ul>
           <li><a href="User.html" class="active-link">Home</a></li>
+          <li><a href="Dashboard.html">Dashboard</a></li>
           <li><a href="Imoveis.html">Imóveis</a></li>
           <li><a href="Financeiro.html">Financeiro</a></li>
           <li><a href="Inquilino.html">Inquilinos</a></li>
@@ -63,7 +63,7 @@
 
         <div style="position: relative;padding-bottom: 100px;">
           <img id="tag3" src="src/images/tag2.jpg" alt="">
-          <h4 id="tagText3">Transformando a experiência </br> de aluguel para locadores</br>  e inquilinos</h4>
+          <h4 id="tagText3">Transformando a experiência </br> de aluguel para locadores</br> e inquilinos</h4>
 
           <video id="video" autoplay muted loop>
             <source src="src/images/vtdash.mp4" type="video/mp4">
@@ -77,12 +77,12 @@
 
     <script src="controleacesso.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         const username = localStorage.getItem('username');
         document.getElementById('username').textContent = username;
       });
     </script>
-    
+
 
   </body>
 </div>

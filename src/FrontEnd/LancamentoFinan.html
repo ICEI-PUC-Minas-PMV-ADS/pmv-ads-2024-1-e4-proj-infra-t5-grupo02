@@ -9,19 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="shortcut icon" href="src/images/easyrent.png">
+    <link rel="shortcut icon" href="src/easyrent.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
+<div class="layout">
 
-
-<body>
-    <div class="layout">
+    <body>
         <div class="sidebar">
             <div class="logo"> </div>
             <nav class="nav-links">
-                <h4 style="color: rgb(0, 0, 0);text-align: center;font-size: medium;padding-bottom: 35px;">Olá, </br><span id="username" ></span></h4>
+                <h4 style="color: rgb(0, 0, 0);text-align: center;font-size: medium;padding-bottom: 35px;">Olá,
+                    </br><span id="username"></span></h4>
                 <ul>
                     <li><a href="User.html">Home</a></li>
+                    <li><a href="Dashboard.html">Dashboard</a></li>
                     <li><a href="Imoveis.html">Imóveis</a></li>
                     <li><a href="Financeiro.html" class="active-link">Financeiro</a></li>
                     <li><a href="Inquilino.html">Inquilinos</a></li>
@@ -112,7 +113,8 @@
                         </td>
                         <td>
                             <label for="valor"><b>Valor</b></label>
-                            <input type="number" id="valor" name="valor" placeholder="R$ 0,00" required step="any" pattern="^\d+(,\d{1,2})?$">
+                            <input type="number" id="valor" name="valor" placeholder="R$ 0,00" required step="any"
+                                pattern="^\d+(,\d{1,2})?$">
                         </td>
                     </tr>
                     <tr>
@@ -130,33 +132,33 @@
             </form>
 
         </div>
-    </div>
+</div>
 
-    <script src="controleacesso.js"></script>
-    <script src="financeiro.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const username = localStorage.getItem('username');
-            document.getElementById('username').textContent = username;
-        });
-    </script>
+<script src="controleacesso.js"></script>
+<script src="financeiro.js" defer></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const username = localStorage.getItem('username');
+        document.getElementById('username').textContent = username;
+    });
+</script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            fetch('https://localhost:7294/api/Inquilinos/all')
-                .then(response => response.json())
-                .then(data => {
-                    const select = document.getElementById('inquilino');
-                    data.forEach(inquilino => {
-                        const option = document.createElement('option');
-                        option.value = inquilino.id;
-                        option.textContent = inquilino.nome;
-                        select.appendChild(option);
-                    });
-                })
-                .catch(error => console.error('Erro ao carregar inquilinos:', error));
-        });
-    </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('https://localhost:7294/api/Inquilinos/all')
+            .then(response => response.json())
+            .then(data => {
+                const select = document.getElementById('inquilino');
+                data.forEach(inquilino => {
+                    const option = document.createElement('option');
+                    option.value = inquilino.id;
+                    option.textContent = inquilino.nome;
+                    select.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Erro ao carregar inquilinos:', error));
+    });
+</script>
 
 </body>
 <footer class="footer">
