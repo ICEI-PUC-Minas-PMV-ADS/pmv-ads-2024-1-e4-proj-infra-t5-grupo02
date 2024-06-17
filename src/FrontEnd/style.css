@@ -490,11 +490,12 @@ button:hover {
 
 .outer-rectangle {
     border-radius: 17px;
-    width: 900px;
-    height: 73%;
+    width: 770px;
+    height: 530px;
     margin: 100px;
     background-color: orange;
     position:absolute;
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.3);
   }
   .inner-rectangle {
     border-radius: 17px;
@@ -518,12 +519,14 @@ button:hover {
   }
   #login {
     background-color: whitesmoke;
+    border-radius: 17px;
+    width: 650px;
     margin: 50px;
-    padding-top: 55px;
+    padding-top: 25px;
     padding-bottom: 75px;
-    padding-left: 20px;
+    padding-left: 30px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
   }
   #logar {
     background-color: #bd7201;
