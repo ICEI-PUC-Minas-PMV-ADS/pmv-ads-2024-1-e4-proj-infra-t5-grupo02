@@ -64,16 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// var listaImagens = [
-//     { src: "./src/images/005.jpg", alt: "Imagem 1" },
-//     { src: "./src/images/006.jpg", alt: "Imagem 2" },
-//     { src: "./src/images/007.jpg", alt: "Imagem 3" },
-//     { src: "./src/images/008.jpg", alt: "Imagem 4" },
-//     { src: "./src/images/009.jpg", alt: "Imagem 5" },
-//     { src: "./src/images/010.jpg", alt: "Imagem 6" }
-//     // Adicione mais objetos conforme necessário
-// ];
-
 var ids = [];
 
 function criarCardImovel(data) {
@@ -135,6 +125,20 @@ function criarCardImovel(data) {
 
     for (var key in data) {
         if (data.hasOwnProperty(key) && key !== "imagemSrc") {
+            if (key === "status" && !statusAdded) {
+                var statusParagraph = document.createElement("p");
+                var traducao = data[key];
+                let statusShow;
+                if (traducao === 0)
+                    statusShow = "Disponível"
+                else if (traducao === 1)
+                    statusShow = "Alugado"
+                else if (traducao === 2)
+                    statusShow = "Em Manutenção"
+                statusParagraph.innerHTML = "<b>" + "Status" + ":</b> " + statusShow;
+                colInfoDiv.appendChild(statusParagraph);
+                statusParagraph = true;
+            }
             if (key === "endereco" && !enderecoAdded) {
                 var enderecoParagraph = document.createElement("p");
                 enderecoParagraph.innerHTML = "<b>" + "Endereco" + ":</b> " + data[key];
