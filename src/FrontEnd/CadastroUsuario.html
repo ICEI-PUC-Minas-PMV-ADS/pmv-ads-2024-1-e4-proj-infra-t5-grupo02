@@ -55,69 +55,80 @@
             </div>
         </div>
     </div>
-    <section id="main">
-        <div class="container">
-            <div class="main-content"
-                style="display: flex; justify-content: center; align-items: center; height: 80vh;">
-                <div class="outer-rectangle mb-4">
-                    <form action="" id="frm1" method="post" class="my-5 pl-5 pr-0 pt-5">
-                        <div id="Usuarios">
-                            <h2>Cadastrar Usuário</h2>
-                            <!-- Campo Perfil -->
-                            <div class="form-group col-md-4 pt-3">
-                                <label for="tipo" class="select-label">Perfil:</label>
-                                <select id="tipo" name="tipo"
-                                    style="width: 250px;height: 35px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-                                    <option value="">Selecione</option>
-                                    <option value="Administrador">Administrador</option>
-                                    <option value="Locador">Locador</option>
-                                    <option value="Inquilino">Inquilino</option>
-                                </select>
-                            </div>
-                            <!-- Campo Nome -->
-                            <div class="form-group col-md-4">
-                                <label for="nome">Nome</label>
-                                <input class="form-control" type="text" name="nome" id="nome" required
-                                    placeholder="Nome Completo"
-                                    style="width: 250px;height: 35px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-                                <div id="txtNome"></div>
-                            </div>
-                            <!-- Campo email -->
-                            <div class="form-group col-md-4">
-                                <label for="email">E-mail</label>
-                                <input class="form-control" type="email" name="email" id="email" onkeyup="validaEmail()"
-                                    required placeholder="Seu email"
-                                    style="width: 250px;height: 35px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-                                <div id="txtEmail"></div>
-                            </div>
-                            <!-- Campo senha e valida senha -->
-                            <div class="form-group col-md-4 ">
-                                <label for="senha">Senha</label>
-                                <input class="form-control" type="password" name="senha" id="senha"
-                                    onkeyup="validaSenha()" required placeholder="Sua senha"
-                                    style="width: 250px;height: 35px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-                                <div id="txtSenha"></div>
-                            </div>
-                            <div class="form-group col-md-4 ">
-                                <label for="confirmSenha">Confirmar Senha</label>
-                                <input class="form-control" type="password" name="confirSenha" id="confirSenha"
-                                    onkeyup="validaConfirmaSenha()" required placeholder="Confirme sua senha"
-                                    style="width: 250px;height: 35px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-                                <div id="txtConfirSenha"></div>
-                            </div>
-                            <div class="pt-5 pb-5">
-                                <button type="button" id="back"
-                                    onclick="location.href='./Usuarios.html';">Voltar</button>
-                                <button type="submit">Enviar</button>
-                            </div>
-                        </div>
-                    </form>
 
-                </div>
+    <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-9">
+                <h1 style="color: #553300;">Cadastrar Usuário</h1>
             </div>
         </div>
-        </div>
-    </section>
+        <hr>
+    </div>
+
+    <div style="padding-left: 270px;margin-right: 50px;padding-bottom: 200px">
+
+        <form action="" id="frm1" method="post" style="padding-left: 50px;">
+
+            <div id="Usuarios">
+
+                <div class="form-row">
+                    <div class="form-group col-md-11 pl-0">
+                        <label for="tipo" class="select-label">Perfil:</label>
+                        <select id="tipo" name="tipo"
+                            style="width: 250px;height: 50px;border-radius: 7px;border-color: lightgray;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                            <option value="">Selecione</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Locador">Locador</option>
+                            <option value="Inquilino">Inquilino</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-5 pr-3">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" required
+                        placeholder="Nome Completo">
+                        <div id="txtNome"></div>
+                    </div>
+
+                    <div class="form-group col-4 pr-3">
+                        <label for="nome">E-mail</label>
+                        <input type="email" name="email" id="email" onkeyup="validaEmail()"
+                        required placeholder="Seu email">
+                        <div id="txtEmail"></div>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-5 pr-3">
+                        <label for="nome">Senha</label>
+                        <input type="password" name="senha" id="senha" onkeyup="validaSenha()" required
+                        placeholder="Sua senha">
+                        <div id="txtSenha"></div>
+                    </div>
+
+                    <div class="form-group col-4 pr-3">
+                        <label for="nome">Confirmar Senha</label>
+                        <input type="password" name="confirSenha" id="confirSenha"
+                        onkeyup="validaConfirmaSenha()" required placeholder="Confirme sua senha">
+                        <div id="txtConfirSenha"></div>
+                    </div>
+                </div>
+
+                <div class="pt-5 pb-5">
+                    <button type="button" id="back" onclick="location.href='./Usuarios.html';">Voltar</button>
+                    <button type="submit">Enviar</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    </div>
+
+
     <script src="controleacesso.js"></script>
     <script src="Cadastro.js" defer></script>
     <script>
@@ -167,6 +178,7 @@
             senhaOk = true
         }
     }
+
     function validaConfirmaSenha() {
         let txtConfirSenha = document.querySelector("#txtConfirSenha")
         if (senha.value === confirSenha.value) {
@@ -178,4 +190,5 @@
             txtConfirSenha.style.color = "red"
         }
     }
+
 </script>
