@@ -66,7 +66,14 @@
         <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
             <form id="editForm">
                 <table id="formtableEdit">
-
+                    <tr>
+                        <td>
+                            <label for="tipo"><b>Inquilino</b></label>
+                            <select id="inquilino" name="inquilino">
+                                <option value="">Selecione</option>
+                            </select>
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             <label for="tipo"><b>Lançamento</b></label>
@@ -135,7 +142,6 @@
 </div>
 
 
-<script src="editarLancamento.js"></script>
 <script src="controleacesso.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -160,7 +166,7 @@
         .catch(error => console.error('Erro ao carregar inquilinos:', error));
     });
     </script>
-
+    <script src="editarLancamento.js"></script>
 </body>
 <footer class="footer">
     <div>

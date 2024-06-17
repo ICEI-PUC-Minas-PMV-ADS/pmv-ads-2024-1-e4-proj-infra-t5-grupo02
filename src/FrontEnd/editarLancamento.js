@@ -36,6 +36,7 @@ function fetchLancamentoById(id) {
             document.getElementById('data').value = data.data.split('T')[0];
             document.getElementById('valor').value = data.valor;
             document.getElementById('descricao').value = data.descricao;
+            document.getElementById('inquilino').value = String(data.inquilino);
         })
         .catch(error => console.error('Erro ao buscar detalhes do lançamento:', error));
 }
@@ -50,6 +51,7 @@ function submitLancamentoUpdate() {
 
     const lancamentoData = {
         id: parseInt(id), // Garanta que o ID esteja sendo passado como um número, se necessário
+        inquilino: document.getElementById('inquilino').value,
         tipo: document.getElementById('tipo').value,
         forma: document.getElementById('forma').value,
         classificacao: document.getElementById('classificacao').value,
