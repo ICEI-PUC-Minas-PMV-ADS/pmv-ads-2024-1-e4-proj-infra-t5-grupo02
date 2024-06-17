@@ -52,9 +52,8 @@
                 <div class="main-content"
                     style="display: flex; justify-content: center; align-items: center; height: 90vh;">
                     <div class="outer-rectangle">
-                        <div class="inner-rectangle">
                             <div id="login">
-                                <h2>Login</h2>
+                                <h1>Login</h1>
                                 <div class="form-floating">
                                     <label for="floatingInput" style="padding-left: 70px;"><b>Email</b></label>
                                     <input type="email" class="form-control" id="floatingInput"
@@ -72,7 +71,6 @@
                                     <button type="" onclick="fazerLogin()">Entrar</button>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -84,6 +82,7 @@
             <p>&copy; 2024 Easy Rent. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <div id="loading" class="loading" style="display: none;">Carregando...</div>
 </div>
 
 </html>
@@ -145,6 +144,60 @@ function fazerLogin() {
     .catch(error => {
         console.error('Erro inesperado no login:', error);
         alert('Ocorreu um erro inesperado. Tente novamente mais tarde.');
+    });
+}
+</script>
+
+<script>
+    function fazerLogin() {
+    const email = document.getElementById('floatingInput').value;
+    const senha = document.getElementById('floatingPassword').value;
+
+    const requestBody = {
+        Email: email,
+        Senha: senha
+    };
+
+    // Mostrar o loading
+    document.getElementById('loading').style.display = 'flex';
+
+    fetch("https://localhost:7194/api/Usuarios/authenticate", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Falha na autenticação. Verifique a URL da API, as credenciais e se o servidor está ativo.');
+        }
+    })
+    .then(data => {
+        if (data.jwtToken) {
+            const decodedToken = parseJwt(data.jwtToken);
+            if (decodedToken && decodedToken.role && decodedToken.id) {
+                localStorage.setItem('token', data.jwtToken);
+                localStorage.setItem('profile', decodedToken.role);
+                localStorage.setItem('username', decodedToken.name);
+                localStorage.setItem('Id', decodedToken.id);  // Certifique-se de que o nome 'userId' é consistente em todo o código
+                window.location.href = './User.html';
+            } else {
+                alert('Autenticação falhou. Informações de perfil ou ID não encontradas no token.');
+            }
+        } else {
+            alert('Autenticação falhou. Verifique suas credenciais.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro inesperado no login:', error);
+        alert('Ocorreu um erro inesperado. Tente novamente mais tarde.');
+    })
+    .finally(() => {
+        // Ocultar o loading
+        document.getElementById('loading').style.display = 'none';
     });
 }
 </script>

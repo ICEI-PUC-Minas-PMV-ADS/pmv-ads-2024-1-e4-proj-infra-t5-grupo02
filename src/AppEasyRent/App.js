@@ -24,7 +24,6 @@ function LoginScreen({ navigation }) {
     setLoading(true);
     try {
       const response = await API.post(`${LOGIN_URL}/api/Usuarios/authenticate`, { email, senha });
-      console.log(response.data);
       await AsyncStorage.setItem('@USER_ID', JSON.stringify(response.data.id));
       await AsyncStorage.setItem('@USER_NAME', response.data.name);
       await AsyncStorage.setItem('@USER_PROFILE', response.data.profile);

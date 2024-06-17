@@ -52,3 +52,37 @@ Cenários de testes utilizados na realização dos testes da aplicação EasyRen
 | Objetivo do Teste               | Usuário alterar com sucesso o status de um imóvel no sistema.|
 | Passos                          | - Estar logado na aplicação na página Imóveis. <br> - Clicar no ícone de editar do imóvel desejado. <br> - Selecionar o campo de status para modificar o status do imóvel. <br> - Clicar no botão Enviar.|
 | Critério de Êxito               | - O imóvel será modificado com sucesso no banco de dados.|
+
+## Mobile
+
+Cenários de testes utilizados na realização dos testes da aplicação mobile EasyRent.
+
+| **Caso de Teste**               | **CT-01: Login**|
+|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Objetivo do Teste               | Autenticar o usuário no app mobile.|
+| Passos                          | - Com o aplicativo aberto, digitar os dados de acesso do usuário.<br>- Pressionar entrar.<br>- Verificar se o usuário foi autenticado com sucesso.
+| Critério de Êxito               | - Usuário logado na tela principal "Home" do aplicativo.|
+|  	|  	|
+| **Caso de Teste**               | **CT-02: Falha no Login**|
+| Objetivo do Teste               | Falha ao autenticar o usuário no app mobile.|
+| Passos                          | - Com o aplicativo aberto, digitar dados incorretos de acesso do usuário.<br>- Presionar entrar.<br>- Verificar se o usuário não foi autenticado com sucesso.
+|  	|  	|
+| **Caso de Teste**               | **CT-03: Logout**|
+| Objetivo do Teste               | Efetuar o logout no app mobile|
+| Passos                          | - Com o aplicativo aberto na tela inicial, apertar o botão sair no canto superior direito da tela.
+| Critério de Êxito               | - Usuário volta para a tela de autenticação.|
+|  	|  	|
+| **Caso de Teste**               | **CT-04: Visualizar Financeiro**|
+| Objetivo do Teste               | Visualizar os lançamentos na aba Financeiro no app mobile.|
+| Passos                          | - Na tela inicial do aplicativo, pressionar o botão Financeiro no rodapé da aplicação.<br>- Visualizar os lançamentos.<br>
+| Critério de Êxito               | - Usuário visualizará os lançamentos de sua conta.|
+|  	|  	|
+| **Caso de Teste**               | **CT-05: Utilizar filtro financeiro**|
+| Objetivo do Teste               | Utilizar o filtro de pesquisa na tela Financeiro no app mobile.|
+| Passos                          | - Na tela Financeiro, digitar parâmetros de busca no campo de pesquisa no canto superior esquerdo.<br>- Visualizar os resultados filtrados.<br>
+| Critério de Êxito               | - Usuário visualizará os lançamentos filtrados de sua conta.|
+|  	|  	|
+| **Caso de Teste**               | **CT-06: Visualizar Inquilinos**|
+| Objetivo do Teste               | Visualizar os inquilinos na aba Inquilinos no app mobilel.|
+| Passos                          | - Na tela inicial do aplicativo, pressionar o botão Inquilinos no rodapé da aplicação.<br>- Visualizar os inquilinos.<br>
+| Critério de Êxito               | - Usuário visualizará os inquilinos de sua conta.|
