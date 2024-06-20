@@ -1464,3 +1464,37 @@ input[type="submit"]:hover {
   background-color: transparent;
   font-weight: bold;
 }
+
+.modal-content {
+  margin-top: 300px;
+  background-color: #f8f9fa;
+  border-radius: 8px;        
+  border: 1px solid #dee2e6; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+}
+
+.modal-header {
+  background-color:#503000;
+  border-radius: 8px;      
+  color: white;              
+  padding: 15px;             
+  border-bottom: none;
+}
+
+#pendentesModalLabel {
+  font-size: large;
+}
+
+.modal-body {
+  padding: 20px;             
+  font-size: x-large; 
+  line-height: 1.5;          
+  color: #343a40;            
+}
+
+.modal-footer .btn-secondary {
+  background-color: #6c757d;
+  height: 40px;
+  width: 70px;
+}
+

@@ -72,6 +72,9 @@ function fetchLancamentosDashboard() {
                                 despesasMensais[mes] += valor;
                             }
                         }
+                        if (totalPendentesVencidos > 0) {
+                            $('#pendentesModal').modal('show');
+                        }
                     });
 
                     const saldo = totalReceitasPagas - totalDespesasPagas;
