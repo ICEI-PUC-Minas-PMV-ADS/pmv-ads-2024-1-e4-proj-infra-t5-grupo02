@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EasyRent | Documentos</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -68,31 +68,33 @@
 
         <div style="padding-left: 330px;padding-top: 50px;margin-right: 50px;">
             <div style="padding-top: 50px;margin-right: 50px;">
-            <h3>Envie documentos do seu imóvel ou do inquilino</h3>
-        </div>
+                <h3>Envie documentos do seu imóvel ou do inquilino</h3>
+            </div>
             <form id="uploadForm" method="post" enctype="multipart/form-data" style="width: 70vh;">
-                <input type="file" name="file" accept=".pdf, .jpeg, .jpg" style="margin-bottom: 50px;margin-top: 20px;height: 70px;" required />
+                <input type="file" name="file" accept=".pdf, .jpeg, .jpg"
+                    style="margin-bottom: 50px;margin-top: 20px;height: 70px;" required />
                 <button type="submit">Upload</button>
             </form>
         </div>
 
     </body>
 
-<script>
-    document.getElementById('uploadForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    var formData = new FormData();
-    formData.append('file', document.querySelector('[name="file"]').files[0]);
-
-    fetch('https://localhost:7177/api/Upload', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => alert('Arquivo enviado com sucesso!'))
-    .catch(error => alert('Erro ao enviar arquivo: ' + error.message));
-});
-</script>
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var formData = new FormData();
+            formData.append('file', document.querySelector('[name="file"]').files[0]);
+    
+            fetch('https://localhost:7177/api/Documentos/Upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => alert('Arquivo enviado com sucesso!'))
+            .catch(error => alert('Arquivo enviado com sucesso!'));
+        });
+    </script>   
+    
 
     <footer class="footer">
         <div>
