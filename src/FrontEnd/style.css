@@ -80,6 +80,8 @@ html {
 #back {
   padding-left: 100px;
   position: relative;
+  width: auto;
+  border-radius: 7px;
 }
 
 .orange-square {
@@ -1498,3 +1500,7 @@ input[type="submit"]:hover {
   width: 70px;
 }
 
+#enviarBtn {
+  width: auto;
+  border-radius: 7px;
+}

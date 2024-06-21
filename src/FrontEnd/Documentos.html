@@ -66,28 +66,42 @@
             <hr>
         </div>
 
-        <div style="padding-left: 330px;padding-top: 50px;margin-right: 50px;">
+        <div style="padding-left: 270px;padding-top: 50px;">
             
-            <div style="padding-top: 50px;margin-right: 150px;">
+            <div style="padding-top: 50px;margin-right: 150px;color: #553300;">
                 <h3>Envie documentos do seu imóvel ou do inquilino</h3>
             </div>
+        </div>
 
-            <form id="uploadForm" method="post" enctype="multipart/form-data" style="width: 70vh;">
-                <tr>
-                    <td>
-                        <label for="tipo"><b>Inquilino</b></label>
-                        <select id="inquilino" name="inquilino">
+        <div style="padding-top: 30px;">
+
+        <div class="row" style="padding-left: 270px; padding-top: 70px;">
+            
+            <div class="col-4" style="width: 50vh;">
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="inquilino"><b>Inquilino</b></label>
+                        <select id="inquilino" name="inquilino" class="form-control" style="height: 40px;">
                             <option value="">Selecione</option>
                         </select>
-                    </td>
-                </tr>
-                <input type="file" name="file" accept=".pdf, .jpeg, .jpg"
-                    style="margin-bottom: 50px;margin-top: 20px;height: 70px;" required />
-                <button type="submit">Upload</button>
-            </form>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="file" accept=".pdf, .jpeg, .jpg" class="form-control-file" required
+                            style="margin-bottom: 20px; margin-top: 20px; height: 50px;" />
+                    </div>
+                    <button type="submit" id="enviarBtn">Enviar</button>
+                </form>
+            </div>
+            
+            <div class="col-auto">
+                <div style="border-left: 1px solid orange; height: 100vh;"></div>
+            </div>
+            
+            <!-- File List Column -->
+            <div class="col" id="fileList" style="padding-top: 20px;"></div>
 
-            <div id="fileList" style="padding-top: 20px;"></div>
         </div>
+    </div>
 
     </body>
 
@@ -137,7 +151,7 @@
         // Carrega a lista de arquivos ao carregar a página
         window.onload = loadFileList;
     </script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             fetch('https://localhost:7294/api/Inquilinos/all')
