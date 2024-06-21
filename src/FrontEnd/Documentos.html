@@ -67,14 +67,26 @@
         </div>
 
         <div style="padding-left: 330px;padding-top: 50px;margin-right: 50px;">
-            <div style="padding-top: 50px;margin-right: 50px;">
+            
+            <div style="padding-top: 50px;margin-right: 150px;">
                 <h3>Envie documentos do seu imóvel ou do inquilino</h3>
             </div>
+
             <form id="uploadForm" method="post" enctype="multipart/form-data" style="width: 70vh;">
+                <tr>
+                    <td>
+                        <label for="tipo"><b>Inquilino</b></label>
+                        <select id="inquilino" name="inquilino">
+                            <option value="">Selecione</option>
+                        </select>
+                    </td>
+                </tr>
                 <input type="file" name="file" accept=".pdf, .jpeg, .jpg"
                     style="margin-bottom: 50px;margin-top: 20px;height: 70px;" required />
                 <button type="submit">Upload</button>
             </form>
+
+            <div id="fileList" style="padding-top: 20px;"></div>
         </div>
 
     </body>
@@ -90,11 +102,58 @@
                 body: formData
             })
             .then(response => response.json())
-            .then(data => alert('Arquivo enviado com sucesso!'))
-            .catch(error => alert('Arquivo enviado com sucesso!'));
+            .then(data => {
+                alert('Arquivo enviado com sucesso!');
+                loadFileList();
+            })
+            .catch(error => alert('Erro ao enviar arquivo.'));
         });
-    </script>   
+
+        // Função para carregar a lista de arquivos
+        function loadFileList() {
+            fetch('https://localhost:7177/api/Documentos/List')
+                .then(response => response.json())
+                .then(data => {
+                    var fileList = document.getElementById('fileList');
+                    fileList.innerHTML = '<h4>Arquivos Salvos:</h4><ul>' + data.map(file => 
+                        `<li>${file} <button onclick="deleteFile('${file}')" style="background: none; border: none; cursor: pointer;"><i class="fas fa-trash-alt" style="color: black; font-weight: bold;"></i></button></li>`).join('') + '</ul>';
+                })
+                .catch(error => alert('Erro ao carregar a lista de arquivos.'));
+        }
+
+        // Função para deletar um arquivo
+        function deleteFile(fileName) {
+            fetch(`https://localhost:7177/api/Documentos/Delete?fileName=${encodeURIComponent(fileName)}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                loadFileList();
+            })
+            .catch(error => alert('Erro ao excluir arquivo.'));
+        }
+
+        // Carrega a lista de arquivos ao carregar a página
+        window.onload = loadFileList;
+    </script>
     
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('https://localhost:7294/api/Inquilinos/all')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('inquilino');
+                    data.forEach(inquilino => {
+                        const option = document.createElement('option');
+                        option.value = inquilino.id;
+                        option.textContent = inquilino.nome;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar inquilinos:', error));
+        });
+    </script>
 
     <footer class="footer">
         <div>

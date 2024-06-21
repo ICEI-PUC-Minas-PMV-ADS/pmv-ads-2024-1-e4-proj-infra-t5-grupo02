@@ -83,5 +83,29 @@ namespace ApiDocumentos.Controllers
                 return StatusCode(500, new { message = "Erro interno ao listar arquivos", error = ex.Message });
             }
         }
+
+        [EnableCors("MyCorsPolicy")]
+        [HttpDelete("Delete")]
+        public IActionResult DeleteFile([FromQuery] string fileName)
+        {
+            try
+            {
+                var filePath = Path.Combine("C:\\Users\\leodm\\OneDrive\\_DEV\\_PUC\\pmv-ads-2024-1-e4-proj-infra-t5-grupo02\\src\\EasyRent\\ApiDocumentos\\uploads", fileName);
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                    return Ok(new { message = "Arquivo excluído com sucesso!" });
+                }
+                else
+                {
+                    return NotFound(new { message = "Arquivo não encontrado." });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao excluir arquivo");
+                return StatusCode(500, new { message = "Erro interno ao excluir arquivo", error = ex.Message });
+            }
+        }
     }
 }
