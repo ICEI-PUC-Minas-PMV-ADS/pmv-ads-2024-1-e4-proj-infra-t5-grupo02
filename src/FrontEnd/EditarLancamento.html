@@ -72,6 +72,15 @@
 
                     <tr>
                         <td>
+                            <label for="tipo"><b>Inquilino</b></label>
+                            <select id="inquilino" name="inquilino" disabled>
+                                <option value="">Selecione</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
                             <label for="tipo"><b>Lançamento</b></label>
                             <select id="tipo" name="tipo">
                                 <option value="">Selecione</option>
@@ -137,7 +146,6 @@
     <div id="modalContent" class="modal-content"></div>
 </div>
 
-<script src="editarLancamento.js"></script>
 <script src="controleacesso.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -162,7 +170,7 @@
             .catch(error => console.error('Erro ao carregar inquilinos:', error));
     });
 </script>
-
+<script src="editarLancamento.js"></script>
 </body>
 <footer class="footer">
     <div>

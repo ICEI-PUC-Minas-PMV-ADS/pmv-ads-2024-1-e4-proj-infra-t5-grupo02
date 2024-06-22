@@ -156,6 +156,7 @@
                     option.textContent = inquilino.nome;
                     select.appendChild(option);
                 });
+                select.value = data.inquilino
             })
             .catch(error => console.error('Erro ao carregar inquilinos:', error));
     });
