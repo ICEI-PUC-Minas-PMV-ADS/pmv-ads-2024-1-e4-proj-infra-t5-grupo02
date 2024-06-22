@@ -11,14 +11,15 @@ namespace ApiDocumentos.Models
 
         [Required]
         [StringLength(255)]
-        public string Nome { get; set; }
+        public string NomeArquivo { get; set; }
 
         [Required]
-        [StringLength(500)]
-        public string Caminho { get; set; }
+        public byte[] Data { get; set; }
 
         [Required]
         public DateTime DataUpload { get; set; }
+        [Required]
+        public string UserId { get; set; }
 
     }
 }

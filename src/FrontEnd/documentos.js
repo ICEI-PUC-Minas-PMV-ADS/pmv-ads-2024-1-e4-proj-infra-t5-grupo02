@@ -20,61 +20,75 @@ document.addEventListener('DOMContentLoaded', function () {
 document.getElementById('uploadForm').addEventListener('submit', function (event) {
     event.preventDefault();
     var formData = new FormData();
-    formData.append('file', document.querySelector('[name="file"]').files[0]);
+    var fileInput = document.querySelector('[name="file"]');
+    var userId = localStorage.getItem('Id'); // Obtendo o ID do usuário do localStorage
 
-    fetch('https://localhost:7177/api/Documentos/Upload', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => response.json())
-        .then(data => {
-            alert('Arquivo enviado com sucesso!');
-            loadFileList();
+    if (fileInput.files.length > 0 && userId) {
+        formData.append('file', fileInput.files[0]);
+        formData.append('uploadTime', new Date().toISOString()); // Adiciona a hora do upload
+        formData.append('userId', userId); // Adiciona o ID do usuário
+
+        fetch('https://localhost:7177/api/Documentos/upload', {
+            method: 'POST',
+            body: formData
         })
-        .catch(error => alert('Erro ao enviar arquivo.'));
+            .then(response => response.json())
+            .then(data => {
+                alert('Arquivo enviado com sucesso!');
+                location.reload();
+            })
+            .catch(error => alert('Erro ao enviar arquivo.'));
+    } else {
+        alert('Selecione um arquivo e verifique se você está logado.');
+    }
 });
 
-function loadFileList() {
-fetch('https://localhost:7177/api/Documentos/List')
-.then(response => response.json())
-.then(data => {
-    var fileList = document.getElementById('fileList');
-    fileList.innerHTML = `
-        <h4 style="padding-bottom:20px;color:#553300;">Arquivos Salvos:</h4>
-        <table class="table table-striped" style="width: 75%; margin-left: 0;">
-            <thead>
-                <tr>
-                    <th style="width: 90%;">Nome do Arquivo</th>
-                    <th style="width: 10%;text-align: center;">Ação</th>
-                </tr>
-            </thead>
-            <tbody>
-                ${data.map(file => `
-                    <tr>
-                        <td><a href="https://localhost:7177/api/Documentos/Download?fileName=${encodeURIComponent(file)}" target="_blank">${file}</a></td>
-                        <td style="text-align: center;">
-                            <button onclick="deleteFile('${file}')" style="background: none; border: none; cursor: pointer;">
-                                <i class="fas fa-trash-alt" style="color: black; font-weight: bold;"></i>
-                            </button>
-                        </td>
-                    </tr>
-                `).join('')}
-            </tbody>
-        </table>
-    `;
-})
-.catch(error => alert('Erro ao carregar a lista de arquivos.'));
-}
 
-function deleteFile(fileName) {
-    fetch(`https://localhost:7177/api/Documentos/Delete?fileName=${encodeURIComponent(fileName)}`, {
-        method: 'DELETE'
-    })
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('https://localhost:7177/api/Documentos')
         .then(response => response.json())
         .then(data => {
-            alert(data.message);
-            loadFileList();
+            const pdfList = document.getElementById('pdf-list');
+            data.forEach(file => {
+                const listItem = document.createElement('li');
+                listItem.setAttribute('data-id', file.id);
+                listItem.innerHTML = `ID: ${file.id}, FileName: ${file.fileName} 
+                                      <button onclick="downloadFile(${file.id})">Download</button>
+                                      <button onclick="deleteFile(${file.id})">Delete</button>`;
+                pdfList.appendChild(listItem);
+            });
         })
-        .catch(error => alert('Erro ao excluir arquivo.'));
+        .catch(error => console.error('Error fetching PDF files:', error));
+});
+
+function downloadFile(fileId) {
+    fetch(`https://localhost:7177/api/Documentos/${fileId}`)
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = ''; // O nome do arquivo será definido pelo servidor
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(error => console.error('Error downloading file:', error));
 }
-window.onload = loadFileList;
+
+function deleteFile(fileId) {
+    fetch(`https://localhost:7177/api/Documentos/${fileId}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (response.ok) {
+            // Remove the list item from the DOM
+            const listItem = document.querySelector(`li[data-id="${fileId}"]`);
+            listItem.remove();
+        } else {
+            console.error('Error deleting file:', response.statusText);
+        }
+    })
+    .catch(error => console.error('Error deleting file:', error));
+}
