@@ -44,21 +44,43 @@ document.getElementById('uploadForm').addEventListener('submit', function (event
 });
 
 
+// document.addEventListener('DOMContentLoaded', function() {
+//     fetch('https://localhost:7177/api/Documentos')
+//         .then(response => response.json())
+//         .then(data => {
+//             const pdfList = document.getElementById('pdf-list');
+//             data.forEach(file => {
+//                 const listItem = document.createElement('li');
+//                 listItem.setAttribute('data-id', file.id);
+//                 listItem.innerHTML = `ID: ${file.id}, FileName: ${file.fileName} 
+//                                       <button onclick="downloadFile(${file.id})">Download</button>
+//                                       <button onclick="deleteFile(${file.id})">Delete</button>`;
+//                 pdfList.appendChild(listItem);
+//             });
+//         })
+//         .catch(error => console.error('Error fetching PDF files:', error));
+// });
+
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('https://localhost:7177/api/Documentos')
-        .then(response => response.json())
-        .then(data => {
-            const pdfList = document.getElementById('pdf-list');
-            data.forEach(file => {
-                const listItem = document.createElement('li');
-                listItem.setAttribute('data-id', file.id);
-                listItem.innerHTML = `ID: ${file.id}, FileName: ${file.fileName} 
-                                      <button onclick="downloadFile(${file.id})">Download</button>
-                                      <button onclick="deleteFile(${file.id})">Delete</button>`;
-                pdfList.appendChild(listItem);
-            });
-        })
-        .catch(error => console.error('Error fetching PDF files:', error));
+    var userId = localStorage.getItem('Id');
+    if (userId) {
+        fetch(`https://localhost:7177/api/Documentos/user/${userId}`)
+            .then(response => response.json())
+            .then(data => {
+                const pdfList = document.getElementById('pdf-list');
+                data.forEach(file => {
+                    const listItem = document.createElement('li');
+                    listItem.setAttribute('data-id', file.id);
+                    listItem.innerHTML = `ID: ${file.id}, FileName: ${file.fileName} 
+                                          <button onclick="downloadFile(${file.id})">Download</button>
+                                          <button onclick="deleteFile(${file.id})">Delete</button>`;
+                    pdfList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Error fetching PDF files:', error));
+    } else {
+        alert('Usuário não está logado.');
+    }
 });
 
 function downloadFile(fileId) {

@@ -46,6 +46,21 @@ namespace ApiDocumentos.Controllers
             return File(pdfFile.Data, "application/pdf", pdfFile.NomeArquivo);
         }
 
+        [HttpGet("user/{userId}")]
+        public ActionResult<IEnumerable<PdfFileDto>> GetPdfFilesByUser(string userId)
+        {
+            var pdfFiles = _context.Documentos
+                .Where(p => p.UserId == userId)
+                .Select(p => new PdfFileDto
+                {
+                    Id = p.Id,
+                    FileName = p.NomeArquivo
+                })
+                .ToList();
+
+            return Ok(pdfFiles);
+        }
+
         [HttpPost("upload")]
         public async Task<IActionResult> UploadPdf([FromForm] IFormFile file, [FromForm] string uploadTime, [FromForm] string userId)
         {
