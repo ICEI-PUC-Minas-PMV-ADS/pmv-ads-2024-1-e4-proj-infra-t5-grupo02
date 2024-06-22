@@ -2,20 +2,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const username = localStorage.getItem('username');
     document.getElementById('username').textContent = username;
-
-    var searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-        searchInput.addEventListener('keyup', function () {
-            var searchValue = this.value.toLowerCase();
-            var tableRows = document.querySelectorAll('#lancamentosTable tbody tr');
-
-            tableRows.forEach(function (row) {
-                var rowText = row.textContent.toLowerCase();
-                row.style.display = rowText.includes(searchValue) ? '' : 'none';
-            });
         });
-    }
-});
+
 
 document.getElementById('uploadForm').addEventListener('submit', function (event) {
     event.preventDefault();

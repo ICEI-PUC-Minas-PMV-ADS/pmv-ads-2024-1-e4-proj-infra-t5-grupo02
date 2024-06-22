@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyRent | Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="src/easyrent.png">
+    <script defer src="chat.js"></script>
+</head>
+<body>
+    <div class="layout">
+        <div class="sidebar">
+            <div class="logo"></div>
+            <nav class="nav-links">
+                <h4 style="text-align: center;">Olá, <span id="username"></span></h4>
+                <ul>
+                    <li><a href="User.html">Home</a></li>
+                    <li><a href="Dashboard.html">Dashboard</a></li>
+                    <li><a href="Imoveis.html">Imóveis</a></li>
+                    <li><a href="Financeiro.html">Financeiro</a></li>
+                    <li><a href="Inquilino.html">Inquilinos</a></li>
+                    <li><a href="Documentos.html">Documentos</a></li>
+                    <li><a href="Usuarios.html">Usuários</a></li>
+                </ul>
+                <a href="Home.html" id="Sair">Sair</a>
+            </nav>
+        </div>
+        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
+            <h1>Chat</h1>
+            <div id="chatWindow">
+                <div id="messages"></div>
+            </div>
+            <input type="text" id="messageInput" placeholder="Digite sua mensagem...">
+            <button id="sendButton">Enviar</button>
+        </div>
+    </div>
+</body>
+</html>
