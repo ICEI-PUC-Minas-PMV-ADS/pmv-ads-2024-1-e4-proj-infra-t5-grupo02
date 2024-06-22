@@ -6,6 +6,8 @@ html {
   background-size: 65%;
   background-repeat: no-repeat;
   background-position-x: right;
+  width: 100%;
+  overflow-x: hidden; 
 }
 
 .background-image {

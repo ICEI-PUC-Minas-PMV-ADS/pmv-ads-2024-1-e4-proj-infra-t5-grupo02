@@ -16,6 +16,7 @@ function adjustNavLinks() {
         document.querySelector('a[href="Financeiro.html"]').parentNode.style.display = '';
         document.querySelector('a[href="Inquilino.html"]').parentNode.style.display = '';
         document.querySelector('a[href="Dashboard.html"]').parentNode.style.display = '';
+        document.querySelector('a[href="Documentos.html"]').parentNode.style.display = '';
     } else if (userProfile === 'Inquilino') {
         document.querySelector('a[href="User.html"]').parentNode.style.display = '';
         document.querySelector('a[href="Financeiro.html"]').parentNode.style.display = '';
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const userProfile = localStorage.getItem('profile');
     const allowedPages = {
         'Administrador': ['User.html', 'Imoveis.html', 'Financeiro.html', 'Inquilino.html', 'CadastroUsuario.html', 'Usuarios.html', 'CadastroUsuario.html'],
-        'Locador': ['User.html', 'Dashboard.html', 'Imoveis.html', 'Financeiro.html', 'LancamentoFinan.html', 'EditarLancamento.html', 'Inquilino.html', 'CadastroInquilino.html', 'EditarInquilino.html', 'CadastroImob.html'],
+        'Locador': ['User.html', 'Dashboard.html', 'Imoveis.html', 'Financeiro.html', 'LancamentoFinan.html', 'EditarLancamento.html', 'Inquilino.html', 'CadastroInquilino.html', 'EditarInquilino.html', 'CadastroImob.html', 'Documentos.html'],
         'Inquilino': ['User.html', 'Financeiro.html']
     };
 

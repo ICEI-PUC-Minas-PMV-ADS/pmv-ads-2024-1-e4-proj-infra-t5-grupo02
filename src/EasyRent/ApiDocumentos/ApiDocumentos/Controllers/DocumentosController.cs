@@ -107,5 +107,45 @@ namespace ApiDocumentos.Controllers
                 return StatusCode(500, new { message = "Erro interno ao excluir arquivo", error = ex.Message });
             }
         }
+
+        [EnableCors("MyCorsPolicy")]
+        [HttpGet("Download")]
+        public IActionResult DownloadFile([FromQuery] string fileName)
+        {
+            _logger.LogInformation($"Tentativa de download do arquivo: {fileName}");
+            try
+            {
+                var filePath = Path.Combine("C:\\Users\\leodm\\OneDrive\\_DEV\\_PUC\\pmv-ads-2024-1-e4-proj-infra-t5-grupo02\\src\\EasyRent\\ApiDocumentos\\uploads", fileName);
+                _logger.LogInformation($"Caminho completo do arquivo: {filePath}");
+
+                if (!System.IO.File.Exists(filePath))
+                {
+                    _logger.LogWarning($"Arquivo não encontrado: {filePath}");
+                    return NotFound(new { message = "Arquivo não encontrado." });
+                }
+
+                var mimeType = GetMimeType(filePath);
+                var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+                _logger.LogInformation($"Arquivo encontrado e pronto para download: {filePath}");
+                return new FileStreamResult(fileStream, mimeType);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao baixar arquivo");
+                return StatusCode(500, new { message = "Erro interno ao baixar arquivo", error = ex.Message });
+            }
+        }
+
+        private string GetMimeType(string filePath)
+        {
+            var extension = Path.GetExtension(filePath).ToLowerInvariant();
+            return extension switch
+            {
+                ".pdf" => "application/pdf",
+                ".jpg" => "image/jpeg",
+                ".jpeg" => "image/jpeg",
+                _ => "application/octet-stream",
+            };
+        }
     }
 }
