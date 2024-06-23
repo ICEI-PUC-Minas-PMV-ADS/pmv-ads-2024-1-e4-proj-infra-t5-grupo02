@@ -22,9 +22,6 @@ Uma aplicação web que contará também com uma versão mobile, onde o foco é 
 
 * Pedro Felipe Alves de Oliveira
 
-## Instruções de utilização
-
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 
 # Documentação
 
