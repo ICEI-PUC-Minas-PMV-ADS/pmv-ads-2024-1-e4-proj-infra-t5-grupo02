@@ -46,5 +46,7 @@ namespace API_Inquilino.Models
         public string Email { get; set; }
 
         public string Observacao { get; set; }
+        public string UserId { get; set; }
+
     }
 }

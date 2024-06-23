@@ -1,20 +1,51 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     const username = localStorage.getItem('username');
     document.getElementById('username').textContent = username;
-        });
 
+    var userId = localStorage.getItem('Id');
+    if (userId) {
+        fetch(`https://localhost:7177/api/Documentos/user/${userId}`)
+            .then(response => response.json())
+            .then(data => {
+                const fileListBody = document.getElementById('fileListBody');
+                data.forEach(file => {
+                    const row = document.createElement('tr');
+                    row.setAttribute('data-id', file.id);
+                    row.innerHTML = `
+<td>${file.fileName}</td>
+
+<td>
+    <button class="btn btn-secondary" onclick="viewFile(${file.id})">
+        <i class="fas fa-eye"></i>
+    </button>
+    <button class="btn btn-primary" onclick="downloadFile(${file.id})">
+        <i class="fas fa-download"></i>
+    </button>
+    <button class="btn btn-danger" onclick="deleteFile(${file.id})">
+        <i class="fas fa-trash-alt"></i>
+    </button>
+</td>
+
+                    `;
+                    fileListBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching PDF files:', error));
+    } else {
+        alert('Usuário não está logado.');
+    }
+});
 
 document.getElementById('uploadForm').addEventListener('submit', function (event) {
     event.preventDefault();
     var formData = new FormData();
     var fileInput = document.querySelector('[name="file"]');
-    var userId = localStorage.getItem('Id'); // Obtendo o ID do usuário do localStorage
+    var userId = localStorage.getItem('Id'); 
 
     if (fileInput.files.length > 0 && userId) {
         formData.append('file', fileInput.files[0]);
-        formData.append('uploadTime', new Date().toISOString()); // Adiciona a hora do upload
-        formData.append('userId', userId); // Adiciona o ID do usuário
+        formData.append('uploadTime', new Date().toISOString());
+        formData.append('userId', userId); 
 
         fetch('https://localhost:7177/api/Documentos/upload', {
             method: 'POST',
@@ -31,28 +62,16 @@ document.getElementById('uploadForm').addEventListener('submit', function (event
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    var userId = localStorage.getItem('Id');
-    if (userId) {
-        fetch(`https://localhost:7177/api/Documentos/user/${userId}`)
-            .then(response => response.json())
-            .then(data => {
-                const pdfList = document.getElementById('fileList');
-                data.forEach(file => {
-                    const listItem = document.createElement('li');
-                    listItem.setAttribute('data-id', file.id);
-                    listItem.innerHTML = `${file.fileName}
-                                          <br>
-                                          <button onclick="downloadFile(${file.id})">Download</button>
-                                          <button onclick="deleteFile(${file.id})">Delete</button>`;
-                    pdfList.appendChild(listItem);
-                });
-            })
-            .catch(error => console.error('Error fetching PDF files:', error));
-    } else {
-        alert('Usuário não está logado.');
-    }
-});
+function viewFile(fileId) {
+    fetch(`https://localhost:7177/api/Documentos/${fileId}`)
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const newTab = window.open(url, '_blank');
+            newTab.focus();
+        })
+        .catch(error => console.error('Error viewing file:', error));
+}
 
 function downloadFile(fileId) {
     fetch(`https://localhost:7177/api/Documentos/${fileId}`)
@@ -61,7 +80,7 @@ function downloadFile(fileId) {
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = ''; // O nome do arquivo será definido pelo servidor
+            a.download = ''; 
             document.body.appendChild(a);
             a.click();
             a.remove();
@@ -76,9 +95,8 @@ function deleteFile(fileId) {
     })
     .then(response => {
         if (response.ok) {
-            // Remove the list item from the DOM
-            const listItem = document.querySelector(`li[data-id="${fileId}"]`);
-            listItem.remove();
+            const row = document.querySelector(`tr[data-id="${fileId}"]`);
+            row.remove();
         } else {
             console.error('Error deleting file:', response.statusText);
         }

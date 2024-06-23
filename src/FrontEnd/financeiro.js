@@ -1,14 +1,22 @@
 let inquilinosMap = {};
 
-fetch('https://localhost:7294/api/Inquilinos/all')
-.then(response => response.json())
-.then(data => {
-    data.forEach(inquilino => {
-        inquilinosMap[inquilino.id] = inquilino.nome;
-    });
-    fetchLancamentos();
-})
-.catch(error => console.error('Erro ao carregar inquilinos:', error));
+document.addEventListener('DOMContentLoaded', function () {
+    fetchInquilinos();
+});
+
+function fetchInquilinos() {
+    const userId = localStorage.getItem('Id'); // Obtenha o ID do usuário logado
+
+    fetch(`https://localhost:7294/api/Inquilinos/all?userId=${userId}`)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(inquilino => {
+                inquilinosMap[inquilino.id] = inquilino.nome;
+            });
+            fetchLancamentos();
+        })
+        .catch(error => console.error('Erro ao carregar inquilinos:', error));
+}
 
 function fetchLancamentos() {
     const username = localStorage.getItem('username'); // Obtenha o nome de usuário logado
@@ -19,7 +27,6 @@ function fetchLancamentos() {
         fetch('https://localhost:7157/api/Lancamentos/all')
             .then(response => response.json())
             .then(data => {
-
                 data.sort((a, b) => new Date(b.data) - new Date(a.data));
 
                 const tbody = table.getElementsByTagName('tbody')[0];
@@ -29,13 +36,13 @@ function fetchLancamentos() {
                     if (userProfile === 'Inquilino' && inquilinosMap[lancamento.inquilino] !== username) {
                         return;
                     }
-                    
+
                     let row = tbody.insertRow();
                     let dataFormatada = new Date(lancamento.data).toLocaleDateString('pt-BR');
                     let valorFormatado = parseFloat(lancamento.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
                     let status = lancamento.status === 'aPagar' ? 'A Pagar' : lancamento.status === 'pago' ? 'Pago' : lancamento.status === 'pendente' ? 'Pendente' : lancamento.status;
 
-                    let nomeInquilino = inquilinosMap[lancamento.inquilino] || 'Sem inquilino'; 
+                    let nomeInquilino = inquilinosMap[lancamento.inquilino] || 'Sem inquilino';
 
                     row.insertCell(0).textContent = nomeInquilino;
                     row.insertCell(1).textContent = dataFormatada;
@@ -46,7 +53,6 @@ function fetchLancamentos() {
                     row.insertCell(6).textContent = valorFormatado;
                     row.insertCell(7).textContent = lancamento.descricao;
 
-                    // Botões de edição e exclusão mantidos por simplicidade
                     let editIcon = document.createElement('i');
                     editIcon.className = 'fas fa-edit';
                     editIcon.style.cursor = 'pointer';
@@ -59,7 +65,6 @@ function fetchLancamentos() {
                     let cellEdit = row.insertCell(8);
                     cellEdit.appendChild(editIcon);
 
-                    // Ícones de exclusão
                     let deleteIcon = document.createElement('i');
                     deleteIcon.className = 'fas fa-trash-alt';
                     deleteIcon.style.cursor = 'pointer';
@@ -94,7 +99,6 @@ window.deleteLancamento = function(id) {
         });
     }
 };
-
 
 document.addEventListener('DOMContentLoaded', function () {
     if (document.getElementById('lancamentosTable')) {
@@ -148,4 +152,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-

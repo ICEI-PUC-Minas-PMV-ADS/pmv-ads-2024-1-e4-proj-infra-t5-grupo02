@@ -1,8 +1,10 @@
 function fetchInquilinos() {
     const userProfile = localStorage.getItem('profile'); // Obtenha o perfil do usuário logado
+    const userId = localStorage.getItem('Id'); // Obtenha o ID do usuário logado
     const table = document.getElementById('inquilinosTable');
-    if (table) {
-        fetch('https://localhost:7294/api/Inquilinos/all')
+
+    if (table && userId) {
+        fetch(`https://localhost:7294/api/Inquilinos/all?userId=${userId}`)
             .then(response => response.json())
             .then(data => {
                 data.sort((a, b) => a.nome.localeCompare(b.nome));
@@ -49,7 +51,6 @@ function fetchInquilinos() {
     }
 }
 
-
 window.deleteInquilino = function(id) {
     if (confirm('Tem certeza que deseja deletar este Inquilino?')) {
         fetch(`https://localhost:7294/api/Inquilinos/${id}`, {
@@ -77,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
+            var userId = localStorage.getItem('Id');
 
             const formData = {
                 nome: document.getElementById('nome').value.trim(),
@@ -88,7 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 cpf: document.getElementById('cpf').value.trim(),
                 telefone: document.getElementById('telefone').value.trim(),
                 email: document.getElementById('email').value.trim(),
-                observacao: document.getElementById('observacao').value.trim()
+                observacao: document.getElementById('observacao').value.trim(),
+                userId: userId 
             };
 
             // Simples validação de exemplo

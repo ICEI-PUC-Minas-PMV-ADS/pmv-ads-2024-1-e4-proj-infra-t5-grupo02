@@ -19,9 +19,11 @@ namespace API_Inquilino.Controllers
         }
 
         [HttpGet("all")]
-        public async Task<ActionResult> GetAll()
+        public async Task<ActionResult> GetAll([FromQuery] string userId)
         {
-            var inquilinos = await _context.Inquilinos.ToListAsync();
+            var inquilinos = await _context.Inquilinos
+                                           .Where(i => i.UserId == userId)
+                                           .ToListAsync();
             return Ok(inquilinos);
         }
 
