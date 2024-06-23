@@ -18,6 +18,13 @@ namespace API_Inquilino.Controllers
             _context = context;
         }
 
+        [HttpGet("geral")]
+        public async Task<ActionResult> GetGeral([FromQuery] string userId)
+        {
+            var inquilinos = await _context.Inquilinos.ToListAsync();
+            return Ok(inquilinos);
+        }
+
         [HttpGet("all")]
         public async Task<ActionResult> GetAll([FromQuery] string userId)
         {

@@ -21,11 +21,11 @@ namespace MS03.Controllers
 
         // GET: api/Lancamentos/all
         [HttpGet("all")]
-        public async Task<ActionResult> GetAll(string userId)
+        public async Task<ActionResult> GetAll([FromQuery] string userId)
         {
-            var lancamentos = await _context.Lancamentos.ToListAsync()
-                .Where(i => i.UserId == userId)
-                .ToListAsync();
+            var lancamentos = await _context.Lancamentos
+                                            .Where(i => i.UserId == userId)
+                                            .ToListAsync();
             return Ok(lancamentos);
         }
 
