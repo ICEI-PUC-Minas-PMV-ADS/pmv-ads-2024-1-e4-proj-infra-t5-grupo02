@@ -4,3 +4,4 @@
 
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02/assets/110863413/bde33ae5-d03d-4742-8f8a-f0ef806e939f
 
+[Easy Rent - Final.pdf](https://github.com/user-attachments/files/15946159/Easy.Rent.-.Final.pdf)
