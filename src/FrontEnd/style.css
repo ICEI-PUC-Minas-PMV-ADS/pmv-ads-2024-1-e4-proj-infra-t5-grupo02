@@ -1521,7 +1521,6 @@ input[type="submit"]:hover {
   width: 100%;
   padding-top: 20px;
   padding-bottom: 55px;
-  padding-right: 120px;
   justify-self: center;
   text-align: center;
   background-color: white;
@@ -1534,5 +1533,5 @@ input[type="submit"]:hover {
 }
 
 #messageInput{
-  width: 50%;
+  width: 30%;
 }
