@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const userId = localStorage.getItem('Id');
-    const otherUserId = 'outroUsuarioId'; // Substitua pelo ID do outro usuário
+    // const otherUserId = 'outroUsuarioId'; // Substitua pelo ID do outro usuário
 
     const messageInput = document.getElementById('messageInput');
     const sendButton = document.getElementById('sendButton');
@@ -47,5 +47,5 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     loadMessages();
-    setInterval(loadMessages, 3000); // Atualiza as mensagens a cada 3 segundos
+    setInterval(loadMessages, 1000); 
 });

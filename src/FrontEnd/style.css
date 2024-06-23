@@ -1506,3 +1506,33 @@ input[type="submit"]:hover {
   width: auto;
   border-radius: 7px;
 }
+
+#chatWindow{
+  background-color: red;
+  height: 700px;
+  width: 90%;
+  margin: 55px;
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+#campoMensagem{
+  position: fixed;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 55px;
+  padding-right: 120px;
+  justify-self: center;
+  text-align: center;
+  background-color: white;
+  color: gray;
+  bottom: 0;
+}
+#sendButton {
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+#messageInput{
+  width: 50%;
+}
