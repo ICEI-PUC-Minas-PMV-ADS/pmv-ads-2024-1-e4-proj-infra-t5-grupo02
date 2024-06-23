@@ -73,7 +73,7 @@
                     <tr>
                         <td>
                             <label for="tipo"><b>Inquilino</b></label>
-                            <select id="inquilino" name="inquilino" disabled>
+                            <select id="inquilino" name="inquilino">
                                 <option value="">Selecione</option>
                             </select>
                         </td>
@@ -156,16 +156,23 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        fetch('https://localhost:7294/api/Inquilinos/all') // Substitua 'api/inquilinos' pelo endpoint correto
+        const username = localStorage.getItem('username');
+        document.getElementById('username').textContent = username;
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const userId = localStorage.getItem('Id'); // Obtenha o ID do usuário logado
+        fetch(`https://localhost:7294/api/Inquilinos/all?userId=${userId}`)
             .then(response => response.json())
             .then(data => {
                 const select = document.getElementById('inquilino');
                 data.forEach(inquilino => {
                     const option = document.createElement('option');
                     option.value = inquilino.id;
-                    option.textContent = inquilino.nome; // 'nome' deve ser substituído pela propriedade correta do inquilino
+                    option.textContent = inquilino.nome;
                     select.appendChild(option);
                 });
+                select.value = data.inquilino
             })
             .catch(error => console.error('Erro ao carregar inquilinos:', error));
     });

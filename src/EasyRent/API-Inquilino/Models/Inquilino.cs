@@ -47,6 +47,5 @@ namespace API_Inquilino.Models
 
         public string Observacao { get; set; }
         public string UserId { get; set; }
-
     }
 }

@@ -44,6 +44,7 @@ function fetchLancamentoById(id) {
 // Função para enviar as alterações de um lançamento
 function submitLancamentoUpdate() {
     const id = new URLSearchParams(window.location.search).get('id');
+    var userId = localStorage.getItem('Id');
     if (!id) {
         alert("ID do lançamento não encontrado!");
         return;
@@ -59,7 +60,7 @@ function submitLancamentoUpdate() {
         status: document.getElementById('status').value,
         valor: parseFloat(document.getElementById('valor').value),
         descricao: document.getElementById('descricao').value,
-        usuarioId: 13 // Inclua o usuárioId se necessário
+        userId: userId 
     };
     
     console.log("Sending data:", JSON.stringify(lancamentoData));
