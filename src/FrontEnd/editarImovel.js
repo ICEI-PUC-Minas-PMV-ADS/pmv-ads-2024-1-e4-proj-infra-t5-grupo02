@@ -34,6 +34,8 @@ function fetchLancamentoById(id) {
             imovelValorAluguel.value = `${data.valorAluguel}`
             imovelValorCondominio = document.getElementById('valorCondo')
             imovelValorCondominio.value = `${data.valorCondominio}`
+            imovelFoto = document.getElementById('fotos')
+            imovelFoto.value = `${data.foto}`
             imovelDescricaoDetalhada = document.getElementById('descricao')
             imovelDescricaoDetalhada.value = `${data.descricaoDetalhada}`
         })
@@ -48,6 +50,9 @@ function submitLancamentoUpdate() {
     }
     const form = document.getElementById('formPost');
     if (form) {
+        const username = localStorage.getItem('username'); // Obtenha o nome de usuário logado
+        const userProfile = localStorage.getItem('profile'); // Obtenha o perfil do usuário
+        const userId = localStorage.getItem('Id'); // Obtenha o ID do usuário logado
         form.addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -66,7 +71,9 @@ function submitLancamentoUpdate() {
                 AreaTotal: parseFloat(document.getElementById('area').value, 10),
                 ValorAluguel: parseFloat(document.getElementById('valorAluguel').value, 10),
                 ValorCondominio: parseFloat(document.getElementById('valorCondo').value, 10),
+                Foto: document.getElementById('fotos').value,
                 DescricaoDetalhada: document.getElementById('descricao').value,
+                userId: userId
             };
             
             fetch(`https://localhost:7030/api/Imoveis/${id}`, {

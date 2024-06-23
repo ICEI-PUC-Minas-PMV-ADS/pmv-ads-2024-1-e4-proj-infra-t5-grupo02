@@ -23,5 +23,6 @@ namespace MS01_Imovel.Models
         public string DescricaoDetalhada { get; set; } = null!;
         public Status Status { get; set; }
         public TipoImovel TipoImovel { get; set; }
+        public string UserId { get; set; }
     }
 }

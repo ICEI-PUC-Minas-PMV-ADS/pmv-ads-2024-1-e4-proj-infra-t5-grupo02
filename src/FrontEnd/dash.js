@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const username = localStorage.getItem('username');
-    if (document.getElementById('username')) {
+    const username = localStorage.getItem('username'); // Obtenha o nome de usuário logado
+    const userProfile = localStorage.getItem('profile'); // Obtenha o perfil do usuário
+    const userId = localStorage.getItem('Id'); // Obtenha o ID do usuário logado
+    if (username) {
         document.getElementById('username').textContent = username;
     }
 
@@ -9,15 +11,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function fetchLancamentosDashboard() {
     let inquilinosMap = {};
+    const username = localStorage.getItem('username'); // Obtenha o nome de usuário logado
+    const userProfile = localStorage.getItem('profile'); // Obtenha o perfil do usuário
+    const userId = localStorage.getItem('Id'); // Obtenha o ID do usuário logado
 
-    fetch('https://localhost:7294/api/Inquilinos/all')
+    fetch('https://localhost:7294/api/Inquilinos/geral')
         .then(response => response.json())
         .then(inquilinos => {
             inquilinos.forEach(inquilino => {
                 inquilinosMap[inquilino.id] = inquilino.nome;
             });
 
-            fetch('https://localhost:7157/api/Lancamentos/all')
+            fetch('https://localhost:7157/api/Lancamentos/geral')
                 .then(response => response.json())
                 .then(data => {
                     console.log('Dados recebidos:', data); // Log de depuração
@@ -38,7 +43,8 @@ function fetchLancamentosDashboard() {
                     let despesasMensais = new Array(12).fill(0);
 
                     data.forEach(lancamento => {
-                        const lancamentoDate = new Date(lancamento.data);
+                        if(lancamento.userId == userId) {
+                            const lancamentoDate = new Date(lancamento.data);
                         const valor = parseFloat(lancamento.valor);
                         const nomeInquilino = inquilinosMap[lancamento.inquilino] || 'Desconhecido';
                         const mes = lancamentoDate.getMonth();
@@ -75,6 +81,8 @@ function fetchLancamentosDashboard() {
                         if (totalPendentesVencidos > 0) {
                             $('#pendentesModal').modal('show');
                         }
+                        }
+                        
                     });
 
                     const saldo = totalReceitasPagas - totalDespesasPagas;

@@ -8,6 +8,9 @@ function fetchLancamentos() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    const username = localStorage.getItem('username'); // Obtenha o nome de usuário logado
+    const userProfile = localStorage.getItem('profile'); // Obtenha o perfil do usuário
+    const userId = localStorage.getItem('Id'); // Obtenha o ID do usuário logado
     
     const form = document.getElementById('formPost');
     if (form) {
@@ -30,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 ValorCondominio: parseFloat(document.getElementById('valorCondo').value, 10),
                 Foto: document.getElementById('fotos').value,
                 DescricaoDetalhada: document.getElementById('descricao').value,
+                userId: userId
             };
 
             fetch('https://localhost:7030/api/Imoveis', {
@@ -277,10 +281,12 @@ function criarCardImovel(data) {
 
 // Função para buscar os dados do banco de dados e criar os cards
 function buscarDadosEBuildCards() {
+    const userId = localStorage.getItem('Id'); // Obtenha o ID do usuário logado
     fetch('https://localhost:7030/api/Imoveis')
         .then(response => response.json())
         .then(data => {
             data.forEach(item => {
+                if(item.userId == userId)
                 criarCardImovel(item);
             });
         })
