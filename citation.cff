@@ -1,0 +1,24 @@
+message: Please cite this software using these metadata.
+title: EASY RENT
+authors:
+  - family-names: Melo de Lima
+    given-names:  Leonardo
+  - family-names: Monteiro de Souza
+    given-names: Joe
+  - family-names: Buck Alves
+    given-names: Leonardo
+  - family-names: Cristine Santana Oliveira
+    given-names: Thaís
+  - family-names: Gomes da Silva
+    given-names: Thiago
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Alves de Oliveira
+    given-names: Pedro Felipe
+keywords:
+  - Aluguel
+  - Imóveis
+  - Gerenciamento de imóveis
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-grupo02
+version: 1.0.0
+date-released: 2023-06-23
