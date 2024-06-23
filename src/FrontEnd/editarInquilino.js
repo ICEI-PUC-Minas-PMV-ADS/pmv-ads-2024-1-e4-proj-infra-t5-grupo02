@@ -45,6 +45,7 @@ function fetchInquilinoById(id) {
 
 function submitInquilinoUpdate() {
     const id = new URLSearchParams(window.location.search).get('id');
+    var userId = localStorage.getItem('Id');
     if (!id) {
         alert("ID do Inquilino não encontrado!");
         return;
@@ -61,7 +62,8 @@ function submitInquilinoUpdate() {
         cpf: document.getElementById('cpf').value.trim(),
         telefone: document.getElementById('telefone').value.trim(),
         email: document.getElementById('email').value.trim(),
-        observacao: document.getElementById('observacao').value.trim()
+        observacao: document.getElementById('observacao').value.trim(),
+        userId: userId 
     };
     
     console.log("Sending data:", JSON.stringify(inquilinoData));

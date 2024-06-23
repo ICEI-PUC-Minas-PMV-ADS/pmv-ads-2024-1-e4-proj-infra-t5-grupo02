@@ -19,8 +19,10 @@ namespace MS01_Imovel.Models
         public float AreaTotal { get; set; }
         public float ValorAluguel { get; set; }
         public float ValorCondominio { get; set; }
+        public string Foto { get; set; }
         public string DescricaoDetalhada { get; set; } = null!;
         public Status Status { get; set; }
         public TipoImovel TipoImovel { get; set; }
+        public string UserId { get; set; }
     }
 }

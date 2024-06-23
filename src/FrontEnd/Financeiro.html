@@ -2,29 +2,32 @@
 <html lang="pt">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div class="layout">
 
-    <head>
-        <title>EasyRent | Financeiro</title>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-            integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-        <link rel="shortcut icon" href="src/images/easyrent.png">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    </head>
+<head>
+    <title>EasyRent | Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="shortcut icon" href="src/easyrent.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<div class="layout">
 
     <body>
         <div class="sidebar">
             <div class="logo"></div>
             <nav class="nav-links">
-                <h4 style="color: rgb(0, 0, 0);text-align: center;font-size: medium;padding-bottom: 35px;">Olá, </br><span id="username" ></span></h4>
+                <h4 style="color: rgb(0, 0, 0);text-align: center;font-size: medium;padding-bottom: 35px;">Olá,
+                    </br><span id="username"></span></h4>
                 <ul>
                     <li><a href="User.html">Home</a></li>
+                    <li><a href="Dashboard.html">Dashboard</a></li>
                     <li><a href="Imoveis.html">Imóveis</a></li>
                     <li><a href="Financeiro.html" class="active-link">Financeiro</a></li>
                     <li><a href="Inquilino.html">Inquilinos</a></li>
+                    <li><a href="Documentos.html">Documentos</a></li>
                     <li><a href="Usuarios.html">Usuários</a></li>
                 </ul>
                 <a href="Home.html" id="Sair">Sair</a>
@@ -52,22 +55,26 @@
                 </ul>
             </div>
         </div>
-    
+
         <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;margin-bottom: 50px;">
             <div class="row">
                 <div class="col-9">
                     <h1 style="color: #553300;">Lançamentos Financeiros</h1>
                 </div>
-                <div class="col-3" style="text-align: right; font-size: 16px; padding-right: 30px; font-weight: bolder; color: #553300;">
-                    <a href="LancamentoFinan.html" style="color: #553300;">Lançamento <button class="btn" id="addImob">+</button></a>
+                <div class="col-3"
+                    style="text-align: right; font-size: 16px; padding-right: 30px; font-weight: bolder; color: #553300;">
+                    <a href="LancamentoFinan.html" style="color: #553300;">Lançamento <button class="btn"
+                            id="addImob">+</button></a>
                 </div>
             </div>
-            <hr>        
+            <hr>
         </div>
-    
+
         <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
-            <div style="padding-left: 40px;padding-top: 20px; margin-right: 50px;">
-                <input type="text" id="searchInput" placeholder="Pesquisar lançamentos..." style="width: 25%; padding: 10px; margin-bottom: 10px;align-items: left;">
+
+            <div style="padding-left: 40px;padding-top: 50px; margin-right: 50px;">
+                <input type="text" id="searchInput" placeholder="Pesquisar lançamentos..."
+                    style="width: 25%; padding: 10px; margin-bottom: 10px;align-items: left;">
                 <img src="./src/images/search.png" style="width: 4vh;">
             </div>
 
@@ -92,21 +99,21 @@
                 </table>
             </form>
         </div>
-    
+
         <script src="controleacesso.js"></script>
         <script src="financeiro.js" defer></script>
-      
-      
-      <script>
-            document.addEventListener('DOMContentLoaded', function() {
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
                 const username = localStorage.getItem('username');
                 document.getElementById('username').textContent = username;
-                
-                document.getElementById('searchInput').addEventListener('keyup', function() {
+
+                document.getElementById('searchInput').addEventListener('keyup', function () {
                     var searchValue = this.value.toLowerCase();
                     var tableRows = document.querySelectorAll('#lancamentosTable tbody tr');
-    
-                    tableRows.forEach(function(row) {
+
+                    tableRows.forEach(function (row) {
                         var rowText = row.textContent.toLowerCase();
                         row.style.display = rowText.includes(searchValue) ? '' : 'none';
                     });
@@ -114,15 +121,13 @@
             });
         </script>
 
-<script>
-    
-</script>
-
-
     </body>
+    
     <footer class="footer">
         <div>
             <p>&copy; 2024 Easy Rent. Todos os direitos reservados.</p>
         </div>
     </footer>
-    </html>
+</div>
+
+</html>

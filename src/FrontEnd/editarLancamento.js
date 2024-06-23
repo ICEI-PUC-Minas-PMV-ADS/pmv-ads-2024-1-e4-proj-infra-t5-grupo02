@@ -36,6 +36,7 @@ function fetchLancamentoById(id) {
             document.getElementById('data').value = data.data.split('T')[0];
             document.getElementById('valor').value = data.valor;
             document.getElementById('descricao').value = data.descricao;
+            document.getElementById('inquilino').value = String(data.inquilino);
         })
         .catch(error => console.error('Erro ao buscar detalhes do lançamento:', error));
 }
@@ -43,13 +44,15 @@ function fetchLancamentoById(id) {
 // Função para enviar as alterações de um lançamento
 function submitLancamentoUpdate() {
     const id = new URLSearchParams(window.location.search).get('id');
+    var userId = localStorage.getItem('Id');
     if (!id) {
         alert("ID do lançamento não encontrado!");
         return;
     }
 
     const lancamentoData = {
-        id: parseInt(id), // Garanta que o ID esteja sendo passado como um número, se necessário
+        id: parseInt(id),
+        inquilino: document.getElementById('inquilino').value,
         tipo: document.getElementById('tipo').value,
         forma: document.getElementById('forma').value,
         classificacao: document.getElementById('classificacao').value,
@@ -57,7 +60,7 @@ function submitLancamentoUpdate() {
         status: document.getElementById('status').value,
         valor: parseFloat(document.getElementById('valor').value),
         descricao: document.getElementById('descricao').value,
-        usuarioId: 13 // Inclua o usuárioId se necessário
+        userId: userId 
     };
     
     console.log("Sending data:", JSON.stringify(lancamentoData));

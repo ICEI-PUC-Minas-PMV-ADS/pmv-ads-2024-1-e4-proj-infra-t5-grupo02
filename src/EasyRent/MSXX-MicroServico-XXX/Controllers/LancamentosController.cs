@@ -19,11 +19,20 @@ namespace MS03.Controllers
             _context = context;
         }
 
-        // GET: api/Lancamentos/all
-        [HttpGet("all")]
-        public async Task<ActionResult> GetAll()
+        [HttpGet("geral")]
+        public async Task<ActionResult> GetGeral()
         {
             var lancamentos = await _context.Lancamentos.ToListAsync();
+            return Ok(lancamentos);
+        }
+
+        // GET: api/Lancamentos/all
+        [HttpGet("all")]
+        public async Task<ActionResult> GetAll([FromQuery] string userId)
+        {
+            var lancamentos = await _context.Lancamentos
+                                            .Where(i => i.UserId == userId)
+                                            .ToListAsync();
             return Ok(lancamentos);
         }
 
