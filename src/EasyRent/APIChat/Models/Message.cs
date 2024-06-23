@@ -19,5 +19,7 @@ namespace APIChat.Models
 
         [Required]
         public DateTime Timestamp { get; set; }
+        public string UserId { get; set; }
+
     }
 }

@@ -161,7 +161,7 @@
     });
 
     document.addEventListener('DOMContentLoaded', function () {
-        const userId = localStorage.getItem('Id'); // Obtenha o ID do usuário logado
+        const userId = localStorage.getItem('Id'); 
         fetch(`https://localhost:7294/api/Inquilinos/all?userId=${userId}`)
             .then(response => response.json())
             .then(data => {

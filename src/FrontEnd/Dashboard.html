@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link rel="shortcut icon" href="src/easyrent.png">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 </head>
 <div class="layout">
 
@@ -58,7 +59,10 @@
                 </ul>
             </div>
         </div>
-        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;margin-bottom: 50px;">
+
+        <div id="main-content">       
+        
+        <div style="padding-left: 270px;padding-top: 50px;margin-right: 50px;">
             <div class="row">
                 <div class="col-9">
                     <h1 style="color: #553300;">Pagamentos e Recebimentos</h1>
@@ -66,7 +70,7 @@
             </div>
             <hr>
         </div>
-        <div style="padding-left: 330px;padding-top: 50px;margin-right: 50px;">
+        <div style="padding-left: 330px;margin-right: 50px;">
             <div class="container justify-content-center">
                 <div class="row pt-5 justify-content-center">
                     <div class="col-md-3">
@@ -157,8 +161,16 @@
                         </div>
                     </div>
                 </div>
+
+                <div>
+                    <button id="downloadButton">Download</button>
+                </div>
+
             </div>
+
         </div>
+    </div>
+
         <script src="controleacesso.js"></script>
         <script src="dash.js"></script>
 
@@ -188,21 +200,50 @@
             document.addEventListener('DOMContentLoaded', function () {
                 const username = localStorage.getItem('username');
                 document.getElementById('username').textContent = username;
-
-                var searchInput = document.getElementById('searchInput');
-                if (searchInput) {
-                    searchInput.addEventListener('keyup', function () {
-                        var searchValue = this.value.toLowerCase();
-                        var tableRows = document.querySelectorAll('#lancamentosTable tbody tr');
-
-                        tableRows.forEach(function (row) {
-                            var rowText = row.textContent.toLowerCase();
-                            row.style.display = rowText.includes(searchValue) ? '' : 'none';
-                        });
-                    });
-                }
             });
         </script>
+
+<script>
+    window.onload = function() {
+        document.getElementById('downloadButton').addEventListener('click', async function() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const element = document.body;
+
+            if (!element) {
+                console.error('Elemento "main-content" não encontrado.');
+                return;
+            }
+
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            html2canvas(element, {
+                useCORS: true,
+                allowTaint: true,
+                scale: 3 
+            }).then(canvas => {
+                
+                if (canvas.width === 0 || canvas.height === 0) {
+                    console.error('Canvas está vazio. Verifique se o elemento está sendo renderizado corretamente.');
+                    return;
+                }
+
+                const imgData = canvas.toDataURL('image/png');
+                const imgProps = doc.getImageProperties(imgData);
+                const pdfWidth = doc.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                doc.save('Dashboard.pdf');
+            }).catch(error => {
+                console.error('Erro ao gerar o PDF:', error);
+            });
+        });
+    };
+</script>
+
+
+
+
 
     </body>
 </div>
